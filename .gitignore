@@ -10,4 +10,6 @@ ngrok_saida.txt
 ngrok_err.txt
 api/.env
 worker-api/wrangler.toml
+wrangler.toml
 mp-token.txt
+wrangler.toml.example
