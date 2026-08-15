@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Promoções – Loja Medellin RP. Essenciais, Veículos, Armas, Pets e Mochila promocionais.">
+    <meta name="description" content="Promoções – Loja Medellin RP. VIPs em destaque, veículos premium, arsenal lendário, pets e essenciais com ofertas exclusivas.">
     <title>Promoções – Loja Medellin RP</title>
     <link rel="dns-prefetch" href="https://pub-89b867ec225e45518f185a48a96ed88e.r2.dev">
     <link rel="preconnect" href="https://pub-89b867ec225e45518f185a48a96ed88e.r2.dev" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260815-promo">
+    <link rel="stylesheet" href="style.css?v=20260815-promo2">
     <script src="config.js"></script>
     <script src="app.js?v=20260211-cart" defer></script>
 </head>
@@ -64,8 +64,8 @@
         </div>
         <div class="hero__content wrap">
             <h1 class="hero__title">Promoções</h1>
-            <p class="hero__subtitle">Ofertas e pacotes promocionais</p>
-            <p class="hero__text">Escolha uma categoria e confira as ofertas em destaque. Veículos, armas, pets, mochila e essenciais.</p>
+            <p class="hero__subtitle">As ofertas mais procuradas do Medellin RP</p>
+            <p class="hero__text">VIPs em destaque, veículos premium, arsenal lendário, pets exclusivos e essenciais. Os produtos que o pessoal mais busca, com entrega automática após o pagamento.</p>
             <div class="hero__ctas">
                 <a href="#categorias" class="btn btn-primary btn-lg">Ver categorias</a>
                 <a href="index.html#planos" class="btn btn-secondary btn-lg">Ver todos os VIPs</a>
@@ -76,51 +76,767 @@
     <main class="section section--loja" id="categorias" role="main" aria-labelledby="categorias-title">
         <div class="wrap">
             <h2 id="categorias-title" class="section-title">Escolha uma categoria</h2>
-            <p class="section-intro">Clique na categoria para ver as ofertas promocionais.</p>
+            <p class="section-intro">Clique na categoria para ver os produtos em destaque. 10 ofertas por categoria.</p>
 
             <section class="orgs-landing temporadas-landing" aria-label="Categorias de promoção">
                 <div class="orgs-landing__grid temporadas-landing__grid" id="promoCategorias">
-                    <button type="button" class="orgs-landing__card orgs-landing__card--btn is-active" data-promo="essenciais" aria-pressed="true">
-                        <span class="orgs-landing__card-title">Essenciais</span>
-                        <span class="orgs-landing__card-desc">Itens essenciais em promoção</span>
+                    <button type="button" class="orgs-landing__card orgs-landing__card--btn is-active" data-promo="vips" aria-pressed="true">
+                        <span class="orgs-landing__card-title">VIPs em Destaque</span>
+                        <span class="orgs-landing__card-desc">Planos permanentes e assinaturas</span>
                     </button>
-                    <button type="button" class="orgs-landing__card orgs-landing__card--btn" data-promo="veiculos-promocionais" aria-pressed="false">
-                        <span class="orgs-landing__card-title">Veículos Promocionais</span>
-                        <span class="orgs-landing__card-desc">Veículos em oferta</span>
+                    <button type="button" class="orgs-landing__card orgs-landing__card--btn" data-promo="veiculos" aria-pressed="false">
+                        <span class="orgs-landing__card-title">Veículos Premium</span>
+                        <span class="orgs-landing__card-desc">Voadores, blindados e lendários</span>
                     </button>
-                    <button type="button" class="orgs-landing__card orgs-landing__card--btn" data-promo="armas-promocionais" aria-pressed="false">
-                        <span class="orgs-landing__card-title">Armas Promocionais</span>
-                        <span class="orgs-landing__card-desc">Armas e skins em promoção</span>
+                    <button type="button" class="orgs-landing__card orgs-landing__card--btn" data-promo="arsenal" aria-pressed="false">
+                        <span class="orgs-landing__card-title">Arsenal Lendário</span>
+                        <span class="orgs-landing__card-desc">Skins lendárias e épicas</span>
                     </button>
-                    <button type="button" class="orgs-landing__card orgs-landing__card--btn" data-promo="pets-promocionais" aria-pressed="false">
-                        <span class="orgs-landing__card-title">Pets Promocionais</span>
-                        <span class="orgs-landing__card-desc">Pets em oferta</span>
+                    <button type="button" class="orgs-landing__card orgs-landing__card--btn" data-promo="pets" aria-pressed="false">
+                        <span class="orgs-landing__card-title">Pets & Companheiros</span>
+                        <span class="orgs-landing__card-desc">Lobos, tigres, cães e mais</span>
                     </button>
-                    <button type="button" class="orgs-landing__card orgs-landing__card--btn" data-promo="mochila-promocionais" aria-pressed="false">
-                        <span class="orgs-landing__card-title">Mochila Promocionais</span>
-                        <span class="orgs-landing__card-desc">Mochilas em promoção</span>
+                    <button type="button" class="orgs-landing__card orgs-landing__card--btn" data-promo="essenciais" aria-pressed="false">
+                        <span class="orgs-landing__card-title">Essenciais & Vouchers</span>
+                        <span class="orgs-landing__card-desc">Rolygrams, vouchers, salários e slots</span>
                     </button>
                 </div>
             </section>
 
             <div class="temporadas-conteudo" id="promoConteudo">
-                <!-- Essenciais: Rolygrams, Outros, Vouchers -->
-                <div id="panel-essenciais" class="temporadas-panel" role="tabpanel" aria-labelledby="categorias-title">
-                    <h3 class="section-title section-title--sm">Essenciais</h3>
-                    <p class="section-intro">Itens essenciais para sua jornada no Medellin RP. Rolygrams, trocas, slots e vouchers de casa.</p>
+                <!-- VIPs em Destaque -->
+                <div id="panel-vips" class="temporadas-panel" role="tabpanel" aria-labelledby="categorias-title">
+                    <h3 class="section-title section-title--sm">VIPs em Destaque</h3>
+                    <p class="section-intro">Os planos mais procurados do Medellin RP. Permanentes (pagou, é seu) ou assinatura mensal. Benefícios como salário recorrente, slots de garagem, descontos na loja e muito mais.</p>
                     <div class="product-grid">
-                        <article class="card product-card" data-category="rolygram" data-type="permanente" data-price="5.00" data-product-id="rolygram_500">
+                        <article class="card product-card" data-category="vip" data-type="permanente" data-price="920.30" data-destaque="destaque" data-product-id="vip_faccao_premium_permanente">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
                             <div class="product-card__image-wrap">
-                                <img src="assets/rolygram/rolygram-500.png" alt="Rolygram 500" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                                <img src="assets/logo.webp" alt="VIP Facção Premium" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
                             </div>
-                            <h3 class="product-card__name card-title">Rolygram 500</h3>
+                            <h3 class="product-card__name card-title">VIP Facção Premium</h3>
+                            <p class="product-card__type card-type">VIP Permanente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Máximo benefício de facção</li>
+                                <li>Válido por wipe</li>
+                            </ul>
+                            <p class="product-card__price">R$ 920,30</p>
+                            <a href="vip-faccao-premium.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="vip" data-type="permanente" data-price="590.57" data-product-id="vip_faccao_ouro_permanente">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="VIP Facção Ouro" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Facção Ouro</h3>
+                            <p class="product-card__type card-type">VIP Permanente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Benefícios avançados de facção</li>
+                                <li>Válido por wipe</li>
+                            </ul>
+                            <p class="product-card__price">R$ 590,57</p>
+                            <a href="vip-faccao-ouro.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="vip" data-type="permanente" data-price="409.21" data-destaque="destaque" data-product-id="vip_black_permanente">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="VIP Black" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Black</h3>
+                            <p class="product-card__type card-type">VIP Permanente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Plano ultimate permanente</li>
+                                <li>Todos os benefícios</li>
+                            </ul>
+                            <p class="product-card__price">R$ 409,21</p>
+                            <a href="vip-black.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="vip" data-type="permanente" data-price="375.63" data-product-id="vip_faccao_prata_permanente">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="VIP Facção Prata" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Facção Prata</h3>
+                            <p class="product-card__type card-type">VIP Permanente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Benefícios de facção</li>
+                                <li>Válido por wipe</li>
+                            </ul>
+                            <p class="product-card__price">R$ 375,63</p>
+                            <a href="vip-faccao-prata.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="vip" data-type="assinatura" data-price="318.08" data-destaque="promo" data-product-id="vip_black_assinatura">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="VIP Black Assinatura" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Black (Assinatura)</h3>
+                            <p class="product-card__type card-type">VIP Mensal</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Ultimate com cobrança mensal</li>
+                                <li>Cancele quando quiser</li>
+                            </ul>
+                            <p class="product-card__price">R$ 318,08/mês</p>
+                            <a href="vip-black.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="vip" data-type="permanente" data-price="113.76" data-destaque="destaque" data-product-id="vip_platinum_permanente">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="VIP Platinum" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Platinum</h3>
+                            <p class="product-card__type card-type">VIP Permanente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Plano premium permanente</li>
+                                <li>Salário e slots de garagem</li>
+                            </ul>
+                            <p class="product-card__price">R$ 113,76</p>
+                            <a href="vip-platinum.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="vip" data-type="assinatura" data-price="72.58" data-destaque="promo" data-product-id="vip_platinum_assinatura">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="VIP Platinum Assinatura" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Platinum (Assinatura)</h3>
+                            <p class="product-card__type card-type">VIP Mensal</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Premium com cobrança mensal</li>
+                                <li>Cancele quando quiser</li>
+                            </ul>
+                            <p class="product-card__price">R$ 72,58/mês</p>
+                            <a href="vip-platinum.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="vip" data-type="permanente" data-price="68.33" data-product-id="vip_ouro_permanente">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="VIP Ouro" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Ouro</h3>
+                            <p class="product-card__type card-type">VIP Permanente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Plano premium permanente</li>
+                                <li>Salário recorrente</li>
+                            </ul>
+                            <p class="product-card__price">R$ 68,33</p>
+                            <a href="vip-ouro.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="vip" data-type="assinatura" data-price="38.42" data-destaque="promo" data-product-id="vip_ouro_assinatura">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="VIP Ouro Assinatura" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Ouro (Assinatura)</h3>
+                            <p class="product-card__type card-type">VIP Mensal</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Premium com cobrança mensal</li>
+                                <li>Cancele quando quiser</li>
+                            </ul>
+                            <p class="product-card__price">R$ 38,42/mês</p>
+                            <a href="vip-ouro.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="vip" data-type="permanente" data-price="10.67" data-destaque="destaque" data-product-id="vip_pvp_permanente">
+                            <span class="product-card__badge product-card__badge--destaque">Premium</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="VIP PVP" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP PVP</h3>
+                            <p class="product-card__type card-type">VIP Permanente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Focado em combate PVP</li>
+                                <li>Entrada acessível</li>
+                            </ul>
+                            <p class="product-card__price">R$ 10,67</p>
+                            <a href="vip-pvp.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                    </div>
+                </div>
+                <!-- Veículos Premium -->
+                <div id="panel-veiculos" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
+                    <h3 class="section-title section-title--sm">Veículos Premium</h3>
+                    <p class="section-intro">Os veículos mais desejados do servidor: motos voadoras, jatos, tanques, blindados de 32 tiros e carros lendários. Entrega na garagem após o pagamento.</p>
+                    <div class="product-grid">
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="320.00" data-destaque="destaque" data-product-id="veiculo_fnf4r34">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/fnf4r34.png" alt="GT-R 34 FNF4" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">GT-R 34 FNF4</h3>
+                            <p class="product-card__type card-type">Lendário</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Skyline R34 estilo Fast &amp; Furious</li>
+                                <li>Entrega na garagem</li>
+                            </ul>
+                            <p class="product-card__price">R$ 320,00</p>
+                            <a href="veiculos.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="320.00" data-destaque="promo" data-product-id="veiculo_fnfjetta">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/fnfjetta.png" alt="Jetta 3 FNF" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Jetta 3 FNF</h3>
+                            <p class="product-card__type card-type">Lendário</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Jetta estilo Fast &amp; Furious</li>
+                                <li>Entrega na garagem</li>
+                            </ul>
+                            <p class="product-card__price">R$ 320,00</p>
+                            <a href="veiculos.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="280.00" data-destaque="destaque" data-product-id="veiculo_chernobog">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/chernobog.png" alt="Chernobog" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Chernobog</h3>
+                            <p class="product-card__type card-type">Lançador de Mísseis</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Até 30 mísseis guiados</li>
+                                <li>Blindagem total</li>
+                            </ul>
+                            <p class="product-card__price">R$ 280,00</p>
+                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="280.00" data-product-id="veiculo_oppressor2">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/oppressor2.png" alt="Oppressor Mk II" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Oppressor Mk II</h3>
+                            <p class="product-card__type card-type">Moto Voadora</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Moto voadora com foguetes</li>
+                                <li>Entrega na garagem</li>
+                            </ul>
+                            <p class="product-card__price">R$ 280,00</p>
+                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="280.00" data-destaque="promo" data-product-id="veiculo_thruster">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/thruster.png" alt="Thruster" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Thruster</h3>
+                            <p class="product-card__type card-type">Jetpack</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Jetpack voador</li>
+                                <li>Mobilidade extrema</li>
+                            </ul>
+                            <p class="product-card__price">R$ 280,00</p>
+                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="280.00" data-product-id="veiculo_oppressor">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/oppressor.png" alt="Oppressor" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Oppressor</h3>
+                            <p class="product-card__type card-type">Moto Voadora</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Moto voadora clássica</li>
+                                <li>Entrega na garagem</li>
+                            </ul>
+                            <p class="product-card__price">R$ 280,00</p>
+                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="260.00" data-destaque="destaque" data-product-id="veiculo_apc">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/apc.png" alt="APC" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">APC</h3>
+                            <p class="product-card__type card-type">Tanque Anfíbio</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Tanque anfíbio (terra e água)</li>
+                                <li>Canhão + metralhadora</li>
+                            </ul>
+                            <p class="product-card__price">R$ 260,00</p>
+                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="240.00" data-product-id="veiculo_khanjali">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/khanjali.png" alt="Khanjali" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Khanjali</h3>
+                            <p class="product-card__type card-type">Tanque</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Tanque moderno</li>
+                                <li>Canhão + mísseis guiados</li>
+                            </ul>
+                            <p class="product-card__price">R$ 240,00</p>
+                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="230.00" data-destaque="promo" data-product-id="veiculo_nightshark">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/nightshark.png" alt="Nightshark" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Nightshark</h3>
+                            <p class="product-card__type card-type">Blindado 32 Tiros</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Blindagem 32 tiros</li>
+                                <li>Metralhadoras duplas</li>
+                            </ul>
+                            <p class="product-card__price">R$ 230,00</p>
+                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="200.00" data-product-id="veiculo_deluxo">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vehicles/deluxo.png" alt="Deluxo" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Deluxo</h3>
+                            <p class="product-card__type card-type">Voador</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>DeLorean voador</li>
+                                <li>Modo voo horizontal</li>
+                            </ul>
+                            <p class="product-card__price">R$ 200,00</p>
+                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                    </div>
+                </div>
+                <!-- Arsenal Lendário -->
+                <div id="panel-arsenal" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
+                    <h3 class="section-title section-title--sm">Arsenal Lendário</h3>
+                    <p class="section-intro">As skins mais cobiçadas do arsenal. Lendárias (R$ 15) e épicas (R$ 12) para AK, Five Seven e Glock. Entrega automática após o pagamento.</p>
+                    <div class="product-grid">
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="15.00" data-destaque="destaque" data-product-id="arma_ak_cromada">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="AK Cromada" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">AK Cromada</h3>
+                            <p class="product-card__type card-type">Skin Lendária</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>AK cromada exclusiva</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 15,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="15.00" data-destaque="promo" data-product-id="arma_ak_rosa">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="AK Rosa" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">AK Rosa</h3>
+                            <p class="product-card__type card-type">Skin Lendária</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>AK rosa exclusiva</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 15,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="15.00" data-product-id="arma_ak_skeleton_red">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="AK Skeleton Red" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">AK Skeleton Red</h3>
+                            <p class="product-card__type card-type">Skin Lendária</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>AK esqueleto vermelho</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 15,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="15.00" data-destaque="destaque" data-product-id="arma_ak_hulk">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="AK Hulk" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">AK Hulk</h3>
+                            <p class="product-card__type card-type">Skin Lendária</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>AK verde Hulk</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 15,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="15.00" data-product-id="arma_ak_bolt_gold">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="AK Bolt Gold" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">AK Bolt Gold</h3>
+                            <p class="product-card__type card-type">Skin Lendária</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>AK dourada Bolt</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 15,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="15.00" data-destaque="promo" data-product-id="arma_five_seven_hello_kitty">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="Five Seven Hello Kitty" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">Five Seven Hello Kitty</h3>
+                            <p class="product-card__type card-type">Skin Lendária</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pistola Hello Kitty</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 15,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="15.00" data-product-id="arma_five_seven_vulcao">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="Five Seven Vulcão" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">Five Seven Vulcão</h3>
+                            <p class="product-card__type card-type">Skin Lendária</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pistola efeito vulcão</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 15,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="15.00" data-destaque="destaque" data-product-id="arma_five_seven_jordan_blue">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="Five Seven Jordan Blue" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">Five Seven Jordan Blue</h3>
+                            <p class="product-card__type card-type">Skin Lendária</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pistola Jordan azul</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 15,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="12.00" data-destaque="promo" data-product-id="arma_glock_dragon_white">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="Glock Dragon White" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">Glock Dragon White</h3>
+                            <p class="product-card__type card-type">Skin Épica</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Glock dragão branco</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 12,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="12.00" data-product-id="arma_glock_flames">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="Glock Flames" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">Glock Flames</h3>
+                            <p class="product-card__type card-type">Skin Épica</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Glock em chamas</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 12,00</p>
+                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                    </div>
+                </div>
+                <!-- Pets & Companheiros -->
+                <div id="panel-pets" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
+                    <h3 class="section-title section-title--sm">Pets & Companheiros</h3>
+                    <p class="section-intro">Os companheiros mais procurados: lobos lendários, tigres, primatas e cães de guarda. Entrega automática após o pagamento.</p>
+                    <div class="product-grid">
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="199.90" data-destaque="destaque" data-product-id="pets_lobo_sirius">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/lobo-sirius.png" alt="Lobo Sirius" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Lobo Sirius</h3>
+                            <p class="product-card__type card-type">Pet Premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Lobo lendário</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 199,90</p>
+                            <a href="pet-detalhe.html?id=pets_lobo_sirius" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="199.90" data-destaque="promo" data-product-id="pets_tigor">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/tigor.png" alt="Tigor" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Tigor</h3>
+                            <p class="product-card__type card-type">Pet Premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Tigre lendário</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 199,90</p>
+                            <a href="pet-detalhe.html?id=pets_tigor" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="199.90" data-product-id="pets_rajah">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/rajah.png" alt="Rajah" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Rajah</h3>
+                            <p class="product-card__type card-type">Pet Premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Tigre premium</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 199,90</p>
+                            <a href="pet-detalhe.html?id=pets_rajah" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="199.90" data-destaque="destaque" data-product-id="pets_chimp">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/chimp.png" alt="Chimp" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Chimp</h3>
+                            <p class="product-card__type card-type">Pet Premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Chipanzé lendário</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 199,90</p>
+                            <a href="pet-detalhe.html?id=pets_chimp" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="159.90" data-product-id="pets_rottweiler">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/rottweiler.png" alt="Rottweiler" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Rottweiler</h3>
+                            <p class="product-card__type card-type">Cão de Guarda</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Cão de guarda forte</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 159,90</p>
+                            <a href="pet-detalhe.html?id=pets_rottweiler" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="159.90" data-destaque="promo" data-product-id="pets_husky_siberiana">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/husky-siberiana.png" alt="Husky Siberiana" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Husky Siberiana</h3>
+                            <p class="product-card__type card-type">Cão de Guarda</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Husky resistente</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 159,90</p>
+                            <a href="pet-detalhe.html?id=pets_husky_siberiana" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="149.90" data-product-id="pets_pastor_alemao">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/pastor-alemao.png" alt="Pastor Alemão" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Pastor Alemão</h3>
+                            <p class="product-card__type card-type">Cão de Guarda</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Cão de guarda clássico</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 149,90</p>
+                            <a href="pet-detalhe.html?id=pets_pastor_alemao" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="149.90" data-destaque="destaque" data-product-id="pets_golden_retriever">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/golden-retriever.png" alt="Golden Retriever" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Golden Retriever</h3>
+                            <p class="product-card__type card-type">Cão de Companhia</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Cão leal e companheiro</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 149,90</p>
+                            <a href="pet-detalhe.html?id=pets_golden_retriever" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="139.90" data-destaque="promo" data-product-id="pets_chickenhawk">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/chickenhawk.png" alt="Falcão" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Falcão</h3>
+                            <p class="product-card__type card-type">Pet Voador</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pet voador de caça</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 139,90</p>
+                            <a href="pet-detalhe.html?id=pets_chickenhawk" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="129.90" data-product-id="pets_boar">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pets/boar.png" alt="Javali" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Javali</h3>
+                            <p class="product-card__type card-type">Pet Selvagem</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pet de combate selvagem</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 129,90</p>
+                            <a href="pet-detalhe.html?id=pets_boar" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                    </div>
+                </div>
+                <!-- Essenciais & Vouchers -->
+                <div id="panel-essenciais" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
+                    <h3 class="section-title section-title--sm">Essenciais & Vouchers</h3>
+                    <p class="section-intro">Rolygrams, vouchers de casa, salários recorrentes, slots de personagem e trocas. Os essenciais para sua jornada no Medellin RP.</p>
+                    <div class="product-grid">
+                        <article class="card product-card" data-category="salario" data-type="permanente" data-price="232.18" data-destaque="destaque" data-product-id="salario_deuses">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="Salário dos Deuses" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">Salário dos Deuses</h3>
+                            <p class="product-card__type card-type">Salário Recorrente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Maior salário do servidor</li>
+                                <li>Pagamento automático</li>
+                            </ul>
+                            <p class="product-card__price">R$ 232,18</p>
+                            <a href="salarios.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="salario" data-type="permanente" data-price="161.74" data-product-id="salario_venci_na_vida">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="Salário Venci na Vida" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">Salário Venci na Vida</h3>
+                            <p class="product-card__type card-type">Salário Recorrente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Salário alto recorrente</li>
+                                <li>Pagamento automático</li>
+                            </ul>
+                            <p class="product-card__price">R$ 161,74</p>
+                            <a href="salarios.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="voucher" data-type="permanente" data-price="48.10" data-destaque="destaque" data-product-id="vouchers_vale_casa_amber">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vouchers/vale-casa-amber.png" alt="Vale Casa Amber" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Vale Casa Amber</h3>
+                            <p class="product-card__type card-type">Voucher Premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Cobre qualquer casa (tier 6)</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 48,10</p>
+                            <a href="voucher-detalhe.html?id=amber" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="voucher" data-type="permanente" data-price="38.48" data-destaque="promo" data-product-id="vouchers_vale_casa_amethyst">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/vouchers/vale-casa-amethyst.png" alt="Vale Casa Amethyst" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Vale Casa Amethyst</h3>
+                            <p class="product-card__type card-type">Voucher</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Cobre casa até tier 5</li>
+                                <li>Entrega automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 38,48</p>
+                            <a href="voucher-detalhe.html?id=amethyst" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="salario" data-type="permanente" data-price="114.78" data-product-id="salario_patrao">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="Salário Patrão" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">Salário Patrão</h3>
+                            <p class="product-card__type card-type">Salário Recorrente</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Salário médio recorrente</li>
+                                <li>Pagamento automático</li>
+                            </ul>
+                            <p class="product-card__price">R$ 114,78</p>
+                            <a href="salarios.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="rolygram" data-type="permanente" data-price="29.90" data-destaque="destaque" data-product-id="rolygram_verificado">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/rolygram/rolygram-verificado.png" alt="Rolygram Verificado" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Rolygram Verificado</h3>
+                            <p class="product-card__type card-type">Social Premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Conta verificada no Rolygram</li>
+                                <li>Selo de credibilidade</li>
+                            </ul>
+                            <p class="product-card__price">R$ 29,90</p>
+                            <a href="rolygram-verificado.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="rolygram" data-type="permanente" data-price="19.90" data-destaque="promo" data-product-id="rolygram_2000">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/rolygram/rolygram-2000.png" alt="Rolygram 2000" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Rolygram 2000</h3>
                             <p class="product-card__type card-type">Social</p>
                             <ul class="product-card__benefits" role="list">
-                                <li>500 seguidores</li>
+                                <li>2000 seguidores no Rolygram</li>
                                 <li>Ativação automática</li>
                             </ul>
-                            <p class="product-card__price">R$ 5,00</p>
-                            <a href="rolygram-500.html" class="product-card__link">Ver detalhes</a>
+                            <p class="product-card__price">R$ 19,90</p>
+                            <a href="rolygram-2000.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="outros" data-type="permanente" data-price="19.90" data-product-id="outros_slot_personagem">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/logo.webp" alt="Slot de Personagem" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="product-card__name card-title">Slot de Personagem</h3>
+                            <p class="product-card__type card-type">Serviço</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>+1 slot de personagem</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 19,90</p>
+                            <a href="outros-slot-personagem.html" class="product-card__link">Ver detalhes</a>
                             <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
                         </article>
                         <article class="card product-card" data-category="rolygram" data-type="permanente" data-price="9.90" data-destaque="promo" data-product-id="rolygram_1000">
@@ -131,41 +847,11 @@
                             <h3 class="product-card__name card-title">Rolygram 1000</h3>
                             <p class="product-card__type card-type">Social</p>
                             <ul class="product-card__benefits" role="list">
-                                <li>1000 seguidores</li>
+                                <li>1000 seguidores no Rolygram</li>
                                 <li>Ativação automática</li>
                             </ul>
                             <p class="product-card__price">R$ 9,90</p>
                             <a href="rolygram-1000.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="rolygram" data-type="permanente" data-price="19.90" data-destaque="destaque" data-product-id="rolygram_2000">
-                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/rolygram/rolygram-2000.png" alt="Rolygram 2000" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Rolygram 2000</h3>
-                            <p class="product-card__type card-type">Social</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>2000 seguidores</li>
-                                <li>Ativação automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 19,90</p>
-                            <a href="rolygram-2000.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="rolygram" data-type="permanente" data-price="29.90" data-product-id="rolygram_verificado">
-                            <span class="product-card__badge product-card__badge--destaque">Premium</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/rolygram/rolygram-verificado.png" alt="Rolygram Verificado" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Rolygram Verificado</h3>
-                            <p class="product-card__type card-type">Social Premium</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Conta verificada</li>
-                                <li>Selo de credibilidade</li>
-                            </ul>
-                            <p class="product-card__price">R$ 29,90</p>
-                            <a href="rolygram-verificado.html" class="product-card__link">Ver detalhes</a>
                             <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
                         </article>
                         <article class="card product-card" data-category="outros" data-type="permanente" data-price="9.90" data-product-id="outros_troca_nome">
@@ -180,385 +866,6 @@
                             </ul>
                             <p class="product-card__price">R$ 9,90</p>
                             <a href="outros-troca-nome.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="outros" data-type="permanente" data-price="19.90" data-destaque="promo" data-product-id="outros_slot_personagem">
-                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/logo.webp" alt="Slot de Personagem" class="product-card__image" width="200" height="200" loading="lazy" decoding="async">
-                            </div>
-                            <h3 class="product-card__name card-title">Slot de Personagem</h3>
-                            <p class="product-card__type card-type">Serviço</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>+1 slot de personagem</li>
-                                <li>Ativação automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 19,90</p>
-                            <a href="outros-slot-personagem.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="voucher" data-type="permanente" data-price="19.25" data-product-id="vouchers_vale_casa_emerald">
-                            <div class="product-card__image-wrap">
-                                <img src="assets/vouchers/vale-casa-emerald.png" alt="Vale Casa Emerald" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Vale Casa Emerald</h3>
-                            <p class="product-card__type card-type">Voucher</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Casa Emerald</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 19,25</p>
-                            <a href="voucher-detalhe.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="voucher" data-type="permanente" data-price="48.10" data-destaque="destaque" data-product-id="vouchers_vale_casa_amber">
-                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/vouchers/vale-casa-amber.png" alt="Vale Casa Amber" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Vale Casa Amber</h3>
-                            <p class="product-card__type card-type">Voucher Premium</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Casa Amber premium</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 48,10</p>
-                            <a href="voucher-detalhe.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                    </div>
-                </div>
-                <!-- Veículos Promocionais -->
-                <div id="panel-veiculos-promocionais" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
-                    <h3 class="section-title section-title--sm">Veículos Promocionais</h3>
-                    <p class="section-intro">Veículos em destaque. Escolha seu modelo e finalize pelo checkout. Ativação automática após o pagamento.</p>
-                    <div class="product-grid">
-                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="24.90" data-product-id="veiculo_125i">
-                            <div class="product-card__image-wrap">
-                                <img src="assets/vehicles/125i.png" alt="BMW 125i" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">BMW 125i</h3>
-                            <p class="product-card__type card-type">Veículo</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Hatch esportivo</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 24,90</p>
-                            <a href="veiculos.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="29.90" data-destaque="promo" data-product-id="veiculo_14charger">
-                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/vehicles/14charger.png" alt="Dodge Charger 2014" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Dodge Charger 2014</h3>
-                            <p class="product-card__type card-type">Veículo</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Muscle car</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 29,90</p>
-                            <a href="veiculos.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="34.90" data-destaque="destaque" data-product-id="veiculo_1000remap">
-                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/vehicles/1000remap.png" alt="1000 Remap" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">1000 Remap</h3>
-                            <p class="product-card__type card-type">Veículo Premium</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Modelo exclusivo</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 34,90</p>
-                            <a href="veiculos.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="39.90" data-product-id="veiculo_11caprice">
-                            <div class="product-card__image-wrap">
-                                <img src="assets/vehicles/11caprice.png" alt="Chevrolet Caprice 2011" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Chevrolet Caprice 2011</h3>
-                            <p class="product-card__type card-type">Veículo</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Sedan clássico</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 39,90</p>
-                            <a href="veiculos.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="49.90" data-destaque="promo" data-product-id="veiculo_apc">
-                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/vehicles/apc.png" alt="APC Blindado" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">APC Blindado</h3>
-                            <p class="product-card__type card-type">Blindado</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Blindado pesado</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 49,90</p>
-                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="veiculo" data-type="permanente" data-price="59.90" data-destaque="destaque" data-product-id="veiculo_barrage">
-                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/vehicles/barrage.png" alt="Barrage" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Barrage</h3>
-                            <p class="product-card__type card-type">Blindado Premium</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Blindado premium</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 59,90</p>
-                            <a href="blindados-voadores.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                    </div>
-                </div>
-                <!-- Armas Promocionais -->
-                <div id="panel-armas-promocionais" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
-                    <h3 class="section-title section-title--sm">Armas Promocionais</h3>
-                    <p class="section-intro">Armas e skins em destaque. Escolha seu arsenal e finalize pelo checkout. Ativação automática após o pagamento.</p>
-                    <div class="product-grid">
-                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="14.90" data-product-id="arma_minigun">
-                            <div class="product-card__image-wrap">
-                                <img src="assets/armas/minigun.png" alt="Minigun" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Minigun</h3>
-                            <p class="product-card__type card-type">Arma pesada</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Cadência altíssima</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 14,90</p>
-                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="19.90" data-destaque="promo" data-product-id="arma_minigun_raio">
-                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/armas/minigun-raio.png" alt="Minigun Raio" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Minigun Raio</h3>
-                            <p class="product-card__type card-type">Arma lendária</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Skin exclusiva raio</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 19,90</p>
-                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="24.90" data-destaque="destaque" data-product-id="arma_lancador_granadas">
-                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/armas/lancador-granadas.png" alt="Lançador de Granadas" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Lançador de Granadas</h3>
-                            <p class="product-card__type card-type">Arma explosiva</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Dano em área</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 24,90</p>
-                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="arma" data-type="permanente" data-price="9.90" data-product-id="arma_fogo_artificio">
-                            <div class="product-card__image-wrap">
-                                <img src="assets/armas/fogo-artificio.png" alt="Fogo de Artifício" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Fogo de Artifício</h3>
-                            <p class="product-card__type card-type">Especial</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Item festivo</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 9,90</p>
-                            <a href="armas-skins.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                    </div>
-                </div>
-                <!-- Pets Promocionais -->
-                <div id="panel-pets-promocionais" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
-                    <h3 class="section-title section-title--sm">Pets Promocionais</h3>
-                    <p class="section-intro">Pets em destaque. Escolha seu companheiro e finalize pelo checkout. Ativação automática após o pagamento.</p>
-                    <div class="product-grid">
-                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="14.90" data-product-id="pet_boar">
-                            <div class="product-card__image-wrap">
-                                <img src="assets/pets/boar.png" alt="Javali" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Javali</h3>
-                            <p class="product-card__type card-type">Pet</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Pet de combate</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 14,90</p>
-                            <a href="pet-detalhe.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="19.90" data-destaque="promo" data-product-id="pet_bulldog">
-                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/pets/bulldog.png" alt="Bulldog" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Bulldog</h3>
-                            <p class="product-card__type card-type">Pet</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Cão de guarda</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 19,90</p>
-                            <a href="pet-detalhe.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="24.90" data-destaque="destaque" data-product-id="pet_chimp">
-                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/pets/chimp.png" alt="Chipanzé" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Chipanzé</h3>
-                            <p class="product-card__type card-type">Pet Premium</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Pet premium</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 24,90</p>
-                            <a href="pet-detalhe.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="pet" data-type="permanente" data-price="29.90" data-product-id="pet_chickenhawk">
-                            <div class="product-card__image-wrap">
-                                <img src="assets/pets/chickenhawk.png" alt="Falcão" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Falcão</h3>
-                            <p class="product-card__type card-type">Pet Voador</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>Pet voador</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 29,90</p>
-                            <a href="pet-detalhe.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                    </div>
-                </div>
-                <!-- Mochila Promocionais -->
-                <div id="panel-mochila-promocionais" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
-                    <h3 class="section-title section-title--sm">Mochila Promocionais</h3>
-                    <p class="section-intro">Mochilas em destaque. Escolha sua capacidade e finalize pelo checkout. Ativação automática após o pagamento.</p>
-                    <div class="product-grid">
-                        <article class="card product-card" data-category="mochila" data-type="permanente" data-price="9.90" data-product-id="mochila_10kg">
-                            <div class="product-card__image-wrap">
-                                <img src="assets/mochila/10kg.png" alt="Mochila 10kg" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Mochila 10kg</h3>
-                            <p class="product-card__type card-type">Mochila</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>+10kg de capacidade</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 9,90</p>
-                            <a href="mochila-10kg.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="mochila" data-type="permanente" data-price="14.90" data-destaque="promo" data-product-id="mochila_20kg">
-                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/mochila/20kg.png" alt="Mochila 20kg" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Mochila 20kg</h3>
-                            <p class="product-card__type card-type">Mochila</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>+20kg de capacidade</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 14,90</p>
-                            <a href="mochila-20kg.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="mochila" data-type="permanente" data-price="29.90" data-destaque="destaque" data-product-id="mochila_80kg">
-                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/mochila/80kg.png" alt="Mochila 80kg" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Mochila 80kg</h3>
-                            <p class="product-card__type card-type">Mochila</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>+80kg de capacidade</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 29,90</p>
-                            <a href="mochila-80kg.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="mochila" data-type="permanente" data-price="39.90" data-product-id="mochila_120kg">
-                            <div class="product-card__image-wrap">
-                                <img src="assets/mochila/120kg.png" alt="Mochila 120kg" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Mochila 120kg</h3>
-                            <p class="product-card__type card-type">Mochila</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>+120kg de capacidade</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 39,90</p>
-                            <a href="mochila-120kg.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="mochila" data-type="permanente" data-price="49.90" data-destaque="promo" data-product-id="mochila_150kg">
-                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/mochila/150kg.png" alt="Mochila 150kg" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Mochila 150kg</h3>
-                            <p class="product-card__type card-type">Mochila</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>+150kg de capacidade</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 49,90</p>
-                            <a href="mochila-150kg.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="mochila" data-type="permanente" data-price="59.90" data-destaque="destaque" data-product-id="mochila_200kg">
-                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/mochila/200kg.png" alt="Mochila 200kg" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Mochila 200kg</h3>
-                            <p class="product-card__type card-type">Mochila Premium</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>+200kg de capacidade</li>
-                                <li>Entrega automática</li>
-                            </ul>
-                            <p class="product-card__price">R$ 59,90</p>
-                            <a href="mochila-200kg.html" class="product-card__link">Ver detalhes</a>
-                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
-                        </article>
-                        <article class="card product-card" data-category="mochila" data-type="permanente" data-price="99.90" data-product-id="mochila_400kg">
-                            <span class="product-card__badge product-card__badge--destaque">Premium</span>
-                            <div class="product-card__image-wrap">
-                                <img src="assets/mochila/400kg.png" alt="Mochila 400kg" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
-                            </div>
-                            <h3 class="product-card__name card-title">Mochila 400kg</h3>
-                            <p class="product-card__type card-type">Mochila Premium</p>
-                            <ul class="product-card__benefits" role="list">
-                                <li>+400kg de capacidade</li>
-                                <li>Máxima capacidade</li>
-                            </ul>
-                            <p class="product-card__price">R$ 99,90</p>
-                            <a href="mochila-400kg.html" class="product-card__link">Ver detalhes</a>
                             <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
                         </article>
                     </div>
@@ -655,7 +962,7 @@
         if (cat && document.getElementById('panel-' + cat)) {
             mostrarCategoria(cat);
         } else {
-            mostrarCategoria('essenciais');
+            mostrarCategoria('vips');
         }
     })();
     </script>
