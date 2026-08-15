@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download do Script – Roleplay Medellin</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0a0a0f;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card {
+      background: #13131a;
+      border: 1px solid #2d2d3d;
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #c084fc;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+    /* Estados */
+    .state { display: none; }
+    .state.active { display: block; }
+
+    /* Loading */
+    .spinner {
+      width: 48px; height: 48px;
+      border: 4px solid #2d2d3d;
+      border-top-color: #c084fc;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .state-loading h2 { font-size: 1.25rem; color: #e2e8f0; margin-bottom: 0.5rem; }
+    .state-loading p { color: #64748b; font-size: 0.9rem; }
+
+    /* Sucesso */
+    .check-icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+    }
+    .state-success h2 { font-size: 1.4rem; color: #e2e8f0; margin-bottom: 0.5rem; }
+    .product-name { color: #c084fc; font-weight: 600; font-size: 1rem; margin-bottom: 1.5rem; }
+    .btn-download {
+      display: inline-block;
+      background: linear-gradient(135deg, #c084fc, #a855f7);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.875rem 2.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s, transform 0.1s;
+      letter-spacing: 0.02em;
+    }
+    .btn-download:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-download:active { transform: translateY(0); }
+    .download-info {
+      margin-top: 1.5rem;
+      background: #1e1e2d;
+      border: 1px solid #2d2d3d;
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      text-align: left;
+    }
+    .download-info strong { color: #e2e8f0; }
+    .download-info ul { list-style: none; padding: 0; margin-top: 0.5rem; }
+    .download-info li { padding: 0.2rem 0; display: flex; align-items: flex-start; gap: 0.5rem; }
+    .download-info li::before { content: "→"; color: #c084fc; flex-shrink: 0; }
+    .dl-count {
+      display: inline-block;
+      background: #2d2d3d;
+      border-radius: 4px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 1rem;
+    }
+
+    /* Erro */
+    .error-icon {
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+    }
+    .state-error h2 { font-size: 1.25rem; color: #e2e8f0; margin-bottom: 0.75rem; }
+    .state-error p { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; }
+    .btn-back {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.625rem 1.75rem;
+      border: 1px solid #4b5563;
+      border-radius: 8px;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-back:hover { border-color: #c084fc; color: #c084fc; }
+    .support-link { color: #c084fc; text-decoration: none; }
+    .support-link:hover { text-decoration: underline; }
+
+    /* Footer */
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #475569;
+    }
+    .footer a { color: #64748b; text-decoration: none; }
+    .footer a:hover { color: #94a3b8; }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo">Roleplay Medellin Scripts</div>
+
+  <!-- Estado: verificando pagamento -->
+  <div class="state state-loading active" id="stateLoading">
+    <div class="spinner"></div>
+    <h2>Confirmando pagamento...</h2>
+    <p>Aguarde enquanto verificamos sua compra.</p>
+  </div>
+
+  <!-- Estado: pronto para download -->
+  <div class="state state-success" id="stateSuccess">
+    <div class="check-icon">✓</div>
+    <h2>Pagamento confirmado!</h2>
+    <p class="product-name" id="productName"></p>
+    <a id="btnDownload" class="btn-download" href="#">⬇ Baixar Script</a>
+    <div class="download-info">
+      <strong>Próximos passos:</strong>
+      <ul>
+        <li>Extraia o ZIP dentro de <code>resources/</code></li>
+        <li>Adicione <code>ensure [nome-do-script]</code> no <code>server.cfg</code></li>
+        <li>Configure o <code>config.lua</code> conforme o README incluído</li>
+        <li>Execute os SQLs da pasta <code>sql/</code> se houver</li>
+        <li>Reinicie o servidor</li>
+      </ul>
+    </div>
+    <div class="dl-count" id="dlCount"></div>
+  </div>
+
+  <!-- Estado: erro -->
+  <div class="state state-error" id="stateError">
+    <div class="error-icon">✕</div>
+    <h2 id="errorTitle">Link inválido</h2>
+    <p id="errorMsg">Este link de download é inválido, expirou, ou o limite de downloads foi atingido.</p>
+    <a href="/recursos-fivem.html" class="btn-back">← Ver Scripts</a>
+    <br>
+    <a href="https://discord.gg/medellin" target="_blank" class="support-link" style="font-size:0.85rem;display:block;margin-top:1rem;">Precisa de ajuda? Abra um ticket no Discord</a>
+  </div>
+</div>
+
+<div class="footer">
+  <a href="/">roleplaymedellin.com.br</a> &nbsp;·&nbsp;
+  <a href="/recursos-fivem.html">Scripts FiveM</a>
+</div>
+
+<script>
+  const API = 'https://api.roleplaymedellin.com.br';
+  let token = null;
+  let pollInterval = null;
+  let pollCount = 0;
+  const MAX_POLLS = 30; // 30 tentativas × 2s = 60s máximo
+
+  function show(stateId) {
+    document.querySelectorAll('.state').forEach(el => el.classList.remove('active'));
+    document.getElementById(stateId).classList.add('active');
+  }
+
+  function showError(title, msg) {
+    if (pollInterval) clearInterval(pollInterval);
+    document.getElementById('errorTitle').textContent = title || 'Erro';
+    document.getElementById('errorMsg').textContent = msg || '';
+    show('stateError');
+  }
+
+  function showSuccess(data) {
+    if (pollInterval) clearInterval(pollInterval);
+    document.getElementById('productName').textContent = data.product_name || 'Script FiveM';
+    document.getElementById('btnDownload').href = `${API}/api/scripts/download/${token}`;
+    const left = data.downloads_left;
+    document.getElementById('dlCount').textContent = `Downloads restantes: ${left}/3`;
+    show('stateSuccess');
+  }
+
+  async function checkStatus() {
+    pollCount++;
+    if (pollCount > MAX_POLLS) {
+      showError('Tempo esgotado', 'Não foi possível confirmar o pagamento em 60 segundos. Se você pagou, entre em contato com o suporte no Discord.');
+      return;
+    }
+    try {
+      const r = await fetch(`${API}/api/scripts/status/${token}`);
+      if (r.status === 404) {
+        showError('Token inválido', 'Este link de download não foi encontrado. Verifique o e-mail ou entre em contato com o suporte.');
+        return;
+      }
+      if (!r.ok) return; // Tenta de novo no próximo poll
+      const data = await r.json();
+      if (data.paid) {
+        showSuccess(data);
+      }
+      // Se não pago ainda, continua polling
+    } catch (e) {
+      // Falha de rede, tenta de novo
+    }
+  }
+
+  function init() {
+    const params = new URLSearchParams(window.location.search);
+    token = params.get('token');
+
+    if (!token) {
+      showError('Link inválido', 'Nenhum token de download encontrado. Verifique se o link está correto.');
+      return;
+    }
+
+    // Começa polling
+    checkStatus();
+    pollInterval = setInterval(checkStatus, 2000);
+  }
+
+  init();
+</script>
+</body>
+</html>

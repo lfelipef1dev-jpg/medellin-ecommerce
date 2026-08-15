@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets/logo.webp" type="image/webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripts FiveM – Medellin RP</title>
+    <meta name="description" content="Scripts FiveM originais: Anti-Cheat, War System, Pesca, Facções, Minigames e mais. Compatível com QBox e QBCore. Download automático após pagamento.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260304-fix2">
+    <script src="config.js"></script>
+    <script src="app.js?v=20260304-fix2" defer></script>
+    <style>
+        /* ── Scripts FiveM page ── */
+        :root { --scripts-green: #00FF88; --scripts-dark: #0a0e1a; }
+
+        .scripts-hero {
+            background: linear-gradient(135deg, #0a0e1a 0%, #0d1526 50%, #0a1020 100%);
+            padding: 64px 0 48px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,255,136,.15);
+        }
+        .scripts-hero__badge {
+            display: inline-block;
+            background: rgba(0,255,136,.12);
+            color: var(--scripts-green);
+            border: 1px solid rgba(0,255,136,.3);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .scripts-hero__title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: #fff;
+            margin: 0 0 12px;
+            line-height: 1.1;
+        }
+        .scripts-hero__title strong { color: var(--scripts-green); }
+        .scripts-hero__sub {
+            color: rgba(255,255,255,.6);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+        }
+        .scripts-badges {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .scripts-badges__item {
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: .8rem;
+            color: rgba(255,255,255,.75);
+            font-weight: 500;
+        }
+        .scripts-badges__item strong { color: #fff; }
+
+        /* ── Filtro de categoria ── */
+        .scripts-filter {
+            background: #080b14;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,.06);
+            position: sticky;
+            top: 60px;
+            z-index: 50;
+        }
+        .scripts-filter__inner {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .scripts-filter__btn {
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.1);
+            color: rgba(255,255,255,.7);
+            border-radius: 20px;
+            padding: 7px 18px;
+            font-size: .82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: inherit;
+        }
+        .scripts-filter__btn:hover,
+        .scripts-filter__btn.is-active {
+            background: rgba(0,255,136,.12);
+            border-color: rgba(0,255,136,.4);
+            color: var(--scripts-green);
+        }
+
+        /* ── Grid de produtos ── */
+        .scripts-section {
+            background: #080b14;
+            padding: 48px 0 80px;
+        }
+        .scripts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        /* ── Card de produto ── */
+        .script-card {
+            background: #0d1526;
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 14px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color .2s, transform .2s;
+        }
+        .script-card:hover {
+            border-color: rgba(0,255,136,.25);
+            transform: translateY(-2px);
+        }
+        .script-card--featured {
+            border-color: rgba(0,255,136,.3);
+            background: linear-gradient(135deg, #0d1526, #0a1a12);
+        }
+        .script-card__top {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .script-card__icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(0,255,136,.1);
+            border: 1px solid rgba(0,255,136,.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.4rem;
+        }
+        .script-card__info { flex: 1; min-width: 0; }
+        .script-card__name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+        .script-card__compat {
+            font-size: .72rem;
+            color: var(--scripts-green);
+            font-weight: 600;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+        .script-card__desc {
+            font-size: .875rem;
+            color: rgba(255,255,255,.55);
+            line-height: 1.6;
+            margin: 0 0 16px;
+        }
+        .script-card__features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .script-card__features li {
+            font-size: .82rem;
+            color: rgba(255,255,255,.7);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .script-card__features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--scripts-green);
+            flex-shrink: 0;
+        }
+        .script-card__bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,.07);
+        }
+        .script-card__price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--scripts-green);
+        }
+        .script-card__price small {
+            font-size: .75rem;
+            color: rgba(255,255,255,.4);
+            font-weight: 400;
+            display: block;
+            margin-top: -2px;
+        }
+        .btn-comprar {
+            background: var(--scripts-green);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: .875rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: opacity .2s, transform .1s;
+            white-space: nowrap;
+        }
+        .btn-comprar:hover { opacity: .9; transform: scale(1.02); }
+
+        /* ── Modal de compra ── */
+        .scripts-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.75);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .scripts-modal-overlay.is-open { display: flex; }
+        .scripts-modal {
+            background: #0d1526;
+            border: 1px solid rgba(0,255,136,.2);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+        }
+        .scripts-modal__close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,.4);
+            font-size: 1.3rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px;
+        }
+        .scripts-modal__close:hover { color: #fff; }
+        .scripts-modal__title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 6px;
+        }
+        .scripts-modal__product {
+            font-size: .85rem;
+            color: var(--scripts-green);
+            font-weight: 600;
+            margin: 0 0 24px;
+        }
+        .scripts-form__label {
+            display: block;
+            font-size: .8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,.6);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+        .scripts-form__input {
+            width: 100%;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 8px;
+            color: #fff;
+            font-family: inherit;
+            font-size: .9rem;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            transition: border-color .2s;
+        }
+        .scripts-form__input:focus {
+            outline: none;
+            border-color: rgba(0,255,136,.4);
+        }
+        .scripts-form__hint {
+            font-size: .75rem;
+            color: rgba(255,255,255,.35);
+            margin-top: -12px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .scripts-form__submit {
+            width: 100%;
+            background: var(--scripts-green);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            padding: 13px;
+            font-size: .95rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 4px;
+        }
+        .scripts-form__submit:hover { opacity: .9; }
+        .scripts-form__submit:disabled { opacity: .5; cursor: not-allowed; }
+        .scripts-form__error {
+            color: #ff4d4d;
+            font-size: .82rem;
+            margin-top: 8px;
+            display: none;
+        }
+
+        /* ── Info bar ── */
+        .scripts-infobar {
+            background: rgba(0,255,136,.06);
+            border: 1px solid rgba(0,255,136,.15);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 32px;
+            font-size: .85rem;
+            color: rgba(255,255,255,.7);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+        .scripts-infobar svg { flex-shrink: 0; margin-top: 1px; color: var(--scripts-green); }
+
+        /* ── Menu link estilo ── */
+        .header__link--scripts { color: var(--scripts-green) !important; }
+        .header__link--scripts:hover { color: #fff !important; }
+
+        @media (max-width: 640px) {
+            .scripts-hero { padding: 40px 0 32px; }
+            .scripts-grid { grid-template-columns: 1fr; }
+            .script-card__bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .btn-comprar { width: 100%; text-align: center; }
+            .script-card__video-btns { width: 100%; }
+        }
+
+        /* ── Botões de vídeo ── */
+        .script-card__video-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 16px;
+            margin-bottom: 14px;
+        }
+        .btn-demo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            border: 1px solid;
+            border-radius: 7px;
+            padding: 8px 14px;
+            font-size: .78rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all .18s;
+            text-decoration: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn-demo--yt {
+            color: #ff4040;
+            border-color: rgba(255,64,64,.35);
+            background: rgba(255,64,64,.06);
+        }
+        .btn-demo--yt:hover { background: rgba(255,64,64,.15); border-color: rgba(255,64,64,.6); color: #ff6060; }
+        .btn-demo--tk {
+            color: #69c9d0;
+            border-color: rgba(105,201,208,.35);
+            background: rgba(105,201,208,.06);
+        }
+        .btn-demo--tk:hover { background: rgba(105,201,208,.15); border-color: rgba(105,201,208,.6); color: #8adde3; }
+
+        /* badge "COM VÍDEO" no card */
+        .script-card__video-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: .68rem;
+            font-weight: 700;
+            color: #00cc66;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .script-card__video-badge::before { content: '▶'; font-size: .7rem; }
+
+        /* ── Modal de vídeo ── */
+        .video-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.88);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .video-modal-overlay.is-open { display: flex; }
+        .video-modal {
+            background: #0d1526;
+            border: 1px solid rgba(0,255,136,.15);
+            border-radius: 14px;
+            width: 100%;
+            max-width: 820px;
+            overflow: hidden;
+            position: relative;
+        }
+        .video-modal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255,255,255,.07);
+        }
+        .video-modal__title {
+            font-size: .95rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+        }
+        .video-modal__close {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,.5);
+            font-size: 1.3rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: color .15s, background .15s;
+        }
+        .video-modal__close:hover { color: #fff; background: rgba(255,255,255,.08); }
+        .video-modal__body { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-modal__body iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .video-modal__footer {
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255,255,255,.07);
+        }
+        .video-modal__cta-text { font-size: .85rem; color: rgba(255,255,255,.55); margin: 0; }
+        .video-modal__buy {
+            background: var(--scripts-green);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 22px;
+            font-size: .875rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: opacity .2s;
+        }
+        .video-modal__buy:hover { opacity: .88; }
+
+        /* ── Modal de Detalhes ── */
+        .details-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(6px);z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s;}
+        .details-overlay.is-open{opacity:1;pointer-events:all;}
+        .details-modal{background:#0d1526;border:1px solid rgba(255,255,255,.08);border-radius:20px;width:100%;max-width:700px;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.9);animation:dmPop .22s cubic-bezier(.34,1.56,.64,1);}
+        @keyframes dmPop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+        .details-modal::-webkit-scrollbar{width:4px}.details-modal::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:4px;}
+        .dm__close{position:absolute;top:16px;right:16px;width:32px;height:32px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:rgba(255,255,255,.4);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:.15s;z-index:1;}
+        .dm__close:hover{background:rgba(255,60,60,.15);border-color:rgba(255,60,60,.3);color:#ff6060;}
+        .dm__header{padding:28px 28px 20px;background:linear-gradient(135deg,rgba(0,255,136,.06) 0%,transparent 60%);border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+        .dm__icon{font-size:28px;width:56px;height:56px;flex-shrink:0;background:linear-gradient(135deg,rgba(0,255,136,.15),rgba(0,255,136,.05));border:1px solid rgba(0,255,136,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;}
+        .dm__meta{flex:1;min-width:0;}
+        .dm__name{font-size:20px;font-weight:800;color:#fff;letter-spacing:-.3px;margin:0 0 4px;}
+        .dm__compat{font-size:11px;color:rgba(255,255,255,.35);font-weight:500;}
+        .dm__price{font-size:22px;font-weight:800;color:#00FF88;white-space:nowrap;text-align:right;}
+        .dm__price small{display:block;font-size:10px;font-weight:500;color:rgba(255,255,255,.3);}
+        .dm__body{padding:24px 28px;display:flex;flex-direction:column;gap:22px;}
+        .dm__desc{font-size:13.5px;color:rgba(255,255,255,.58);line-height:1.65;margin:0;}
+        .dm__sections{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+        @media(max-width:540px){.dm__sections{grid-template-columns:1fr;}}
+        .dm__section-label{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px;}
+        .dm__section-label--green{color:#00FF88;}.dm__section-label--red{color:#ff5555;}.dm__section-label--blue{color:#60a5fa;}.dm__section-label--amber{color:#f59e0b;}
+        .dm__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;}
+        .dm__list li{font-size:12px;color:rgba(255,255,255,.52);line-height:1.45;padding-left:18px;position:relative;}
+        .dm__list li::before{content:'✓';position:absolute;left:0;color:#00FF88;font-weight:700;font-size:11px;}
+        .dm__list--no li::before{content:'✕';color:#ff5555;}
+        .dm__deps{display:flex;flex-wrap:wrap;gap:6px;}
+        .dm__dep-tag{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.25);color:#60a5fa;border-radius:20px;padding:3px 11px;font-size:11px;font-weight:600;}
+        .dm__delivery{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:16px 18px;}
+        .dm__steps{display:flex;flex-direction:column;gap:9px;margin-top:10px;}
+        .dm__step{display:flex;align-items:flex-start;gap:10px;}
+        .dm__step-num{width:22px;height:22px;flex-shrink:0;background:rgba(0,255,136,.12);border:1px solid rgba(0,255,136,.25);border-radius:50%;color:#00FF88;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+        .dm__step-text{font-size:12px;color:rgba(255,255,255,.48);line-height:1.5;padding-top:3px;}
+        .dm__step-text strong{color:rgba(255,255,255,.75);font-weight:700;}
+        .dm__footer{padding:18px 28px 24px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+        .dm__footer-note{font-size:11px;color:rgba(255,255,255,.2);}
+        .dm__buy-btn{background:linear-gradient(135deg,#00FF88,#00cc6a);color:#000;font-weight:800;font-size:13px;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;transition:.15s;font-family:inherit;white-space:nowrap;}
+        .dm__buy-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,255,136,.3);}
+        .btn-detalhes{background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;transition:.15s;font-family:inherit;}
+        .btn-detalhes:hover{border-color:rgba(0,255,136,.35);color:#00FF88;}
+        @media(max-width:600px){.script-card__bottom{flex-wrap:wrap;}.btn-detalhes{width:100%;text-align:center;}}
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__inner wrap">
+            <a href="index.html" class="header__brand" aria-label="Medellin RP – Início">
+                <img src="assets/logo.webp" alt="" class="header__logo" width="40" height="40">
+                <span class="header__name">MEDELLIN <strong>RP</strong></span>
+            </a>
+            <button type="button" class="header__toggle" aria-label="Abrir menu" aria-expanded="false" id="menuToggle"><span class="header__toggle-bar"></span></button>
+            <nav class="header__nav" id="headerNav" aria-label="Menu principal">
+                <a href="index.html" class="header__link"><span class="header__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></span> Home</a>
+                <a href="index.html#planos" class="header__link"><span class="header__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></span> Loja VIP</a>
+                <a href="recursos-fivem.html" class="header__link header__link--scripts is-active"><span class="header__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span> Scripts FiveM</a>
+                <a href="index.html#suporte" class="header__link"><span class="header__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span> Suporte</a>
+                <a href="https://discord.gg/BAkZ7AkF" class="header__link header__link--discord" rel="noopener" target="_blank"><span class="header__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></span> Discord</a>
+            </nav>
+            <div class="header__actions">
+                <a href="checkout.html" class="btn btn-primary btn-sm btn-cart">Carrinho <span class="btn-cart__count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="scripts-hero">
+        <div class="wrap">
+            <span class="scripts-hero__badge">Scripts FiveM Originais</span>
+            <h1 class="scripts-hero__title">Scripts para o seu <strong>Servidor</strong></h1>
+            <p class="scripts-hero__sub">Recursos desenvolvidos e testados em servidor real. Compatíveis com QBox e QBCore. Download automático após pagamento.</p>
+            <div class="scripts-badges">
+                <span class="scripts-badges__item"><strong>QBox</strong> Compatível</span>
+                <span class="scripts-badges__item"><strong>QBCore</strong> Compatível</span>
+                <span class="scripts-badges__item"><strong>ox_lib</strong> Integrado</span>
+                <span class="scripts-badges__item">Download <strong>automático</strong></span>
+                <span class="scripts-badges__item">Licença por <strong>servidor</strong></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTRO -->
+    <nav class="scripts-filter" aria-label="Filtrar scripts">
+        <div class="wrap scripts-filter__inner">
+            <button type="button" class="scripts-filter__btn is-active" data-filter="todos">Todos</button>
+            <button type="button" class="scripts-filter__btn" data-filter="sistema">Sistema</button>
+            <button type="button" class="scripts-filter__btn" data-filter="pvp">PvP / Eventos</button>
+            <button type="button" class="scripts-filter__btn" data-filter="jobs">Empregos</button>
+            <button type="button" class="scripts-filter__btn" data-filter="social">Social</button>
+        </div>
+    </nav>
+
+    <!-- GRID DE PRODUTOS -->
+    <main class="scripts-section">
+        <div class="wrap">
+            <div class="scripts-infobar">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span>Após o pagamento você recebe um link de download exclusivo válido por <strong>24 horas</strong>. A licença fica vinculada ao <strong>sv_licenseKey do seu servidor</strong> — o script não roda em outros servidores.</span>
+            </div>
+
+            <div class="scripts-grid" id="scriptsGrid">
+
+                <!-- Anti-Cheat -->
+                <article class="script-card" data-cat="sistema">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🛡️</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Anti-Cheat</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Bloqueia teleport hack, god mode, speed hack e injeção de recursos em tempo real. Logs no Discord.</p>
+                    <ul class="script-card__features">
+                        <li>Detecta armas de exploit (Railgun, RPG, Minigun…)</li>
+                        <li>God mode, speed hack e invencibilidade</li>
+                        <li>Sistema de strikes configurável antes do kick</li>
+                        <li>Logs instantâneos no Discord via webhook</li>
+                        <li>Banimento automático por reincidência</li>
+                        <li>Whitelist de admins para bypass controlado</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 79,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_anticheat" data-product-name="Anti-Cheat" data-product-price="79.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- War System -->
+                <article class="script-card script-card--featured" data-cat="pvp">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">⚔️</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">War System</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">6 modos de guerra entre facções: kills, território, dominação, Battle Royale, X1 e modo espectador.</p>
+                    <ul class="script-card__features">
+                        <li>Guerra por kills e invasão de território</li>
+                        <li>Battle Royale com zona encolhendo</li>
+                        <li>Duelo 1v1 (X1) com fila automática</li>
+                        <li>Placar ao vivo via interface web</li>
+                        <li>Modo espectador para admins e staff</li>
+                        <li>Tempo e regras configuráveis por guerra</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 99,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_warsystem" data-product-name="War System" data-product-price="99.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Minigames -->
+                <article class="script-card" data-cat="sistema">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🎮</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Minigames (10 tipos)</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">10 minigames prontos para roubos, empregos e hacking. Chame qualquer um com uma linha de código.</p>
+                    <ul class="script-card__features">
+                        <li>Skill Bar, Safe Crack, Wire Cut, Chip Hack</li>
+                        <li>Anagram, Hangman, Pincode, Key Drop</li>
+                        <li>Button Mash com efeitos sonoros</li>
+                        <li>Compatível com qualquer script via export</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 49,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_minigames" data-product-name="Minigames" data-product-price="49.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Pesca -->
+                <article class="script-card script-card--featured" data-cat="jobs">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🎣</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Pesca Completa</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Sistema de pesca com XP, +30 peixes, barcos, redes, crafting e mercado negro. Inclui modo AFK.</p>
+                    <ul class="script-card__features">
+                        <li>+30 peixes com raridade (comum → lendário)</li>
+                        <li>Nível 1–50 com XP e conquistas</li>
+                        <li>Aluguel de barcos para pesca em alto mar</li>
+                        <li>Crafting + mercado negro com preços dinâmicos</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 89,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_fishing" data-product-name="Pesca Completa" data-product-price="89.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Facções Sistema -->
+                <article class="script-card script-card--featured" data-cat="sistema">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🏴</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Sistema de Facções</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Hierarquia com até 20 cargos, baú e garagem por cargo, e painel web para o líder gerenciar membros.</p>
+                    <ul class="script-card__features">
+                        <li>Hierarquia com até 20 cargos configuráveis</li>
+                        <li>Baús e garagens exclusivos por cargo</li>
+                        <li>Chat interno e recrutamento por convite</li>
+                        <li>Painel web para liderança gerenciar membros</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 129,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_faccoes" data-product-name="Sistema de Facções" data-product-price="129.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Corridas -->
+                <article class="script-card" data-cat="pvp">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🏎️</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Corridas de Rua</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Rotas customizáveis, ranking persistente no banco e placar web ao vivo. Corridas ilegais e competitivas.</p>
+                    <ul class="script-card__features">
+                        <li>Rotas customizáveis com checkpoints</li>
+                        <li>Corridas legais e ilegais por permissão</li>
+                        <li>Ranking por corrida salvo no banco</li>
+                        <li>Interface web com placar ao vivo</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 69,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_races" data-product-name="Corridas de Rua" data-product-price="69.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Central de Empregos -->
+                <article class="script-card" data-cat="jobs">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">💼</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Central de Empregos</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Painel completo com 17 empregos civis prontos. Carteiro, Fazendeiro, Lenhador, Lixeiro e muito mais.</p>
+                    <ul class="script-card__features">
+                        <li>17 empregos civis configuráveis</li>
+                        <li>Painel de seleção de emprego em NPC</li>
+                        <li>Salário, XP e progressão por nível</li>
+                        <li>Compatível com ox_inventory e ox_target</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 89,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_empregos" data-product-name="Central de Empregos" data-product-price="89.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Eventos Sazonais -->
+                <article class="script-card" data-cat="pvp">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🎉</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Eventos Sazonais</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Sistema de eventos ativados por admins ou agendados automaticamente: XP duplo, invasão zumbi, caça ao tesouro e mais.</p>
+                    <ul class="script-card__features">
+                        <li>XP Duplo, Dinheiro Bônus, Happy Hour</li>
+                        <li>Invasão Zumbi com recompensas por kill</li>
+                        <li>Caça ao tesouro com baús escondidos</li>
+                        <li>Agendamento automático por horário</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 69,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_eventos" data-product-name="Eventos Sazonais" data-product-price="69.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Tela de Spawn -->
+                <article class="script-card" data-cat="sistema">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🗺️</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Tela de Spawn</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Tela moderna de seleção de local de spawn com fotos dos pontos e correção de tela preta.</p>
+                    <ul class="script-card__features">
+                        <li>Múltiplos pontos de spawn com preview</li>
+                        <li>UI bonita com mapa e imagens</li>
+                        <li>Correção automática de tela escura</li>
+                        <li>Compatível com qbx-multicharacter</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 49,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_spawn" data-product-name="Tela de Spawn" data-product-price="49.90">Comprar</button>
+                    </div>
+                </article>
+
+
+                <!-- Sistema de Pets -->
+                <article class="script-card" data-cat="social">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🐾</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Sistema de Pets</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Pets animados que seguem, sentam, dormem e entram em veículos. Compatível com loja de itens — o player compra o pet e ele aparece via inventário.</p>
+                    <ul class="script-card__features">
+                        <li>+20 espécies disponíveis (cães, gatos, selvagens)</li>
+                        <li>Comandos: seguir, sentar, dormir, entrar no carro</li>
+                        <li>Integração com ox_inventory (item → spawna o pet)</li>
+                        <li>Persistência: pet volta após reconexão</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 59,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_pets" data-product-name="Sistema de Pets" data-product-price="59.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Sistema de Identidade -->
+                <article class="script-card" data-cat="sistema">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🪪</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Sistema de Identidade</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Carteira visual moderna com RG, CNH e cartão VIP em NUI. Policial pode pedir documentos via comando. Suporte a múltiplos modelos de carteiras (Nike, Gucci, Adidas, etc.).</p>
+                    <ul class="script-card__features">
+                        <li>Interface NUI visual com foto do personagem</li>
+                        <li>14 modelos de carteiras exclusivos</li>
+                        <li>Comando /rgp para policial pedir documentos</li>
+                        <li>Integrado com sistema VIP do servidor</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 49,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_identidade" data-product-name="Sistema de Identidade" data-product-price="49.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Sistema Carregar Pessoas -->
+                <article class="script-card" data-cat="social">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🤝</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Carregar Pessoas</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Segure e carregue outro jogador no ombro. Útil para resgates, roleplay de paramédico, sequestro e muito mais. Simples, leve e sem dependências pesadas.</p>
+                    <ul class="script-card__features">
+                        <li>Carregar jogador inconsciente ou deitado no ombro</li>
+                        <li>Tecla H para pegar / soltar</li>
+                        <li>Funciona com animação nativa do GTA</li>
+                        <li>Código mínimo (~100 linhas), sem impacto de performance</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 29,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_carry" data-product-name="Carregar Pessoas" data-product-price="29.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Sistema de Progressão -->
+                <article class="script-card" data-cat="sistema">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🏆</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Sistema de Progressão</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Sistema de XP e níveis com 100 ranks e títulos exclusivos. O jogador evolui fazendo qualquer atividade — trabalhos, crimes, tempo online.</p>
+                    <ul class="script-card__features">
+                        <li>100 níveis com curva exponencial de XP</li>
+                        <li>Títulos: Novato → Veterano → Lenda</li>
+                        <li>XP por empregos, crimes, tempo online</li>
+                        <li>Admin pode conceder XP bônus via roleplay</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 59,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_progressao" data-product-name="Sistema de Progressão" data-product-price="59.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Roubo a Residência -->
+                <article class="script-card script-card--featured" data-cat="pvp">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🏠</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Roubo a Residência</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">32 casas para invadir, cofre com safecracker, alarme com alerta à polícia e receptador incluso para vender os itens roubados.</p>
+                    <ul class="script-card__features">
+                        <li>32 casas — apartamentos e mansões no mapa</li>
+                        <li>Minigame de arrombamento em 3 rodadas</li>
+                        <li>Loot variado: eletrônicos, joias, armas e munição</li>
+                        <li>Cofre com safecracker nativo do GTA</li>
+                        <li>Alarme + alerta para polícia via ps-dispatch</li>
+                        <li>Receptador incluso para venda dos itens</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 79,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_rouboresidencia" data-product-name="Roubo a Residência" data-product-price="79.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Sistema de Skate -->
+                <article class="script-card" data-cat="social">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🛹</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Sistema de Skate</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Ande de skate pelo servidor com animações reais. O skate é um item no inventário — equipou, saiu andando. Leve e sem impacto de performance.</p>
+                    <ul class="script-card__features">
+                        <li>Animação nativa de skate do GTA</li>
+                        <li>Item no ox_inventory para equipar/guardar</li>
+                        <li>Velocidade configurável no config</li>
+                        <li>Código mínimo, zero lag</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 29,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_skate" data-product-name="Sistema de Skate" data-product-price="29.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Barbearia UI -->
+                <article class="script-card" data-cat="social">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">💈</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Barbearia UI</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Interface visual completa para barbearia. Preview em tempo real do corte, câmera dinâmica e salvamento automático da aparência.</p>
+                    <ul class="script-card__features">
+                        <li>Preview ao vivo enquanto troca o corte</li>
+                        <li>Câmera focada no personagem durante o menu</li>
+                        <li>Salva aparência no banco automaticamente</li>
+                        <li>Cancelar restaura o visual original</li>
+                        <li>100% configurável via config.lua</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 39,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_barber" data-product-name="Barbearia UI" data-product-price="39.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Tatuagem UI -->
+                <article class="script-card" data-cat="social">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🖋️</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Tatuagem UI</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Interface visual de tatuagem com câmera por zona do corpo, grade de tatuagens com labels e persistência automática no banco.</p>
+                    <ul class="script-card__features">
+                        <li>Câmera muda automaticamente por zona (cabeça, torso, braços, pernas)</li>
+                        <li>Grade visual com nome de cada tatuagem</li>
+                        <li>Rotação do personagem com A/D durante o menu</li>
+                        <li>Tatuagens persistem no banco via illenium-appearance</li>
+                        <li>Preview em tempo real antes de confirmar</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 39,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_tattoo" data-product-name="Tatuagem UI" data-product-price="39.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Loja de Roupas UI -->
+                <article class="script-card" data-cat="social">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">👗</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Loja de Roupas UI</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Interface visual completa de roupas com preview em tempo real de cada peça diretamente no personagem. Salva automaticamente no banco.</p>
+                    <ul class="script-card__features">
+                        <li>Todas as categorias: torso, calça, sapato, chapéu, acessórios e mais</li>
+                        <li>Preview ao vivo — vê a roupa no personagem antes de confirmar</li>
+                        <li>Salva no banco de dados via illenium-appearance</li>
+                        <li>Cancelar restaura o visual original</li>
+                        <li>Suporte masculino e feminino</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 39,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_clothing" data-product-name="Loja de Roupas UI" data-product-price="39.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Safe Zone -->
+                <article class="script-card" data-cat="sistema">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🛡️</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Safe Zone</h2>
+                            <span class="script-card__compat">QBox · QBCore</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Zonas de proteção configuráveis no mapa. Bloqueia dano, RDM e ações hostis em áreas definidas — ideal para hospital, pier, mecânica e spawn.</p>
+                    <ul class="script-card__features">
+                        <li>Zonas circulares com raio configurável no config</li>
+                        <li>Bloqueia dano entre jogadores dentro da zona</li>
+                        <li>Sistema anti-RDM com aviso e punição</li>
+                        <li>Suporte a zona de novatos (proteção extra)</li>
+                        <li>Admin bypass configurável por job</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 29,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_safezone" data-product-name="Safe Zone" data-product-price="29.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Elevador -->
+                <article class="script-card" data-cat="sistema">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🛗</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Sistema de Elevador</h2>
+                            <span class="script-card__compat">QBox · QBCore · Standalone</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Elevadores funcionais para prédios, delegacias, hospitais e qualquer edificação. Múltiplos andares com menu de seleção e blip por andar.</p>
+                    <ul class="script-card__features">
+                        <li>Suporte a múltiplos elevadores e andares</li>
+                        <li>Menu de seleção de andar ao interagir</li>
+                        <li>Blips individuais por andar no mapa</li>
+                        <li>Coordenadas e nomes configuráveis no config</li>
+                        <li>Standalone — funciona sem framework</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 29,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_elevator" data-product-name="Sistema de Elevador" data-product-price="29.90">Comprar</button>
+                    </div>
+                </article>
+
+                <!-- Arremessar Armas -->
+                <article class="script-card" data-cat="pvp">
+                    <div class="script-card__top">
+                        <div class="script-card__icon">🪃</div>
+                        <div class="script-card__info">
+                            <h2 class="script-card__name">Arremessar Armas</h2>
+                            <span class="script-card__compat">QBox · QBCore · ESX</span>
+                        </div>
+                    </div>
+                    <p class="script-card__desc">Arremesse facas, bastões, machados e outras armas brancas. Ao morrer, a arma cai no chão. Compatível com ESX, QBCore e QBox.</p>
+                    <ul class="script-card__features">
+                        <li>Lista de armas arremessáveis configurável</li>
+                        <li>Tecla de arremesso definida no config (padrão: J)</li>
+                        <li>Arma cai no chão ao morrer (configurável)</li>
+                        <li>Suporte a ESX, QBCore e QBox via bridge</li>
+                        <li>Compatível com ox_inventory e outros inventários</li>
+                    </ul>
+                    <div class="script-card__bottom">
+                        <div class="script-card__price">R$ 49,90<small>pagamento único</small></div>
+                        <button type="button" class="btn-comprar" data-product-id="script_weaponthrowing" data-product-name="Arremessar Armas" data-product-price="49.90">Comprar</button>
+                    </div>
+                </article>
+
+            </div><!-- /scripts-grid -->
+        </div>
+    </main>
+
+    <!-- MODAL DE VÍDEO -->
+    <div class="video-modal-overlay" id="videoModalOverlay" role="dialog" aria-modal="true" aria-label="Demonstração do script">
+        <div class="video-modal">
+            <div class="video-modal__header">
+                <h2 class="video-modal__title" id="videoModalTitle">Demonstração</h2>
+                <button type="button" class="video-modal__close" id="videoModalClose" aria-label="Fechar vídeo">✕</button>
+            </div>
+            <div class="video-modal__body">
+                <iframe id="videoModalIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Demonstração"></iframe>
+            </div>
+            <div class="video-modal__footer">
+                <p class="video-modal__cta-text">Gostou? Adquira agora com licença exclusiva para o seu servidor.</p>
+                <button type="button" class="video-modal__buy" id="videoModalBuy">Comprar este script →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE DETALHES -->
+    <div class="details-overlay" id="detailsOverlay">
+        <div class="details-modal">
+            <button type="button" class="dm__close" id="detailsClose">✕</button>
+            <div class="dm__header">
+                <div class="dm__icon" id="dmIcon"></div>
+                <div class="dm__meta">
+                    <h2 class="dm__name" id="dmName"></h2>
+                    <span class="dm__compat" id="dmCompat"></span>
+                </div>
+                <div class="dm__price" id="dmPrice"></div>
+            </div>
+            <div class="dm__body" id="dmBody"></div>
+            <div class="dm__footer">
+                <span class="dm__footer-note">Licença individual · Uso em 1 servidor</span>
+                <button type="button" class="dm__buy-btn" id="dmBuyBtn">Comprar agora →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE COMPRA -->
+    <div class="scripts-modal-overlay" id="scriptsModalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="scripts-modal">
+            <button type="button" class="scripts-modal__close" id="modalClose" aria-label="Fechar">✕</button>
+            <h2 class="scripts-modal__title" id="modalTitle">Finalizar compra</h2>
+            <p class="scripts-modal__product" id="modalProductName">—</p>
+
+            <form id="scriptsForm" novalidate>
+                <label class="scripts-form__label" for="fieldEmail">E-mail para entrega</label>
+                <input type="email" id="fieldEmail" class="scripts-form__input" placeholder="seu@email.com" required autocomplete="email">
+
+                <label class="scripts-form__label" for="fieldLicense">sv_licenseKey do seu servidor</label>
+                <input type="text" id="fieldLicense" class="scripts-form__input" placeholder="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" required autocomplete="off">
+                <p class="scripts-form__hint">Encontre em: <strong>console do FXServer → digita "status"</strong> ou no painel do CFX.re. O script só funciona no servidor com essa licença.</p>
+
+                <button type="submit" class="scripts-form__submit" id="formSubmit">Ir para pagamento →</button>
+                <p class="scripts-form__error" id="formError"></p>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner wrap">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="assets/logo.webp" alt="" class="footer__logo" width="40" height="40">
+                    <div class="footer__brand-text">
+                        <span class="footer__name">MEDELLIN <strong>RP</strong></span>
+                        <p class="footer__tagline">Scripts FiveM · GTA RP</p>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">SCRIPTS</h3>
+                    <nav class="footer__links">
+                        <a class="footer__link" href="#sistema">Sistema</a>
+                        <a class="footer__link" href="#pvp">PvP / Eventos</a>
+                        <a class="footer__link" href="#jobs">Empregos</a>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">AJUDA</h3>
+                    <nav class="footer__links">
+                        <a class="footer__link" href="index.html">Loja VIP</a>
+                        <a class="footer__link" href="index.html#suporte">Suporte</a>
+                        <a class="footer__link" href="https://discord.gg/BAkZ7AkF" rel="noopener" target="_blank">Discord</a>
+                    </nav>
+                </div>
+            </div>
+            <p style="text-align:center;margin-top:24px;font-size:.75rem;color:rgba(255,255,255,.25);">© 2026 Medellin RP · Scripts para uso em um servidor FiveM · Licença por sv_licenseKey</p>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var API_BASE = 'https://api.roleplaymedellin.com.br';
+
+        // ═══════════════════════════════════════════════════════
+        //  VIDEO CONFIG — Cole as URLs dos vídeos aqui
+        //  yt: ID do vídeo YouTube (parte após ?v= ou youtu.be/)
+        // ═══════════════════════════════════════════════════════
+        //  VIDEO CONFIG — videos: array de { label, yt (ID YouTube) }
+        // ═══════════════════════════════════════════════════════
+        var VIDEO_CONFIG = {
+            'script_races':     { videos: [{ label: '▶ Ver demonstração', yt: 'bdRmVM2tTic' }] },
+            'script_faccoes':   { videos: [{ label: '▶ Ver demonstração', yt: 's-PAVD3j-ls' }] },
+            'script_minigames': { videos: [{ label: '▶ Ver demonstração', yt: '7j60-ezphKc' }] },
+            'script_fishing':   { videos: [{ label: '▶ Pesca Completa',   yt: 'yT34s5xdRlw' },
+                                           { label: '▶ Pesca AFK',        yt: 't5lYMUjCAE4' }] },
+            'script_eventos':   { videos: [{ label: '▶ Invasão Zumbi',    yt: 'B1FWwgU9awg' },
+                                           { label: '▶ Caça ao Tesouro',  yt: 'DI-7URH1r10' }] },
+            'script_spawn':     { videos: [{ label: '▶ Ver demonstração', yt: '2co2upXqigU' }] },
+            'script_empregos':  { videos: [{ label: '▶ Ver demonstração', yt: 'oS7Rlo6Peac' }] },
+            'script_identidade': { videos: [{ label: '▶ Ver demonstração', yt: 'F178FCj-s0I' }] },
+            'script_pets':       { videos: [{ label: '▶ Ver demonstração', yt: 'NBwSg6s8V_k' }] },
+            'script_skate':          { videos: [{ label: '▶ Ver demonstração', yt: 'KObXRPDM_WM' }] },
+            'script_rouboresidencia':{ videos: [{ label: '▶ Ver demonstração', yt: 'XpiuUfnN_uI' }] },
+            'script_barber':         { videos: [{ label: '▶ Ver demonstração', yt: '39aec3YhuNU' }] },
+            'script_tattoo':         { videos: [{ label: '▶ Ver demonstração', yt: 'jsmcy4qcyvA' }] },
+            'script_weaponthrowing': { videos: [{ label: '▶ Ver demonstração', yt: 'UBPZ3AVZPJ4' }] },
+            'script_elevator':       { videos: [{ label: '▶ Ver demonstração', yt: 'OmTvkTI0w3A' }] },
+            'script_clothing':       { videos: [{ label: '▶ Ver demonstração', yt: 'cXaTA1swwoY' }] }
+            // Anti-Cheat, War System, Carry, Progressão, SafeZone: vídeo pendente
+        };
+
+        // ── Injeta botões de vídeo nos cards ──────────────────
+        var YT_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6a3 3 0 00-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>';
+
+        document.querySelectorAll('.btn-comprar').forEach(function(buyBtn) {
+            var pid = buyBtn.dataset.productId;
+            var cfg = VIDEO_CONFIG[pid];
+            if (!cfg || !cfg.videos || !cfg.videos.length) return;
+
+            var card = buyBtn.closest('.script-card');
+            var bottom = buyBtn.closest('.script-card__bottom');
+            var productName = buyBtn.dataset.productName;
+
+            // Badge "COM VÍDEO" no topo do card
+            var badge = document.createElement('div');
+            badge.className = 'script-card__video-badge';
+            badge.textContent = 'Com demonstração em vídeo';
+            card.querySelector('.script-card__top').insertAdjacentElement('afterend', badge);
+
+            // Botões de vídeo (um por vídeo disponível)
+            var btnsDiv = document.createElement('div');
+            btnsDiv.className = 'script-card__video-btns';
+
+            cfg.videos.forEach(function(v) {
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'btn-demo btn-demo--yt';
+                btn.innerHTML = YT_SVG + ' ' + v.label;
+                btn.dataset.ytId = v.yt;
+                btn.dataset.scriptName = productName + (cfg.videos.length > 1 ? ' — ' + v.label.replace('▶ ', '') : '');
+                btn.dataset.productId = pid;
+                btnsDiv.appendChild(btn);
+            });
+
+            bottom.insertAdjacentElement('beforebegin', btnsDiv);
+        });
+
+        // ── Modal de vídeo ────────────────────────────────────
+        var videoOverlay = document.getElementById('videoModalOverlay');
+        var videoIframe = document.getElementById('videoModalIframe');
+        var videoTitle = document.getElementById('videoModalTitle');
+        var videoModalBuy = document.getElementById('videoModalBuy');
+        var currentVideoPid = null;
+
+        function openVideoModal(ytId, name, pid) {
+            currentVideoPid = pid;
+            videoTitle.textContent = '▶ ' + name + ' — Demonstração';
+            videoIframe.src = 'https://www.youtube-nocookie.com/embed/' + ytId + '?autoplay=1&rel=0&modestbranding=1';
+            videoOverlay.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            videoOverlay.classList.remove('is-open');
+            videoIframe.src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('click', function(e) {
+            var ytBtn = e.target.closest('[data-yt-id]');
+            if (ytBtn) {
+                openVideoModal(ytBtn.dataset.ytId, ytBtn.dataset.scriptName, ytBtn.dataset.productId);
+                return;
+            }
+        });
+
+        document.getElementById('videoModalClose').addEventListener('click', closeVideoModal);
+        videoOverlay.addEventListener('click', function(e) { if (e.target === videoOverlay) closeVideoModal(); });
+
+        videoModalBuy.addEventListener('click', function() {
+            closeVideoModal();
+            if (currentVideoPid) {
+                var buyBtn = document.querySelector('.btn-comprar[data-product-id="' + currentVideoPid + '"]');
+                if (buyBtn) buyBtn.click();
+            }
+        });
+
+        // ── Filtro de categoria ───────────────────────────────
+        document.querySelectorAll('.scripts-filter__btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.scripts-filter__btn').forEach(function(b) { b.classList.remove('is-active'); });
+                btn.classList.add('is-active');
+                var filter = btn.dataset.filter;
+                document.querySelectorAll('.script-card').forEach(function(card) {
+                    card.style.display = (filter === 'todos' || card.dataset.cat === filter) ? '' : 'none';
+                });
+            });
+        });
+
+        // ── Modal de compra ───────────────────────────────────
+        var overlay = document.getElementById('scriptsModalOverlay');
+        var modalProductName = document.getElementById('modalProductName');
+        var formSubmit = document.getElementById('formSubmit');
+        var formError = document.getElementById('formError');
+        var currentProductId = null;
+        var currentProductPrice = null;
+
+        document.querySelectorAll('.btn-comprar').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                currentProductId = btn.dataset.productId;
+                currentProductPrice = btn.dataset.productPrice;
+                modalProductName.textContent = btn.dataset.productName + ' – R$ ' + currentProductPrice;
+                document.getElementById('fieldEmail').value = '';
+                document.getElementById('fieldLicense').value = '';
+                formError.style.display = 'none';
+                formError.textContent = '';
+                overlay.classList.add('is-open');
+                document.getElementById('fieldEmail').focus();
+            });
+        });
+
+        document.getElementById('modalClose').addEventListener('click', function() { overlay.classList.remove('is-open'); });
+        overlay.addEventListener('click', function(e) { if (e.target === overlay) overlay.classList.remove('is-open'); });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeVideoModal(); closeDetailsModal(); overlay.classList.remove('is-open'); } });
+
+        document.getElementById('scriptsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            formError.style.display = 'none';
+            var email = document.getElementById('fieldEmail').value.trim();
+            var license = document.getElementById('fieldLicense').value.trim();
+            if (!email || !/\S+@\S+\.\S+/.test(email)) {
+                formError.textContent = 'Informe um e-mail válido.'; formError.style.display = 'block'; return;
+            }
+            if (!license || license.length < 20) {
+                formError.textContent = 'Informe o sv_licenseKey do seu servidor (mínimo 20 caracteres).'; formError.style.display = 'block'; return;
+            }
+            formSubmit.disabled = true;
+            formSubmit.textContent = 'Aguarde…';
+            fetch(API_BASE + '/api/scripts/create-preference', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ productId: currentProductId, email: email, licenseKey: license })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.init_point || data.checkoutUrl) { window.location.href = data.init_point || data.checkoutUrl; }
+                else { throw new Error(data.error || 'Erro ao criar pagamento.'); }
+            })
+            .catch(function(err) {
+                formError.textContent = err.message || 'Erro ao conectar. Tente novamente.';
+                formError.style.display = 'block';
+                formSubmit.disabled = false;
+                formSubmit.textContent = 'Ir para pagamento →';
+            });
+        });
+        // ── DETAILS CONFIG (9 scripts) ─────────────────────────
+        var DETAILS_CONFIG = {
+            'script_anticheat': {
+                icon:'🛡️',name:'Anti-Cheat',compat:'QBox · QBCore',price:'R$ 79,90',pid:'script_anticheat',pname:'Anti-Cheat',pprice:'79.90',
+                desc:'Sistema de proteção em tempo real contra os cheats mais comuns no FiveM. Monitora o comportamento dos jogadores continuamente e age automaticamente — sem precisar de moderador online.',
+                includes:['Detecção de teleport hack com tolerância configurável','Detecção de god mode e invencibilidade','Detecção de speed hack (velocidade acima do limite definido)','Bloqueio de armas de exploit (Railgun, Minigun, RPG, etc.)','Sistema de strikes: aviso → kick → ban automático por reincidência','Logs instantâneos no Discord via webhook (com nome, ID e detalhes da detecção)','Whitelist de IDs ou permissões de admin para bypass controlado','Configuração completa via config.lua (limites, strikes, webhooks)','Suporte por 30 dias via Discord'],
+                excludes:['Configuração do servidor Discord — você cria o webhook e cola no config','Proteção contra cheats de menu externo (Eulen, Kiddion) — esses operam no lado do cliente','Ban persistente em banco de dados — usa o sistema de ban nativo do FiveM'],
+                deps:['qbx_core ou qb-core','ox_lib']
+            },
+            'script_warsystem': {
+                icon:'⚔️',name:'War System',compat:'QBox · QBCore',price:'R$ 99,90',pid:'script_warsystem',pname:'War System',pprice:'99.90',
+                desc:'Sistema completo de guerra entre facções com 6 modos de jogo distintos. Totalmente configurável — defina regras, tempo, recompensas e zonas de batalha diretamente no config.',
+                includes:['Modo Kills: vence quem atingir o número de abates definido','Modo Território: captura e defesa de pontos estratégicos','Modo Dominação: controle contínuo de zonas por tempo','Battle Royale com zona de dano encolhendo progressivamente','Duelo X1 (1v1) com fila de desafio automática','Modo espectador para admins e membros da staff','Placar ao vivo via interface web acessível por qualquer dispositivo','Recompensas em dinheiro ou XP configuráveis por modo','Notificações em tempo real para todos os jogadores online','Suporte por 30 dias via Discord'],
+                excludes:['Criação das zonas/territórios no mapa — você define as coordenadas no config','Script de facções — integra com qualquer sistema já existente no servidor','Texturas ou props de mapa customizados'],
+                deps:['qbx_core ou qb-core','ox_lib']
+            },
+            'script_minigames': {
+                icon:'🎮',name:'Minigames (10 tipos)',compat:'QBox · QBCore',price:'R$ 49,90',pid:'script_minigames',pname:'Minigames',pprice:'49.90',
+                desc:'Biblioteca com 10 minigames prontos para usar em qualquer script do servidor. Chame qualquer minigame com uma única linha de código via export. Perfeito para roubos, empregos e hacking.',
+                includes:['Skill Bar — barra de precisão estilo fishing','Safe Crack — girar combinação para abrir cofre','Wire Cut — cortar o fio correto sem errar','Chip Hack — sequência de chips na ordem certa','Anagram — desembaralhar as letras da palavra','Hangman — adivinhar a palavra letra por letra','Pincode — digitar o código numérico correto','Key Drop — pressionar a tecla certa no momento exato','Button Mash — spam de tecla com feedback sonoro','Circle Click — clicar na janela de tempo certa','API via exports: chame qualquer minigame de qualquer script com 1 linha','Dificuldade e tempo configuráveis por chamada','Suporte por 30 dias via Discord'],
+                excludes:['Integração com seus scripts específicos — você adiciona a chamada de export no seu código','Animações de personagem ou efeitos de câmera durante o minigame'],
+                deps:['ox_lib']
+            },
+            'script_fishing': {
+                icon:'🎣',name:'Pesca Completa',compat:'QBox · QBCore',price:'R$ 89,90',pid:'script_fishing',pname:'Pesca Completa',pprice:'89.90',
+                desc:'Sistema de pesca completo com progressão real, economia própria e alto potencial de engajamento. Inclui dois modos: pesca ativa com minigame e pesca AFK com rede.',
+                includes:['+30 espécies de peixes com raridade (Comum, Incomum, Raro, Épico, Lendário)','Sistema de nível 1 a 50 com XP por pesca e conquistas desbloqueáveis','Aluguel de barcos para pesca em alto mar (peixes raros exclusivos)','Modo AFK: instala a rede e volta depois para coletar','Crafting de varas e iscas com materiais coletáveis','Mercado negro com preços dinâmicos por oferta e demanda','Pontos de pesca configuráveis no mapa via config','Itens integrados com ox_inventory','Tutorial de instalação dos itens no ox_inventory incluso','Suporte por 30 dias via Discord'],
+                excludes:['Objetos 3D exclusivos de barco ou pier — usa modelos nativos do GTA','Itens de pesca pré-cadastrados no ox_inventory — você adiciona seguindo o tutorial incluso'],
+                deps:['qbx_core ou qb-core','ox_lib','ox_inventory','oxmysql']
+            },
+            'script_faccoes': {
+                icon:'🏴',name:'Sistema de Facções',compat:'QBox · QBCore',price:'R$ 129,90',pid:'script_faccoes',pname:'Sistema de Facções',pprice:'129.90',
+                desc:'Sistema completo de gestão de facções com hierarquia real, painel web para líderes e integrações com inventário e garagem. Tudo que uma organização precisa para operar dentro do servidor.',
+                includes:['Hierarquia com até 20 cargos personalizáveis por facção','Baús de facção com acesso controlado por cargo','Garagem exclusiva por cargo — define quem pode spawnar qual veículo','Chat interno da facção (visível só por membros)','Sistema de recrutamento por convite com código único','Painel web para o líder: gerenciar membros, cargos e permissões','Log de atividades da facção (entradas, saídas, promoções)','Salário automático por cargo configurável','Suporte a múltiplas facções simultâneas no servidor','Suporte por 30 dias via Discord'],
+                excludes:['Criação das facções após a instalação — você cria via painel web ou banco de dados','Modelos de veículos exclusivos — você define os models no config','Blips e markers de QG no mapa — você define as coordenadas no config'],
+                deps:['qbx_core ou qb-core','ox_lib','ox_inventory','oxmysql']
+            },
+            'script_races': {
+                icon:'🏎️',name:'Corridas de Rua',compat:'QBox · QBCore',price:'R$ 69,90',pid:'script_races',pname:'Corridas de Rua',pprice:'69.90',
+                desc:'Sistema de corridas ilegais e competitivas com ranking persistente e placar web ao vivo. Os próprios jogadores podem criar e salvar suas rotas in-game.',
+                includes:['Criação de rotas personalizadas com checkpoints definidos in-game','Corridas legais e ilegais (com risco de multa/detenção)','Múltiplos jogadores na mesma corrida simultânea','Apostas entre participantes antes da largada','Ranking persistente salvo no banco por corrida e por piloto','Placar web ao vivo acessível de qualquer dispositivo','Contagem regressiva com UI e efeitos sonoros','GPS automático para cada checkpoint','Suporte por 30 dias via Discord'],
+                excludes:['Rotas pré-criadas — você cria as suas in-game após a instalação','Veículos de corrida exclusivos — usa os veículos já existentes no servidor','Integração automática com sistema de polícia — depende do seu script de PMs'],
+                deps:['qbx_core ou qb-core','ox_lib','oxmysql']
+            },
+            'script_empregos': {
+                icon:'💼',name:'Central de Empregos',compat:'QBox · QBCore',price:'R$ 89,90',pid:'script_empregos',pname:'Central de Empregos',pprice:'89.90',
+                desc:'Script completo com 17 empregos civis prontos, todos acessíveis por um painel visual premium. O jogador escolhe o emprego, o veículo spawna automaticamente, ele entra direto e segue o GPS. Sistema com XP e bônus de salário por progressão.',
+                includes:['17 empregos: Caminhoneiro, Taxista, Reboque, Transporte de Valores, Ônibus de Turismo, Leiteiro, Carteiro, Entregador de Frango, iFood, Fazendeiro, Construtor Civil, Limpeza de Imóveis, Lenhador, Caçador, Motorista de Ônibus, Lixeiro e Minerador','Painel NUI premium com glassmorphism, filtros por categoria e busca em tempo real','6 categorias com cores: Veículos, Entregas, Campo, Segurança, Construção, Serviços','GPS automático ao selecionar qualquer emprego no painel','Veículo spawna automaticamente — player entra direto sem pedir chaves','Sistema de XP com 10 níveis (Novato → Lenda) e bônus crescente no salário','Rotas com múltiplos checkpoints para empregos de entrega','Animações de trabalho para empregos de tarefa (construção, limpeza)','Sistema de coleta e venda para Lenhador e Caçador','config.lua 100% comentado e fácil de editar','Suporte por 30 dias via Discord'],
+                excludes:['Coordenadas de spawn de veículos ajustadas para o seu mapa — cada servidor tem layout diferente, você ajusta no config.lua','NPCs nos pontos de emprego — usa markers no chão com tecla E','ox_target nos markers — usa o sistema nativo de interação'],
+                deps:['qbx_core ou qb-core','ox_lib','ox_inventory','oxmysql']
+            },
+            'script_eventos': {
+                icon:'🎉',name:'Eventos Sazonais',compat:'QBox · QBCore',price:'R$ 69,90',pid:'script_eventos',pname:'Eventos Sazonais',pprice:'69.90',
+                desc:'Sistema de eventos especiais que mantém o servidor animado. Ative manualmente ou configure horários automáticos. Os jogadores recebem notificação e as recompensas chegam direto no inventário ou na carteira.',
+                includes:['XP Duplo: todos ganham o dobro de experiência pelo tempo definido','Dinheiro Bônus: percentual extra em todos os pagamentos durante o evento','Happy Hour: preços reduzidos em lojas configuráveis','Invasão Zumbi: hordas de NPCs agressivos com recompensas por abate','Caça ao Tesouro: baús escondidos pelo mapa com itens e dinheiro','Agendamento automático por horário (ex: todos os dias às 20h)','Ativação manual por admin via comando no chat','Notificação para todos os jogadores online ao iniciar o evento','Duração e recompensas configuráveis por tipo de evento','Suporte por 30 dias via Discord'],
+                excludes:['Eventos personalizados além dos 5 inclusos — customização avançada requer edição no código','Baús com modelos 3D exclusivos — usa props nativos do GTA'],
+                deps:['qbx_core ou qb-core','ox_lib','ox_inventory']
+            },
+            'script_spawn': {
+                icon:'🗺️',name:'Tela de Spawn',compat:'QBox · QBCore',price:'R$ 49,90',pid:'script_spawn',pname:'Tela de Spawn',pprice:'49.90',
+                desc:'Tela de seleção de spawn moderna que substitui a padrão do FiveM. O jogador escolhe onde quer aparecer, vê uma foto do local e é teleportado sem tela preta.',
+                includes:['Interface NUI moderna com foto de cada ponto de spawn','Múltiplos pontos de spawn configuráveis (casa, hospital, hotel, etc.)','Correção automática de tela escura ao entrar no servidor','Compatível com qbx-multicharacter (funciona na troca de personagem)','Posição e heading (direção do personagem) definidos por ponto no config','Animação de fade suave ao entrar no mundo','Nenhum spawn aleatório — o player sempre escolhe onde aparecer','Suporte por 30 dias via Discord'],
+                excludes:['Fotos dos pontos de spawn — você fornece as imagens (tutorial de como tirar screenshot no FiveM incluso)','Sistema de casa/propriedade integrado — spawn na casa requer script de housing separado'],
+                deps:['qbx_core ou qb-core','ox_lib']
+            },
+            'script_pets': {
+                icon:'🐾',name:'Sistema de Pets',compat:'QBox · QBCore',price:'R$ 59,90',pid:'script_pets',pname:'Sistema de Pets',pprice:'59.90',
+                desc:'Pets animados que seguem, sentam, dormem e entram em veículos. O player recebe o pet como item no inventário — é só usar o item para spawnar. Persistência total: o pet volta após reconexão.',
+                includes:['Mais de 20 espécies suportadas: Husky, Poodle, Pug, Retriever, Rottweiler, Pastor Alemão, Westy, Greyhound, Yorkshire, Bulldog, Gato, Macaco e animais selvagens','Comandos in-game: seguir dono, sentar, deitar, dormir, entrar no veículo','Integração com ox_inventory — item no inventário spawna o pet','Persistência via banco de dados — pet volta após sair e voltar','Apenas um pet ativo por jogador simultaneamente','Nome do pet configurável por item no config','Tabela SQL criada automaticamente na primeira vez','Suporte por 30 dias via Discord'],
+                excludes:['Modelos 3D addon de urso ou crocodilo real — requerem resource addon separado (coyote/javali são usados como placeholder)','Loja de pets in-game — você vende via loja VIP ou shop do servidor','Animações personalizadas além das nativas do GTA'],
+                deps:['qbx_core ou qb-core','ox_lib','ox_inventory','oxmysql']
+            },
+            'script_identidade': {
+                icon:'🪪',name:'Sistema de Identidade',compat:'QBox · QBCore',price:'R$ 49,90',pid:'script_identidade',pname:'Sistema de Identidade',pprice:'49.90',
+                desc:'Carteira visual moderna com RG, CNH e dados do personagem em interface NUI. Policial pode solicitar documentos via comando. 14 modelos de carteiras exclusivos inclusos.',
+                includes:['Interface NUI premium com foto do personagem, nome, CPF, data de nascimento e nível VIP','14 modelos de carteiras: Nike, Gucci, Adidas, Balenciaga, Calvin Klein, Dolce & Gabbana, Cyclone, Quiksilver, Prada, Lacoste, Louis Vuitton, Chanel, Tommy Hilfiger e Default','Comando /carteira para ver os próprios documentos','Comando /rgp para policial pedir documentos (permissão configurável)','Cartão VIP exibido com design diferente por tier (Bronze, Prata, Ouro, Platinum, Black)','Carteira padrão configurável por servidor no config','Integrado com dados do qbx_core (nome, citizenid, etc.)','Suporte por 30 dias via Discord'],
+                excludes:['Foto real do personagem — exibe o modelo padrão do GTA V nativo (ped screenshot não está incluso)','Sistema de CNH com prova e multas — este script apenas exibe os documentos','Banco de dados próprio — lê dados do qbx_core existente'],
+                deps:['qbx_core ou qb-core','ox_lib','oxmysql']
+            },
+            'script_carry': {
+                icon:'🤝',name:'Carregar Pessoas',compat:'QBox · QBCore',price:'R$ 29,90',pid:'script_carry',pname:'Carregar Pessoas',pprice:'29.90',
+                desc:'Script simples e funcional que permite carregar outro jogador no ombro. Essencial para roleplay de paramédico, resgate, sequestro e operações policiais. Código leve, sem impacto de performance.',
+                includes:['Carregar outro jogador no ombro com animação nativa do GTA','Tecla H para pegar/soltar o jogador','Compatível com jogadores deitados (inconscientes) ou em pé','Funciona em qualquer situação — paramédico, policial, ou roleplay livre','Código mínimo (~100 linhas) — zero impacto de performance','Simples de instalar: adiciona no server.cfg e pronto','Suporte por 30 dias via Discord'],
+                excludes:['Carregar NPCs — funciona apenas entre jogadores reais','Animação de carregar em veículo — o jogador deve colocar no banco manualmente'],
+                deps:['qbx_core ou qb-core','ox_lib']
+            },
+            'script_progressao': {
+                icon:'🏆',name:'Sistema de Progressão',compat:'QBox · QBCore',price:'R$ 59,90',pid:'script_progressao',pname:'Sistema de Progressão',pprice:'59.90',
+                desc:'Sistema de XP e progressão com 100 níveis e títulos exclusivos por faixa. O jogador evolui fazendo qualquer atividade do servidor — trabalhos civis, crimes, tempo online — e vai ganhando novos títulos.',
+                includes:['100 níveis com curva exponencial de XP (0 XP no nível 1 até 200.000 no nível 100)','Títulos por faixa: Novato, Morador, Conhecido, Respeitado, Veterano, Expert e mais','XP configurável por atividade: empregos legais (50-200), crimes (100-500), tempo online (100 a cada 60min)','Admin pode conceder XP bônus manualmente via evento (para recompensar RP)','Dados persistidos em banco via oxmysql','Tabela SQL criada automaticamente','config.lua totalmente comentado para ajuste fino das recompensas','Suporte por 30 dias via Discord'],
+                excludes:['Interface HUD de XP — o sistema salva e calcula, a exibição na tela requer HUD separado','Integração automática com seus scripts de emprego/crime — você adiciona a chamada de XP no seu código seguindo o tutorial incluso'],
+                deps:['qbx_core ou qb-core','ox_lib','oxmysql']
+            },
+            'script_rouboresidencia': {
+                icon:'🏠',name:'Roubo a Residência',compat:'QBox · QBCore',price:'R$ 79,90',pid:'script_rouboresidencia',pname:'Roubo a Residência',pprice:'79.90',
+                desc:'Invada casas à noite com lockpick, vasculhe cômodos com interiores 3D exclusivos e fuja antes da polícia chegar. Cofre secreto com drop aleatório a cada roubo.',
+                includes:['Interiores 3D completos com props (sala, quarto, cozinha) — shellprops inclusos no resource','Lockpick na porta com chance aleatória de chamar a polícia','Cofre secreto com spawn aleatório — drop de itens ou dinheiro configurável','Sistema de cooldown pessoal (padrão: 60 min entre roubos)','Horário restrito configurável (padrão: 19h às 6h)','Policial pode invadir a casa via comando /invadir','Notificação aleatória para polícia ao usar lockpick','Múltiplas tabelas de recompensa configuráveis no config','Suporte por 30 dias via Discord'],
+                excludes:['Mapa de localização das casas — você define as coordenadas no config','Itens de recompensa pré-cadastrados no ox_inventory — você adiciona seguindo o tutorial incluso'],
+                deps:['qbx_core ou qb-core','ox_lib','ox_inventory','oxmysql']
+            },
+            'script_skate': {
+                icon:'🛹',name:'Sistema de Skate',compat:'QBox · QBCore',price:'R$ 29,90',pid:'script_skate',pname:'Sistema de Skate',pprice:'29.90',
+                desc:'Ande de skate pelo servidor com animação real. O skate é um item no inventário — equipou, saiu andando. Leve, simples e perfeito para servidores que querem mais interação social.',
+                includes:['Animação nativa de skate do GTA V','Item no ox_inventory para equipar e guardar','Velocidade configurável no config','Código mínimo — zero impacto de performance','Compatível com qualquer servidor QBox/QBCore','Suporte por 30 dias via Discord'],
+                excludes:['Modelo 3D de skate personalizado — usa animação nativa do GTA','Tricks ou manobras — é locomoção, não sistema de manobras'],
+                deps:['qbx_core ou qb-core','ox_lib','ox_inventory']
+            }
+        };
+
+        var DELIVERY_STEPS = [
+            'Clique em <strong>Comprar agora</strong> e informe seu e-mail e licenseKey do servidor',
+            'Conclua o pagamento com segurança via <strong>Mercado Pago</strong>',
+            'Receba o <strong>link de download</strong> no e-mail em até 5 minutos após a confirmação',
+            'Instale seguindo o <strong>README incluso</strong> — todas as dependências e passos documentados',
+            '<strong>30 dias de suporte</strong> via Discord para dúvidas de instalação e configuração'
+        ];
+
+        // Injeta botão "Ver detalhes" em cada card
+        document.querySelectorAll('.btn-comprar').forEach(function(buyBtn) {
+            var pid = buyBtn.dataset.productId;
+            if (!DETAILS_CONFIG[pid]) return;
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-detalhes';
+            btn.dataset.detailsId = pid;
+            btn.textContent = 'Ver detalhes';
+            buyBtn.insertAdjacentElement('beforebegin', btn);
+        });
+
+        // Modal de detalhes
+        var detailsOverlay = document.getElementById('detailsOverlay');
+        var dmBody = document.getElementById('dmBody');
+        var dmBuyBtn = document.getElementById('dmBuyBtn');
+        var currentDetailsPid = null;
+
+        function openDetailsModal(pid) {
+            var d = DETAILS_CONFIG[pid];
+            if (!d) return;
+            currentDetailsPid = pid;
+            document.getElementById('dmIcon').textContent = d.icon;
+            document.getElementById('dmName').textContent = d.name;
+            document.getElementById('dmCompat').textContent = d.compat;
+            document.getElementById('dmPrice').innerHTML = d.price + '<small>pagamento único</small>';
+            var html = '<p class="dm__desc">' + d.desc + '</p>';
+            html += '<div class="dm__sections">';
+            html += '<div><p class="dm__section-label dm__section-label--green">✓ O que você recebe</p><ul class="dm__list">' + d.includes.map(function(i){return '<li>'+i+'</li>';}).join('') + '</ul></div>';
+            html += '<div><p class="dm__section-label dm__section-label--red">✕ O que NÃO está incluso</p><ul class="dm__list dm__list--no">' + d.excludes.map(function(i){return '<li>'+i+'</li>';}).join('') + '</ul></div>';
+            html += '</div>';
+            html += '<div><p class="dm__section-label dm__section-label--blue">⚙ Dependências necessárias</p><div class="dm__deps">' + d.deps.map(function(dep){return '<span class="dm__dep-tag">'+dep+'</span>';}).join('') + '</div></div>';
+            html += '<div class="dm__delivery"><p class="dm__section-label dm__section-label--amber">📦 Como funciona a entrega</p><div class="dm__steps">' + DELIVERY_STEPS.map(function(s,i){return '<div class="dm__step"><div class="dm__step-num">'+(i+1)+'</div><div class="dm__step-text">'+s+'</div></div>';}).join('') + '</div></div>';
+            dmBody.innerHTML = html;
+            detailsOverlay.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetailsModal() {
+            detailsOverlay.classList.remove('is-open');
+            document.body.style.overflow = '';
+            currentDetailsPid = null;
+        }
+
+        document.addEventListener('click', function(e) {
+            var detBtn = e.target.closest('[data-details-id]');
+            if (detBtn) { openDetailsModal(detBtn.dataset.detailsId); return; }
+        });
+
+        document.getElementById('detailsClose').addEventListener('click', closeDetailsModal);
+        detailsOverlay.addEventListener('click', function(e) { if (e.target === detailsOverlay) closeDetailsModal(); });
+
+        dmBuyBtn.addEventListener('click', function() {
+            closeDetailsModal();
+            if (currentDetailsPid) {
+                var b = document.querySelector('.btn-comprar[data-product-id="' + currentDetailsPid + '"]');
+                if (b) b.click();
+            }
+        });
+
+    })();
+    </script>
+</body>
+</html>
