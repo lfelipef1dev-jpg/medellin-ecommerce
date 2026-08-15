@@ -5,7 +5,9 @@ deploy-secrets.env
 # Temp deploy (local e CI)
 _deploy_temp_pages
 _deploy
-
 # ngrok saida (script loja)
 ngrok_saida.txt
 ngrok_err.txt
+api/.env
+worker-api/wrangler.toml
+mp-token.txt

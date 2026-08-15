@@ -1,6 +1,0 @@
-# Cloudflare Pages – Loja VIP Medellin
-# Deploy: DEPLOY-AUTO.bat / DEPLOY-AUTO.ps1  ou  npx wrangler pages deploy _deploy_temp_pages --project-name=roleplaymedellin
-# O project-name no Cloudflare Pages é "roleplaymedellin" (usado nos scripts e no GitHub Actions).
-name = "vip-store-medellin"
-compatibility_date = "2024-01-01"
-pages_build_output_dir = "."
