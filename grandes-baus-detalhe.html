@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grande Baú – Medellin RP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260211-grandes-baus-detalhe">
+    <script src="config.js"></script>
+    <script src="veiculos-data.js"></script>
+    <script src="grandes-baus-data.js"></script>
+    <script src="veiculos-ficha-tecnica.js"></script>
+    <script src="app.js?v=20260211-cart" defer></script>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__inner wrap">
+            <a href="index.html" class="header__brand" aria-label="Medellin RP – Início">
+                <img src="assets/logo.webp" alt="" class="header__logo" width="40" height="40">
+                <span class="header__name">MEDELLIN <strong>RP</strong></span>
+            </a>
+            <button type="button" class="header__toggle" aria-label="Abrir menu" aria-expanded="false" id="menuToggle"><span class="header__toggle-bar"></span></button>
+            <nav class="header__nav" id="headerNav" aria-label="Menu principal">
+                <a href="veiculos.html" class="header__link">Veículos</a>
+                <a href="blindados-voadores.html" class="header__link">Blindados e Voadores</a>
+                <a href="aeronaves.html" class="header__link">Aeronaves</a>
+                <a href="grandes-baus.html" class="header__link is-active">Grandes Baús</a>
+                <a href="armas-skins.html" class="header__link">Armas e Skins</a>
+                <a href="checkout.html" class="header__link">Carrinho</a>
+            </nav>
+            <div class="header__actions">
+                <a href="#" class="btn btn-secondary btn-sm" id="btnLogin">Entrar</a>
+                <a href="checkout.html" class="btn btn-primary btn-sm btn-cart">Carrinho <span class="btn-cart__count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1 class="banner-title" id="bauTitle">Grande Baú</h1>
+            <p class="banner-subtitle" id="bauSubtitle">Grande capacidade de baú · Entrega na garagem</p>
+        </div>
+    </div>
+
+    <main class="main-content single-vip">
+        <div class="vip-detail-layout" id="bauContent">
+            <div class="vip-detail-card" id="bauCard">
+                <div class="vip-detail-card__image-wrap">
+                    <img src="" alt="" class="vip-detail-card__image" id="bauImage" width="280" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                </div>
+                <p class="vip-detail-price" id="bauPrice">R$ 0,00</p>
+                <p class="vip-detail-price-alt">Grande baú · Entrega na garagem</p>
+                <div class="vip-detail-cart-options">
+                    <button type="button" class="vip-btn vip-btn--cart" id="bauBtnCart">Adicionar ao carrinho</button>
+                </div>
+            </div>
+
+            <div class="vip-benefits" id="bauBenefits">
+                <p class="benefits-intro" id="bauIntro">Veículo com grande capacidade de baú. Após o pagamento, o veículo é entregue na sua garagem no jogo.</p>
+                <div id="bauSpecsBlock">
+                    <h3 class="benefits-section benefits-section--key">Ficha técnica</h3>
+                    <ul class="benefits-list" id="bauSpecsList"></ul>
+                </div>
+                <div id="bauBenefitsBlock">
+                    <h3 class="benefits-section benefits-section--gift">O que inclui</h3>
+                    <ul class="benefits-list" id="bauBenefitsList">
+                        <li>Grande capacidade de baú</li>
+                        <li>Entrega na garagem</li>
+                    </ul>
+                </div>
+                <p class="benefits-intro" style="margin-top: 1rem;"><a href="grandes-baus.html" class="btn btn-secondary btn-sm">Voltar a Grandes Baús</a></p>
+            </div>
+        </div>
+        <div class="wrap hidden" id="bauNotFound">
+            <p>Veículo não encontrado.</p>
+            <a href="grandes-baus.html" class="btn btn-primary">Voltar a Grandes Baús</a>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner wrap">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="assets/logo.webp" alt="" class="footer__logo" width="40" height="40">
+                    <div class="footer__brand-text">
+                        <span class="footer__name">MEDELLIN <strong>RP</strong></span>
+                        <p class="footer__tagline">Loja VIP · GTA RP</p>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">LOJA</h3>
+                    <nav class="footer__links" aria-label="Loja">
+                        <a class="footer__link" href="index.html#planos">Planos</a>
+                        <a class="footer__link" href="promocoes.html">Promoções</a>
+                        <a class="footer__link" href="checkout.html">Carrinho</a>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">AJUDA</h3>
+                    <nav class="footer__links" aria-label="Ajuda">
+                        <a class="footer__link" href="painel.html">Painel</a>
+                        <a class="footer__link" href="index.html#suporte">Suporte</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">© Medellin RP – Pagamento em R$ (BRL). Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        function getImageSrc(v) {
+            if (!v) return '';
+            var folder = v.imageFolder || 'vehicles';
+            var imgName = (v.imageModel || v.model) + (v.imageExt || '.png');
+            var path = 'assets/' + folder + '/' + imgName;
+            return (window.resolveAssetUrl ? window.resolveAssetUrl(path) : path);
+        }
+        function getQueryParam(name) {
+            try { return new URLSearchParams(window.location.search).get(name); } catch (_) { return null; }
+        }
+        function formatBRL(value) {
+            var n = Number(value);
+            if (!isFinite(n)) n = 0;
+            try { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); } catch (_) { return 'R$ ' + n.toFixed(2).replace('.', ','); }
+        }
+
+        var id = getQueryParam('id');
+        var model = '';
+        var data = null;
+        var tipoCategoria = '';
+
+        if (id) {
+            if (id.indexOf('grandes_bau_caminhao_') === 0) {
+                model = id.replace('grandes_bau_caminhao_', '');
+                var listC = window.GRANDES_BAUS_CAMINHOES || [];
+                for (var i = 0; i < listC.length; i++) {
+                    if (listC[i].model === model) { data = listC[i]; tipoCategoria = 'Caminhão'; break; }
+                }
+            } else if (id.indexOf('grandes_bau_veiculo_') === 0) {
+                model = id.replace('grandes_bau_veiculo_', '');
+                var listV = window.GRANDES_BAUS_VEICULOS || [];
+                for (var j = 0; j < listV.length; j++) {
+                    if (listV[j].model === model) { data = listV[j]; tipoCategoria = 'Veículo'; break; }
+                }
+            }
+        }
+
+        var fichaTecnica = (window.VEICULOS_FICHA_TECNICA && model) ? window.VEICULOS_FICHA_TECNICA[model.toLowerCase()] : null;
+        var trunkKg = (fichaTecnica && fichaTecnica.trunkKg != null) ? Number(fichaTecnica.trunkKg) : null;
+        var trunkSlots = (fichaTecnica && fichaTecnica.trunkSlots != null) ? Number(fichaTecnica.trunkSlots) : null;
+
+        var content = document.getElementById('bauContent');
+        var notFound = document.getElementById('bauNotFound');
+
+        if (!data) {
+            if (content) content.classList.add('hidden');
+            if (notFound) notFound.classList.remove('hidden');
+            document.getElementById('bauTitle').textContent = 'Veículo não encontrado';
+        } else {
+            if (notFound) notFound.classList.add('hidden');
+            document.getElementById('bauTitle').textContent = data.nome;
+            document.getElementById('bauSubtitle').textContent = 'Grande baú · ' + (tipoCategoria || '') + ' · Entrega na garagem';
+
+            var img = document.getElementById('bauImage');
+            if (img) { img.src = getImageSrc(data); img.alt = data.nome; }
+
+            var priceEl = document.getElementById('bauPrice');
+            if (priceEl) priceEl.textContent = formatBRL(data.preco);
+
+            var specsList = document.getElementById('bauSpecsList');
+            if (specsList) {
+                var specs = [];
+                if (fichaTecnica && fichaTecnica.brand) specs.push('<li><strong>Marca:</strong> ' + String(fichaTecnica.brand) + '</li>');
+                specs.push('<li><strong>Modelo (jogo):</strong> ' + data.model + '</li>');
+                if (tipoCategoria) specs.push('<li><strong>Categoria:</strong> ' + tipoCategoria + '</li>');
+                if (trunkKg != null) specs.push('<li><strong>Capacidade do baú (peso máx.):</strong> ' + trunkKg + ' kg</li>');
+                if (trunkSlots != null) specs.push('<li><strong>Slots do baú:</strong> ' + trunkSlots + '</li>');
+                specs.push('<li><strong>Entrega:</strong> Garagem</li>');
+                specsList.innerHTML = specs.join('');
+            }
+
+            var card = document.getElementById('bauCard');
+            if (card) { card.setAttribute('data-product-id', id); card.setAttribute('data-price', String(data.preco)); }
+
+            var btn = document.getElementById('bauBtnCart');
+            var btnLabel = formatBRL(data.preco);
+            if (btn) {
+                btn.textContent = 'Adicionar ao carrinho – ' + btnLabel;
+                btn.addEventListener('click', function () {
+                    if (window.medellinAddToCart) {
+                        window.medellinAddToCart({ name: data.nome, price: data.preco, image: getImageSrc(data), productId: id, productType: 'veiculo' });
+                    } else {
+                        var cart = []; try { var raw = localStorage.getItem('medellin_cart'); if (raw) cart = JSON.parse(raw); } catch (_) {}
+                        cart.push({ id: Date.now() + '-' + Math.random().toString(36).slice(2), name: data.nome, price: data.preco, image: getImageSrc(data), productId: id, productType: 'veiculo' });
+                        try { localStorage.setItem('medellin_cart', JSON.stringify(cart)); } catch (_) {}
+                        var countEl = document.querySelector('.btn-cart__count'); if (countEl) countEl.textContent = cart.length;
+                    }
+                    btn.textContent = 'Adicionado ✓';
+                    btn.disabled = true;
+                    setTimeout(function () { btn.textContent = 'Adicionar ao carrinho – ' + btnLabel; btn.disabled = false; }, 1500);
+                });
+            }
+        }
+
+        var cartCountEl = document.getElementById('cartCount');
+        if (cartCountEl) {
+            try {
+                var raw = localStorage.getItem('medellin_cart');
+                var arr = raw ? JSON.parse(raw) : [];
+                cartCountEl.textContent = Array.isArray(arr) ? arr.length : 0;
+            } catch (_) { cartCountEl.textContent = '0'; }
+        }
+    })();
+    </script>
+</body>
+</html>

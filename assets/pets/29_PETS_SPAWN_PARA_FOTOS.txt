@@ -1,0 +1,66 @@
+================================================================================
+29 PETS SEM FOTO – COMO SPawnAR PARA TIRAR AS FOTOS
+================================================================================
+Use o modelo (Model) no menu admin / spawn de peds do servidor para criar o
+animal na frente do personagem. Ajuste a câmera e tire a screenshot.
+Depois envie a foto e diga o nome do pet; eu coloco na pasta com o nome correto.
+
+Formato: Nome na loja | Nome do arquivo da imagem | Model (spawn)
+--------------------------------------------------------------------------------
+
+1.  Javali              | boar.png           | a_c_boar
+2.  Javali (variante)   | boar-02.png        | a_c_boar_02
+3.  Gato (variante)     | cat-02.png         | a_c_cat_02
+4.  Falcão              | chickenhawk.png   | a_c_chickenhawk
+5.  Chimpanzé (variante)| chimp-02.png       | a_c_chimp_02
+6.  Chop                | chop.png           | a_c_chop
+7.  Chop (variante)     | chop-02.png        | a_c_chop_02
+8.  Cormorão            | cormorant.png     | a_c_cormorant
+9.  Vaca                | cow.png            | a_c_cow
+10. Coyote (variante)   | coyote-02.png      | a_c_coyote_02
+11. Corvo               | crow.png           | a_c_crow
+12. Veado               | deer.png          | a_c_deer
+13. Veado (variante)    | deer-02.png        | a_c_deer_02
+14. Golfinho            | dolphin.png       | a_c_dolphin
+15. Peixe               | fish.png           | a_c_fish
+16. Galinha             | hen.png           | a_c_hen
+17. Baleia jubarte      | humpback.png      | a_c_humpback
+18. Orca                | killerwhale.png   | a_c_killerwhale
+19. Pantera             | panther.png       | a_c_panther
+20. Porco               | pig.png           | a_c_pig
+21. Pombo               | pigeon.png        | a_c_pigeon
+22. Pug (variante)      | pug-02.png        | a_c_pug_02
+23. Coelho              | rabbit-01.png     | a_c_rabbit_01
+24. Coelho (variante)   | rabbit-02.png     | a_c_rabbit_02
+25. Rato                | rat.png            | a_c_rat
+26. Gaivota             | seagull.png       | a_c_seagull
+27. Tubarão-martelo     | sharkhammer.png   | a_c_sharkhammer
+28. Tubarão-tigre       | sharktiger.png    | a_c_sharktiger
+29. Arraia              | stingray.png      | a_c_stingray
+
+================================================================================
+COMO SPawnAR NO SERVIDOR (FiveM)
+================================================================================
+• Menu admin (ex.: qb-adminmenu): opção de spawn ped / model → digite o Model
+  da linha acima (ex.: a_c_boar).
+• Ou comando do seu admin, se tiver: /spawnped a_c_boar (exemplo).
+• O ped será criado; posicione a câmera e tire a foto (F8 ou print screen),
+  de preferência com fundo neutro ou bonito.
+
+================================================================================
+ONDE ALGUNS APARECEM NO MAPA (caso queira foto no ambiente)
+================================================================================
+• Javali (boar): Deserto Grand Senora, trilha ao sudeste da Redwood Lights;
+  Blaine County, região de Grapeseed.
+• Vaca (cow): Fazenda em Grapeseed; campo no Grand Senora Desert.
+• Porco (pig): Fazendas em Blaine County, Grapeseed.
+• Galinha / Hen: Sandy Shores Airfield; pocilga em Paleto Bay.
+• Veado (deer): Base do Monte Chiliad, floresta Blaine County, Paleto Forest.
+• Corvo (crow): Grand Senora Desert.
+• Coyote: Sandy Shores, perto do aeródromo do Trevor.
+• Golfinho, tubarões, orca, arraia, baleia: no mar (precisa entrar na água
+  ou usar spawn; no mapa não ficam em pé na terra).
+• Pombo, gaivota, falcão: céu ou praias; spawne e tire a foto antes de voar.
+
+Depois de tirar as 29 fotos, envie com o nome do arquivo (ex.: boar.png) ou
+o nome do pet; eu adiciono na pasta assets/pets/ com o nome correto.

@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículos – Medellin RP</title>
+    <link rel="dns-prefetch" href="https://pub-89b867ec225e45518f185a48a96ed88e.r2.dev">
+    <link rel="preconnect" href="https://pub-89b867ec225e45518f185a48a96ed88e.r2.dev" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://pub-89b867ec225e45518f185a48a96ed88e.r2.dev">
+    <link rel="preconnect" href="https://pub-89b867ec225e45518f185a48a96ed88e.r2.dev" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260210-veiculos">
+    <script src="config.js"></script>
+    <script src="app.js?v=20260211-cart" defer></script>
+    <script>
+/**
+ * Veiculos da loja VIP: especiais (assets/especial) + base com imagem (assets/vehicles).
+ * Gerado por scripts/GERAR_VEICULOS_DATA_LOJA.ps1 a partir do CSV.
+ */
+window.VEICULOS_CATEGORIAS = [
+    { id: 'start', label: 'Veículos Start' },
+    { id: 'elite', label: 'Veículos Elite' },
+    { id: 'colecionaveis', label: 'Veículos Colecionáveis' },
+    { id: 'lendarios', label: 'Veículos Lendários' },
+    { id: 'voadores', label: 'Veículos Voadores' }
+];
+
+window.VEICULOS_POR_CATEGORIA = {
+    start: [
+        { model: 'rcbandito', nome: 'RC Bandito', preco: 120, imageFolder: 'especial' },
+        { model: 'submersible', nome: 'Submersible', preco: 150, imageFolder: 'especial' },
+        { model: 'submersible2', nome: 'Kraken', preco: 150, imageFolder: 'especial' },
+        { model: 'voltic2', nome: 'Rocket Voltic', preco: 170, imageFolder: 'especial' },
+        { model: 'deathbike', nome: 'Deathbike Apocalypse', preco: 180, imageFolder: 'especial' },
+        { model: 'deathbike2', nome: 'Deathbike Future Shock', preco: 180, imageFolder: 'especial', imageModel: 'deathbike' },
+        { model: 'deathbike3', nome: 'Deathbike Nightmare', preco: 180, imageFolder: 'especial', imageModel: 'deathbike' },
+        { model: 'tornado2', nome: 'Tornado', preco: 180, imageFolder: 'especial' },
+        { model: 'forklift', nome: 'Forklift', preco: 89, imageFolder: 'vehicles' },
+        { model: 'docktug', nome: 'Docktug', preco: 89, imageFolder: 'vehicles' },
+        { model: 'ripley', nome: 'Ripley', preco: 89, imageFolder: 'vehicles' },
+        { model: 'mower', nome: 'Lawn Mower', preco: 89, imageFolder: 'vehicles' },
+        { model: 'airtug', nome: 'Airtug', preco: 89, imageFolder: 'vehicles' },
+        { model: 'burrito3', nome: 'Burrito', preco: 81, imageFolder: 'vehicles' },
+        { model: 'gburrito2', nome: 'Burrito Custom', preco: 83, imageFolder: 'vehicles' },
+        { model: 'bison', nome: 'Bison', preco: 85, imageFolder: 'vehicles' },
+        { model: 'bobcatxl', nome: 'Bobcat XL Open', preco: 84, imageFolder: 'vehicles' },
+        { model: 'utillitruck2', nome: 'Utility Truck (Van)', preco: 89, imageFolder: 'vehicles' },
+        { model: 'utillitruck3', nome: 'Utility Truck (Contender)', preco: 89, imageFolder: 'vehicles' },
+        { model: 'caddy3', nome: 'Caddy (Golf/Bunker)', preco: 89, imageFolder: 'vehicles' },
+        { model: 'utillitruck', nome: 'Utility Truck (Cherry Picker)', preco: 89, imageFolder: 'vehicles' },
+        { model: 'tractor', nome: 'Tractor', preco: 89, imageFolder: 'vehicles' },
+        { model: 'towtruck2', nome: 'Tow Truck (Small)', preco: 89, imageFolder: 'vehicles' },
+        { model: 'sadler', nome: 'Sadler', preco: 85, imageFolder: 'vehicles' },
+        { model: 'tractor2', nome: 'Fieldmaster', preco: 89, imageFolder: 'vehicles' },
+        { model: 'towtruck', nome: 'Tow Truck (Large)', preco: 89, imageFolder: 'vehicles' },
+        { model: 'boxville2', nome: 'Boxville Go Postal', preco: 94, imageFolder: 'vehicles' },
+        { model: 'boxville3', nome: 'Boxville Humane Labs', preco: 94, imageFolder: 'vehicles' },
+        { model: 'moonbeam2', nome: 'Moonbeam Custom', preco: 84, imageFolder: 'vehicles' },
+        { model: 'boxville', nome: 'Boxville LSDWP', preco: 94, imageFolder: 'vehicles' },
+        { model: 'boxville4', nome: 'Boxville Post OP', preco: 94, imageFolder: 'vehicles' },
+        { model: 'pony2', nome: 'Pony (Smoke on the water)', preco: 94, imageFolder: 'vehicles' },
+        { model: 'mule2', nome: 'Mule', preco: 93, imageFolder: 'vehicles' },
+        { model: 'boxville5', nome: 'Armored Boxville', preco: 94, imageFolder: 'vehicles' },
+        { model: 'pony', nome: 'Pony', preco: 94, imageFolder: 'vehicles' },
+        { model: 'rumpo3', nome: 'Rumpo Custom', preco: 86, imageFolder: 'vehicles' },
+        { model: 'speedo', nome: 'Speedo', preco: 83, imageFolder: 'vehicles' },
+        { model: 'rumpo', nome: 'Rumpo', preco: 82, imageFolder: 'vehicles' },
+        { model: 'journey', nome: 'Journey', preco: 82, imageFolder: 'vehicles' },
+        { model: 'speedo4', nome: 'Speedo Custom', preco: 84, imageFolder: 'vehicles' },
+        { model: 'youga2', nome: 'Youga Classic', preco: 84, imageFolder: 'vehicles' },
+        { model: 'moonbeam', nome: 'Moonbeam', preco: 84, imageFolder: 'vehicles' },
+        { model: 'surfer', nome: 'Surfer', preco: 82, imageFolder: 'vehicles' },
+        { model: 'youga', nome: 'Youga', preco: 82, imageFolder: 'vehicles' },
+        { model: 'caddy2', nome: 'Caddy (Civilian)', preco: 89, imageFolder: 'vehicles' },
+        { model: 'blazer2', nome: 'Blazer Lifeguard', preco: 82, imageFolder: 'vehicles' },
+        { model: 'blazer3', nome: 'Blazer Hot Rod', preco: 82, imageFolder: 'vehicles' },
+        { model: 'bifta', nome: 'Bifta', preco: 85, imageFolder: 'vehicles' },
+        { model: 'blazer', nome: 'Blazer', preco: 82, imageFolder: 'vehicles' },
+        { model: 'blazer4', nome: 'Blazer Sport', preco: 83, imageFolder: 'vehicles' },
+        { model: 'caracara', nome: 'Caracara', preco: 95, imageFolder: 'vehicles' },
+        { model: 'dubsta3', nome: 'Dubsta 6x6', preco: 92, imageFolder: 'vehicles' },
+        { model: 'blazer5', nome: 'Blazer Aqua', preco: 95, imageFolder: 'vehicles' },
+        { model: 'brawler', nome: 'Brawler', preco: 95, imageFolder: 'vehicles' },
+        { model: 'ratbike', nome: 'Rat Bike', preco: 80, imageFolder: 'vehicles' },
+        { model: 'sanctus', nome: 'Sanctus', preco: 88, imageFolder: 'vehicles' },
+        { model: 'innovation', nome: 'Innovation', preco: 88, imageFolder: 'vehicles' },
+        { model: 'nightblade', nome: 'Nightblade', preco: 85, imageFolder: 'vehicles' },
+        { model: 'sovereign', nome: 'Sovereign', preco: 82, imageFolder: 'vehicles' },
+        { model: 'zombieb', nome: 'Zombie Chopper', preco: 86, imageFolder: 'vehicles' },
+        { model: 'bfinjection', nome: 'Bf Injection', preco: 83, imageFolder: 'vehicles' },
+        { model: 'wolfsbane', nome: 'Wolfsbane', preco: 83, imageFolder: 'vehicles' },
+        { model: 'zombiea', nome: 'Zombie Bobber', preco: 87, imageFolder: 'vehicles' },
+        { model: 'mixer2', nome: 'Mixer II', preco: 89, imageFolder: 'vehicles' },
+        { model: 'tiptruck2', nome: 'Tipper II', preco: 89, imageFolder: 'vehicles' },
+        { model: 'mesa', nome: 'Mesa', preco: 84, imageFolder: 'vehicles' },
+        { model: 'guardian', nome: 'Guardian', preco: 89, imageFolder: 'vehicles' },
+        { model: 'tiptruck', nome: 'Tipper', preco: 89, imageFolder: 'vehicles' },
+        { model: 'dump', nome: 'Dump Truck', preco: 89, imageFolder: 'vehicles' },
+        { model: 'bulldozer', nome: 'Dozer', preco: 89, imageFolder: 'vehicles' },
+        { model: 'mixer', nome: 'Mixer', preco: 89, imageFolder: 'vehicles' },
+        { model: 'flatbed', nome: 'Flatbed Truck', preco: 89, imageFolder: 'vehicles' },
+        { model: 'freecrawler', nome: 'Freecrawler', preco: 89, imageFolder: 'vehicles' },
+        { model: 'hellion', nome: 'Hellion', preco: 94, imageFolder: 'vehicles' },
+        { model: 'dune', nome: 'Dune Buggy', preco: 85, imageFolder: 'vehicles' },
+        { model: 'everon', nome: 'Everon', preco: 95, imageFolder: 'vehicles' },
+        { model: 'kalahari', nome: 'Kalahari', preco: 85, imageFolder: 'vehicles' },
+        { model: 'rancherxl', nome: 'Rancher XL', preco: 86, imageFolder: 'vehicles' },
+        { model: 'rebel2', nome: 'Rebel', preco: 85, imageFolder: 'vehicles' },
+        { model: 'kamacho', nome: 'Kamacho', preco: 92, imageFolder: 'vehicles' },
+        { model: 'outlaw', nome: 'Outlaw', preco: 85, imageFolder: 'vehicles' },
+        { model: 'burrito5', nome: 'Burrito 5', preco: 89, imageFolder: 'vehicles' },
+        { model: 'caddy', nome: 'Caddy', preco: 86, imageFolder: 'vehicles' },
+        { model: 'burrito2', nome: 'Burrito 2', preco: 88, imageFolder: 'vehicles' },
+        { model: 'burrito4', nome: 'Burrito 4', preco: 89, imageFolder: 'vehicles' },
+        { model: 'dloader', nome: 'D Loader', preco: 95, imageFolder: 'vehicles' },
+        { model: 'gburrito', nome: 'Gang Burrito', preco: 89, imageFolder: 'vehicles' },
+        { model: 'rebel', nome: 'Rebel', preco: 93, imageFolder: 'vehicles' },
+        { model: 'emperor2', nome: 'Emperor 2', preco: 82, imageFolder: 'vehicles' },
+        { model: 'emperor3', nome: 'Emperor 3', preco: 82, imageFolder: 'vehicles' },
+        { model: 'rumpo2', nome: 'Rumpo 2', preco: 93, imageFolder: 'vehicles' },
+        { model: 'sadler2', nome: 'Sadler 2', preco: 88, imageFolder: 'vehicles' },
+        { model: 'rancherxl2', nome: 'Rancher XL 2', preco: 93, imageFolder: 'vehicles' },
+        { model: 'ratloader', nome: 'Ratloader', preco: 88, imageFolder: 'vehicles' },
+        { model: 'speedo2', nome: 'Speedo 2', preco: 94, imageFolder: 'vehicles' },
+        { model: 'bodhi2', nome: 'Bodhi 2', preco: 95, imageFolder: 'vehicles' },
+        { model: 'burrito', nome: 'Burrito', preco: 88, imageFolder: 'vehicles' },
+        { model: 'surfer2', nome: 'Surfer 2', preco: 89, imageFolder: 'vehicles' },
+        { model: 'voodoo2', nome: 'Voodoo 2', preco: 87, imageFolder: 'vehicles' },
+        { model: 'trailers4', nome: 'Trailers 4', preco: 89, imageFolder: 'vehicles' },
+        { model: 'trailersmall', nome: 'Trailer Small', preco: 83, imageFolder: 'vehicles' },
+        { model: 'trailers2', nome: 'Trailers 2', preco: 88, imageFolder: 'vehicles' },
+        { model: 'trailers3', nome: 'Trailers 3', preco: 88, imageFolder: 'vehicles' },
+        { model: 'graintrailer', nome: 'Grain Trailer', preco: 90, imageFolder: 'vehicles' },
+        { model: 'celta', nome: 'Celta Paredão', preco: 87, imageFolder: 'vehicles' },
+        { model: 'tvtrailer', nome: 'TV Trailer', preco: 95, imageFolder: 'vehicles' },
+        { model: 'freighttrailer', nome: 'Freight Trailer', preco: 92, imageFolder: 'vehicles' },
+        { model: 'golf7gti', nome: 'GOLF GTI', preco: 85, imageFolder: 'vehicles' },
+        { model: 'baletrailer', nome: 'Bale Trailer', preco: 87, imageFolder: 'vehicles' },
+        { model: 'boattrailer', nome: 'Boat Trailer', preco: 86, imageFolder: 'vehicles' },
+        { model: 'armytrailer', nome: 'Army Trailer', preco: 92, imageFolder: 'vehicles' },
+        { model: 'armytrailer2', nome: 'Army Trailer 2', preco: 93, imageFolder: 'vehicles' },
+        { model: 'docktrailer', nome: 'Dock Trailer', preco: 88, imageFolder: 'vehicles' },
+        { model: 'trailerlogs', nome: 'Trailer Logs', preco: 91, imageFolder: 'vehicles' },
+        { model: 'trailers', nome: 'Trailers', preco: 87, imageFolder: 'vehicles' },
+        { model: 'proptrailer', nome: 'Prop Trailer', preco: 90, imageFolder: 'vehicles' },
+        { model: 'raketrailer', nome: 'Rake Trailer', preco: 88, imageFolder: 'vehicles' },
+        { model: 'z1000', nome: 'Kawasaki Z1000', preco: 91, imageFolder: 'vehicles' },
+        { model: 'speeder2', nome: 'Speeder Yacht', preco: 95, imageFolder: 'vehicles' },
+        { model: 'tropic', nome: 'Tropic', preco: 95, imageFolder: 'vehicles' },
+        { model: 'toro2', nome: 'Toro Yacht', preco: 95, imageFolder: 'vehicles' },
+        { model: 'speeder', nome: 'Speeder', preco: 95, imageFolder: 'vehicles' },
+        { model: 'tropic2', nome: 'Tropic Yacht', preco: 95, imageFolder: 'vehicles' },
+        { model: 'seashark', nome: 'Seashark', preco: 95, imageFolder: 'vehicles' },
+        { model: 'seashark3', nome: 'Seashark Yacht', preco: 95, imageFolder: 'vehicles' },
+        { model: 'suntrap', nome: 'Suntrap', preco: 95, imageFolder: 'vehicles' },
+        { model: 'squalo', nome: 'Squalo', preco: 95, imageFolder: 'vehicles' },
+        { model: 'cruiser', nome: 'Cruiser', preco: 80, imageFolder: 'vehicles' },
+        { model: 'scorcher', nome: 'Scorcher', preco: 80, imageFolder: 'vehicles' },
+        { model: 'mule3', nome: 'Mule', preco: 93, imageFolder: 'vehicles' },
+        { model: 'bmx', nome: 'BMX', preco: 80, imageFolder: 'vehicles' },
+        { model: 'tribike', nome: 'Whippet Race Bike', preco: 80, imageFolder: 'vehicles' },
+        { model: 'tug', nome: 'Tug', preco: 95, imageFolder: 'vehicles' },
+        { model: 'toro', nome: 'Toro', preco: 95, imageFolder: 'vehicles' },
+        { model: 'tribike2', nome: 'Endurex Race Bike', preco: 80, imageFolder: 'vehicles' },
+        { model: 'tribike3', nome: 'Tri-Cycles Race Bike', preco: 80, imageFolder: 'vehicles' },
+        { model: 'Wrr1200', nome: 'WR R1200', preco: 92, imageFolder: 'vehicles' },
+        { model: 'WRcorolla', nome: 'WR Corolla', preco: 94, imageFolder: 'vehicles' },
+        { model: 'mule4', nome: 'Mule Custom', preco: 93, imageFolder: 'vehicles' },
+        { model: 'mule', nome: 'Mule', preco: 93, imageFolder: 'vehicles' },
+        { model: 'WRr1200prf', nome: 'WR R1200 PRF', preco: 92, imageFolder: 'vehicles' },
+        { model: 'cb500x', nome: 'Honda CB500X', preco: 86, imageFolder: 'vehicles' },
+        { model: 'gsxr', nome: 'Suzuki GSX-R', preco: 93, imageFolder: 'vehicles' },
+        { model: 'eclipse', nome: 'Mitsubishi Eclipse', preco: 95, imageFolder: 'vehicles' },
+        { model: 'r1', nome: 'Yamaha R1', preco: 94, imageFolder: 'vehicles' },
+        { model: 'dinghy', nome: 'Dinghy 2-Seater', preco: 95, imageFolder: 'vehicles' },
+        { model: 'dinghy2', nome: 'Dinghy 4-Seater', preco: 95, imageFolder: 'vehicles' },
+        { model: 'marquis', nome: 'Marquis', preco: 95, imageFolder: 'vehicles' },
+        { model: 'jetmax', nome: 'Jetmax', preco: 95, imageFolder: 'vehicles' },
+        { model: 'dinghy3', nome: 'Dinghy (Heist)', preco: 95, imageFolder: 'vehicles' },
+        { model: 'pranger', nome: 'Park Ranger', preco: 90, imageFolder: 'vehicles' },
+        { model: 'predator', nome: 'Police Predator', preco: 90, imageFolder: 'vehicles' },
+        { model: 'dinghy4', nome: 'Dinghy Yacht', preco: 95, imageFolder: 'vehicles' },
+        { model: 'seashark2', nome: 'Seashark Lifeguard', preco: 90, imageFolder: 'vehicles' },
+        { model: 'hexer', nome: 'Hexer', preco: 84, imageFolder: 'vehicles' },
+        { model: 'granger', nome: 'Granger', preco: 89, imageFolder: 'vehicles' },
+        { model: 'gresley', nome: 'Gresley', preco: 91, imageFolder: 'vehicles' },
+        { model: 'dubsta2', nome: 'Dubsta Luxury', preco: 88, imageFolder: 'vehicles' },
+        { model: 'fq2', nome: 'FQ2', preco: 88, imageFolder: 'vehicles' },
+        { model: 'huntley', nome: 'Huntley S', preco: 91, imageFolder: 'vehicles' },
+        { model: 'patriot', nome: 'Patriot', preco: 89, imageFolder: 'vehicles' },
+        { model: 'patriot2', nome: 'Patriot Stretch', preco: 89, imageFolder: 'vehicles' },
+        { model: 'landstalker', nome: 'Landstalker', preco: 85, imageFolder: 'vehicles' },
+        { model: 'landstalker2', nome: 'Landstalker XL', preco: 91, imageFolder: 'vehicles' },
+        { model: 'baller2', nome: 'Baller II', preco: 86, imageFolder: 'vehicles' },
+        { model: 'baller3', nome: 'Baller LE', preco: 86, imageFolder: 'vehicles' },
+        { model: 'schafter2', nome: 'Schafter', preco: 86, imageFolder: 'vehicles' },
+        { model: 'baller', nome: 'Baller', preco: 89, imageFolder: 'vehicles' },
+        { model: 'baller4', nome: 'Baller LE LWB', preco: 93, imageFolder: 'vehicles' },
+        { model: 'cavalcade2', nome: 'Cavalcade II', preco: 87, imageFolder: 'vehicles' },
+        { model: 'dubsta', nome: 'Dubsta', preco: 88, imageFolder: 'vehicles' },
+        { model: 'bjxl', nome: 'BeeJay XL', preco: 88, imageFolder: 'vehicles' },
+        { model: 'cavalcade', nome: 'Cavalcade', preco: 86, imageFolder: 'vehicles' },
+        { model: 'windsor', nome: 'Windsor', preco: 91, imageFolder: 'vehicles' },
+        { model: 'windsor2', nome: 'Windsor Drop', preco: 94, imageFolder: 'vehicles' },
+        { model: 'sentinel', nome: 'Sentinel', preco: 92, imageFolder: 'vehicles' },
+        { model: 'sentinel2', nome: 'Sentinel XS', preco: 94, imageFolder: 'vehicles' },
+        { model: 'zion', nome: 'Zion', preco: 89, imageFolder: 'vehicles' },
+        { model: 'buccaneer', nome: 'Buccaneer', preco: 89, imageFolder: 'vehicles' },
+        { model: 'buccaneer2', nome: 'Buccaneer Rider', preco: 89, imageFolder: 'vehicles' },
+        { model: 'zion2', nome: 'Zion Cabrio', preco: 91, imageFolder: 'vehicles' },
+        { model: 'futo', nome: 'Futo', preco: 87, imageFolder: 'vehicles' },
+        { model: 'seminole', nome: 'Seminole', preco: 89, imageFolder: 'vehicles' },
+        { model: 'seminole2', nome: 'Seminole Frontier', preco: 85, imageFolder: 'vehicles' },
+        { model: 'rebla', nome: 'Rebla GTS', preco: 89, imageFolder: 'vehicles' },
+        { model: 'rocoto', nome: 'Rocoto', preco: 85, imageFolder: 'vehicles' },
+        { model: 'xls', nome: 'XLS', preco: 87, imageFolder: 'vehicles' },
+        { model: 'jackal', nome: 'Jackal', preco: 88, imageFolder: 'vehicles' },
+        { model: 'oracle2', nome: 'Oracle XS', preco: 91, imageFolder: 'vehicles' },
+        { model: 'f620', nome: 'F620', preco: 93, imageFolder: 'vehicles' },
+        { model: 'felon', nome: 'Felon', preco: 93, imageFolder: 'vehicles' },
+        { model: 'oracle', nome: 'Oracle', preco: 88, imageFolder: 'vehicles' },
+        { model: 'brioso2', nome: 'Brioso 300', preco: 86, imageFolder: 'vehicles' },
+        { model: 'weevil', nome: 'Weevil', preco: 85, imageFolder: 'vehicles' },
+        { model: 'panto', nome: 'Panto', preco: 82, imageFolder: 'vehicles' },
+        { model: 'rhapsody', nome: 'Rhapsody', preco: 85, imageFolder: 'vehicles' },
+        { model: 'blista2', nome: 'Blista Compact', preco: 90, imageFolder: 'vehicles' },
+        { model: 'asterope', nome: 'Asterope', preco: 84, imageFolder: 'vehicles' },
+        { model: 'emperor', nome: 'Emperor', preco: 81, imageFolder: 'vehicles' },
+        { model: 'blista3', nome: 'Blista Go Go Monkey', preco: 88, imageFolder: 'vehicles' },
+        { model: 'asea', nome: 'Asea', preco: 83, imageFolder: 'vehicles' },
+        { model: 'brioso', nome: 'Brioso R/A', preco: 90, imageFolder: 'vehicles' },
+        { model: 'club', nome: 'Club', preco: 84, imageFolder: 'vehicles' },
+        { model: 'asbo', nome: 'asbo', preco: 80, imageFolder: 'vehicles' },
+        { model: 'blista', nome: 'Blista', preco: 86, imageFolder: 'vehicles' },
+        { model: 'dilettante', nome: 'Dilettante', preco: 85, imageFolder: 'vehicles' },
+        { model: 'issi2', nome: 'Issi', preco: 83, imageFolder: 'vehicles' },
+        { model: 'issi3', nome: 'Issi Classic', preco: 82, imageFolder: 'vehicles' },
+        { model: 'dilettante2', nome: 'Dilettante Patrol', preco: 86, imageFolder: 'vehicles' },
+        { model: 'kanjo', nome: 'Blista Kanjo', preco: 86, imageFolder: 'vehicles' },
+        { model: 'stratum', nome: 'Stratum', preco: 86, imageFolder: 'vehicles' },
+        { model: 'stretch', nome: 'Stretch', preco: 87, imageFolder: 'vehicles' },
+        { model: 'stafford', nome: 'Stafford', preco: 92, imageFolder: 'vehicles' },
+        { model: 'stanier', nome: 'Stanier', preco: 87, imageFolder: 'vehicles' },
+        { model: 'superd', nome: 'Super Diamond', preco: 86, imageFolder: 'vehicles' },
+        { model: 'warrener', nome: 'Warrener', preco: 81, imageFolder: 'vehicles' },
+        { model: 'washington', nome: 'Washington', preco: 82, imageFolder: 'vehicles' },
+        { model: 'surge', nome: 'Surge', preco: 88, imageFolder: 'vehicles' },
+        { model: 'tailgater', nome: 'Tailgater', preco: 88, imageFolder: 'vehicles' },
+        { model: 'glendale2', nome: 'Glendale Custom', preco: 84, imageFolder: 'vehicles' },
+        { model: 'ingot', nome: 'Ingot', preco: 82, imageFolder: 'vehicles' },
+        { model: 'fugitive', nome: 'Fugitive', preco: 88, imageFolder: 'vehicles' },
+        { model: 'glendale', nome: 'Glendale', preco: 81, imageFolder: 'vehicles' },
+        { model: 'intruder', nome: 'Intruder', preco: 84, imageFolder: 'vehicles' },
+        { model: 'primo2', nome: 'Primo Custom', preco: 85, imageFolder: 'vehicles' },
+        { model: 'regina', nome: 'Regina', preco: 82, imageFolder: 'vehicles' },
+        { model: 'premier', nome: 'Premier', preco: 84, imageFolder: 'vehicles' },
+        { model: 'primo', nome: 'Primo', preco: 82, imageFolder: 'vehicles' },
+        { model: 'hakuchou', nome: 'Hakuchou', preco: 84, imageFolder: 'vehicles' },
+        { model: 'hakuchou2', nome: 'Hakuchou Drag', preco: 91, imageFolder: 'vehicles' },
+        { model: 'fcr', nome: 'FCR 1000', preco: 81, imageFolder: 'vehicles' },
+        { model: 'fcr2', nome: 'FCR 1000 Custom', preco: 84, imageFolder: 'vehicles' },
+        { model: 'lectro', nome: 'Lectro', preco: 87, imageFolder: 'vehicles' },
+        { model: 'pcj', nome: 'PCJ-600', preco: 83, imageFolder: 'vehicles' },
+        { model: 'ruffian', nome: 'Ruffian', preco: 86, imageFolder: 'vehicles' },
+        { model: 'manchez', nome: 'Manchez', preco: 82, imageFolder: 'vehicles' },
+        { model: 'nemesis', nome: 'Nemesis', preco: 85, imageFolder: 'vehicles' },
+        { model: 'remus', nome: 'Remus', preco: 92, imageFolder: 'vehicles' },
+        { model: 'bati', nome: 'Bati 801', preco: 86, imageFolder: 'vehicles' },
+        { model: 'schafter4', nome: 'Schafter LWB', preco: 90, imageFolder: 'vehicles' },
+        { model: 'sultan', nome: 'Sultan', preco: 92, imageFolder: 'vehicles' },
+        { model: 'bati2', nome: 'Bati 801RR', preco: 84, imageFolder: 'vehicles' },
+        { model: 'double', nome: 'Double-T', preco: 87, imageFolder: 'vehicles' },
+        { model: 'enduro', nome: 'Enduro', preco: 81, imageFolder: 'vehicles' },
+        { model: 'bf400', nome: 'BF400', preco: 85, imageFolder: 'vehicles' },
+        { model: 'carbonrs', nome: 'Carbon RS', preco: 85, imageFolder: 'vehicles' },
+        { model: 'defiler', nome: 'Defiler', preco: 87, imageFolder: 'vehicles' },
+        { model: 'diablous', nome: 'Diablous', preco: 87, imageFolder: 'vehicles' },
+        { model: 'daemon', nome: 'Daemon', preco: 83, imageFolder: 'vehicles' },
+        { model: 'daemon2', nome: 'Daemon Custom', preco: 85, imageFolder: 'vehicles' },
+        { model: 'diablous2', nome: 'Diablous Custom', preco: 89, imageFolder: 'vehicles' },
+        { model: 'faggio3', nome: 'Faggio Mod', preco: 80, imageFolder: 'vehicles' },
+        { model: 'gargoyle', nome: 'Gargoyle', preco: 88, imageFolder: 'vehicles' },
+        { model: 'faggio', nome: 'Faggio Sport', preco: 80, imageFolder: 'vehicles' },
+        { model: 'faggio2', nome: 'Faggio', preco: 80, imageFolder: 'vehicles' },
+        { model: 'stryder', nome: 'Stryder', preco: 92, imageFolder: 'vehicles' },
+        { model: 'thrust', nome: 'Thrust', preco: 85, imageFolder: 'vehicles' },
+        { model: 'sanchez', nome: 'Sanchez Livery', preco: 81, imageFolder: 'vehicles' },
+        { model: 'sanchez2', nome: 'Sanchez', preco: 81, imageFolder: 'vehicles' },
+        { model: 'vader', nome: 'Vader', preco: 81, imageFolder: 'vehicles' },
+        { model: 'chimera', nome: 'Chimera', preco: 85, imageFolder: 'vehicles' },
+        { model: 'cliffhanger', nome: 'Cliffhanger', preco: 87, imageFolder: 'vehicles' },
+        { model: 'vindicator', nome: 'Vindicator', preco: 84, imageFolder: 'vehicles' },
+        { model: 'vortex', nome: 'Vortex', preco: 87, imageFolder: 'vehicles' },
+        { model: 'penumbra', nome: 'Penumbra', preco: 85, imageFolder: 'vehicles' },
+        { model: 'ruiner', nome: 'Ruiner', preco: 91, imageFolder: 'vehicles' },
+        { model: 'sabregt', nome: 'Sabre GT Turbo', preco: 89, imageFolder: 'vehicles' },
+        { model: 'picador', nome: 'Picador', preco: 88, imageFolder: 'vehicles' },
+        { model: 'ratloader2', nome: 'Ratloader', preco: 88, imageFolder: 'vehicles' },
+        { model: 'sabregt2', nome: 'Sabre GT Turbo Custom', preco: 90, imageFolder: 'vehicles' },
+        { model: 'stalion', nome: 'Stallion', preco: 93, imageFolder: 'vehicles' },
+        { model: 'tampa', nome: 'Tampa', preco: 89, imageFolder: 'vehicles' },
+        { model: 'slamvan', nome: 'Slam Van', preco: 92, imageFolder: 'vehicles' },
+        { model: 'slamvan3', nome: 'Slam Van Custom', preco: 86, imageFolder: 'vehicles' },
+        { model: 'clique', nome: 'Clique', preco: 88, imageFolder: 'vehicles' },
+        { model: 'dukes', nome: 'Dukes', preco: 89, imageFolder: 'vehicles' },
+        { model: 'chino', nome: 'Chino', preco: 82, imageFolder: 'vehicles' },
+        { model: 'chino2', nome: 'Chino Luxe', preco: 83, imageFolder: 'vehicles' },
+        { model: 'faction', nome: 'Faction', preco: 86, imageFolder: 'vehicles' },
+        { model: 'gauntlet', nome: 'Gauntlet', preco: 91, imageFolder: 'vehicles' },
+        { model: 'lurcher', nome: 'Lurcher', preco: 88, imageFolder: 'vehicles' },
+        { model: 'faction2', nome: 'Faction Rider', preco: 87, imageFolder: 'vehicles' },
+        { model: 'faction3', nome: 'Faction Custom Donk', preco: 94, imageFolder: 'vehicles' },
+        { model: 'nebula', nome: 'Nebula', preco: 89, imageFolder: 'vehicles' },
+        { model: 'peyote', nome: 'Peyote', preco: 90, imageFolder: 'vehicles' },
+        { model: 'dynasty', nome: 'Dynasty', preco: 91, imageFolder: 'vehicles' },
+        { model: 'fagaloa', nome: 'Fagaloa', preco: 85, imageFolder: 'vehicles' },
+        { model: 'retinue', nome: 'Retinue', preco: 94, imageFolder: 'vehicles' },
+        { model: 'buffalo', nome: 'Buffalo', preco: 89, imageFolder: 'vehicles' },
+        { model: 'buffalo2', nome: 'Buffalo S', preco: 92, imageFolder: 'vehicles' },
+        { model: 'tornado5', nome: 'Tornado Custom', preco: 89, imageFolder: 'vehicles' },
+        { model: 'cheburek', nome: 'Cheburek', preco: 83, imageFolder: 'vehicles' },
+        { model: 'virgo2', nome: 'Virgo Custom Classic', preco: 88, imageFolder: 'vehicles' },
+        { model: 'virgo3', nome: 'Virgo Classic', preco: 88, imageFolder: 'vehicles' },
+        { model: 'vamos', nome: 'Vamos', preco: 92, imageFolder: 'vehicles' },
+        { model: 'virgo', nome: 'Virgo', preco: 88, imageFolder: 'vehicles' },
+        { model: 'voodoo', nome: 'Voodoo', preco: 85, imageFolder: 'vehicles' },
+        { model: 'manana2', nome: 'Manana Custom', preco: 89, imageFolder: 'vehicles' },
+        { model: 'ardent', nome: 'Ardent', preco: 93, imageFolder: 'vehicles' },
+        { model: 'yosemite', nome: 'Yosemite', preco: 87, imageFolder: 'vehicles' },
+        { model: 'manana', nome: 'Manana', preco: 85, imageFolder: 'vehicles' }
+    ],
+    elite: [
+        { model: 'slamvan4', nome: 'Future Shock Slamvan', preco: 200, imageFolder: 'especial' },
+        { model: 'slamvan5', nome: 'Apocalypse Slamvan', preco: 200, imageFolder: 'especial', imageModel: 'slamvan4' },
+        { model: 'slamvan6', nome: 'Nightmare Slamvan', preco: 200, imageFolder: 'especial', imageModel: 'slamvan4' },
+        { model: 'dominator4', nome: 'Future Shock Dominator', preco: 210, imageFolder: 'especial' },
+        { model: 'dominator5', nome: 'Apocalypse Dominator', preco: 210, imageFolder: 'especial', imageModel: 'dominator4' },
+        { model: 'dominator6', nome: 'Nightmare Dominator', preco: 210, imageFolder: 'especial', imageModel: 'dominator4' },
+        { model: 'imperator', nome: 'Future Shock Imperator', preco: 210, imageFolder: 'especial' },
+        { model: 'imperator2', nome: 'Apocalypse Imperator', preco: 210, imageFolder: 'especial', imageModel: 'imperator' },
+        { model: 'imperator3', nome: 'Nightmare Imperator', preco: 210, imageFolder: 'especial', imageModel: 'imperator' },
+        { model: 'stromberg', nome: 'Stromberg', preco: 220, imageFolder: 'especial' },
+        { model: 'bruiser', nome: 'Future Shock Bruiser', preco: 220, imageFolder: 'especial' },
+        { model: 'bruiser2', nome: 'Apocalypse Bruiser', preco: 220, imageFolder: 'especial', imageModel: 'bruiser' },
+        { model: 'bruiser3', nome: 'Nightmare Bruiser', preco: 220, imageFolder: 'especial', imageModel: 'bruiser' },
+        { model: 'brutus', nome: 'Future Shock Brutus', preco: 220, imageFolder: 'especial' },
+        { model: 'brutus2', nome: 'Apocalypse Brutus', preco: 220, imageFolder: 'especial', imageModel: 'brutus' },
+        { model: 'brutus3', nome: 'Nightmare Brutus', preco: 220, imageFolder: 'especial', imageModel: 'brutus' },
+        { model: 'zr380', nome: 'Future Shock ZR380', preco: 220, imageFolder: 'especial' },
+        { model: 'zr3802', nome: 'Apocalypse ZR380', preco: 220, imageFolder: 'especial', imageModel: 'zr380' },
+        { model: 'zr3803', nome: 'Nightmare ZR380', preco: 220, imageFolder: 'especial', imageModel: 'zr380' },
+        { model: 'scramjet', nome: 'Scramjet', preco: 230, imageFolder: 'especial' },
+        { model: 'tampa3', nome: 'Weaponized Tampa', preco: 230, imageFolder: 'especial' },
+        { model: 'nightshark', nome: 'Nightshark', preco: 230, imageFolder: 'especial' },
+        { model: 'barrage', nome: 'Barrage', preco: 240, imageFolder: 'especial' },
+        { model: 'khanjali', nome: 'Khanjali', preco: 240, imageFolder: 'especial' },
+        { model: 'rhino', nome: 'Rhino', preco: 240, imageFolder: 'especial' },
+        { model: 'technical', nome: 'Technical', preco: 240, imageFolder: 'especial' },
+        { model: 'technical2', nome: 'Technical Aqua', preco: 240, imageFolder: 'especial', imageModel: 'technical' },
+        { model: 'technical3', nome: 'Technical Custom', preco: 240, imageFolder: 'especial', imageModel: 'technical' },
+        { model: 'xls2', nome: 'XLS 2', preco: 95, imageFolder: 'vehicles' },
+        { model: 'trflat', nome: 'TR Flat', preco: 106, imageFolder: 'vehicles' },
+        { model: 'specter2', nome: 'Specter 2', preco: 117, imageFolder: 'vehicles' },
+        { model: 'bison3', nome: 'Bison 3', preco: 97, imageFolder: 'vehicles' },
+        { model: 'bison2', nome: 'Bison 2', preco: 96, imageFolder: 'vehicles' },
+        { model: 'lancerevolutionx', nome: 'Lancer Evolution X', preco: 103, imageFolder: 'vehicles' },
+        { model: 'f4rr', nome: 'MV Agusta F4RR', preco: 96, imageFolder: 'vehicles' },
+        { model: 's1000rr', nome: 'BMW S1000RR', preco: 95, imageFolder: 'vehicles' },
+        { model: 'fusilade', nome: 'Schyster Fusilade', preco: 105, imageFolder: 'vehicles' },
+        { model: 'schafter6', nome: 'Schafter 6', preco: 114, imageFolder: 'vehicles' },
+        { model: 'schafter5', nome: 'Schafter 5', preco: 112, imageFolder: 'vehicles' },
+        { model: 'zl12017', nome: 'ZL1 2017', preco: 116, imageFolder: 'vehicles' },
+        { model: 'buffalo3', nome: 'Buffalo 3', preco: 107, imageFolder: 'vehicles' },
+        { model: '610lb', nome: '610lb', preco: 105, imageFolder: 'vehicles' },
+        { model: '458lbshil', nome: '458lbshil', preco: 105, imageFolder: 'vehicles' },
+        { model: '16m5', nome: '16m5', preco: 105, imageFolder: 'vehicles' },
+        { model: 'Chrysler', nome: 'Chrysler', preco: 105, imageFolder: 'vehicles' },
+        { model: 'AmgGtrLight', nome: 'AmgGtrLight', preco: 105, imageFolder: 'vehicles' },
+        { model: 'a90e', nome: 'a90e', preco: 105, imageFolder: 'vehicles' },
+        { model: 'freightcar', nome: 'Freight Car', preco: 105, imageFolder: 'vehicles' },
+        { model: 'hotring', nome: 'Hotring', preco: 105, imageFolder: 'vehicles' },
+        { model: 'camper', nome: 'Camper', preco: 99, imageFolder: 'vehicles' },
+        { model: 'freightgrain', nome: 'Freight Grain', preco: 102, imageFolder: 'vehicles' },
+        { model: 'freightcont2', nome: 'Freight Container 2', preco: 112, imageFolder: 'vehicles' },
+        { model: 'freightcont1', nome: 'Freight Container 1', preco: 110, imageFolder: 'vehicles' },
+        { model: 'rcf', nome: 'Lexus RCF', preco: 112, imageFolder: 'vehicles' },
+        { model: 'phantom3', nome: 'Phantom Custom', preco: 115, imageFolder: 'vehicles' },
+        { model: 'pounder2', nome: 'Pounder Custom', preco: 97, imageFolder: 'vehicles' },
+        { model: 'firetruk', nome: 'Fire Truck', preco: 107, imageFolder: 'vehicles' },
+        { model: 'stockade', nome: 'Stockade', preco: 112, imageFolder: 'vehicles' },
+        { model: 'phantom2', nome: 'Phantom Wedge', preco: 112, imageFolder: 'vehicles' },
+        { model: 'hauler2', nome: 'Hauler Custom', preco: 112, imageFolder: 'vehicles' },
+        { model: 'policet', nome: 'Police Transporter', preco: 107, imageFolder: 'vehicles' },
+        { model: 'policeold2', nome: 'Police Roadcruiser', preco: 107, imageFolder: 'vehicles' },
+        { model: 'policeold1', nome: 'Police Rancher', preco: 107, imageFolder: 'vehicles' },
+        { model: 'ambulance', nome: 'Ambulance', preco: 107, imageFolder: 'vehicles' },
+        { model: 'polmav', nome: 'Police Maverick', preco: 107, imageFolder: 'vehicles' },
+        { model: 'policeb', nome: 'Police Bike', preco: 107, imageFolder: 'vehicles' },
+        { model: 'pounder', nome: 'Pounder', preco: 97, imageFolder: 'vehicles' },
+        { model: 'tiger', nome: 'Tiger', preco: 98, imageFolder: 'vehicles' },
+        { model: 'WRjeep', nome: 'WR Jeep', preco: 102, imageFolder: 'vehicles' },
+        { model: 'WRduster22', nome: 'WR Duster 22', preco: 98, imageFolder: 'vehicles' },
+        { model: 'evo9', nome: 'Lancer Evolution IX', preco: 103, imageFolder: 'vehicles' },
+        { model: 'gxa45', nome: 'Mercedes A45', preco: 102, imageFolder: 'vehicles' },
+        { model: 'wrprfcamaro19', nome: 'WR Camaro 19', preco: 103, imageFolder: 'vehicles' },
+        { model: 'benson', nome: 'Benson', preco: 97, imageFolder: 'vehicles' },
+        { model: 'hauler', nome: 'Hauler', preco: 112, imageFolder: 'vehicles' },
+        { model: 'phantom', nome: 'Phantom', preco: 112, imageFolder: 'vehicles' },
+        { model: 'WRa45', nome: 'WR A45', preco: 100, imageFolder: 'vehicles' },
+        { model: 'formula', nome: 'PR4', preco: 105, imageFolder: 'vehicles' },
+        { model: 'formula2', nome: 'R88', preco: 105, imageFolder: 'vehicles' },
+        { model: 'ocnetrongt', nome: 'e-tron GT', preco: 105, imageFolder: 'vehicles' },
+        { model: 'Killer350z', nome: 'Killer350z', preco: 105, imageFolder: 'vehicles' },
+        { model: 'Imola', nome: 'IMOLA', preco: 105, imageFolder: 'vehicles' },
+        { model: 'r6', nome: 'R6', preco: 105, imageFolder: 'vehicles' },
+        { model: 'evija', nome: 'evija', preco: 105, imageFolder: 'vehicles' },
+        { model: 'lambolb', nome: 'lambolb', preco: 105, imageFolder: 'vehicles' },
+        { model: 'Urus_Stretch_6', nome: 'Urus Stretch 6', preco: 105, imageFolder: 'vehicles' },
+        { model: 'gt1', nome: 'gt1', preco: 105, imageFolder: 'vehicles' },
+        { model: 'mustang', nome: 'mustang', preco: 105, imageFolder: 'vehicles' },
+        { model: 'gls600', nome: 'gls600', preco: 105, imageFolder: 'vehicles' },
+        { model: 'hotwlambo', nome: 'hotwlambo', preco: 105, imageFolder: 'vehicles' },
+        { model: 'gxg700', nome: 'g700', preco: 105, imageFolder: 'vehicles' },
+        { model: 'gtr50', nome: 'gtr50', preco: 105, imageFolder: 'vehicles' },
+        { model: 'endlaha45', nome: 'Mercedes A45', preco: 105, imageFolder: 'vehicles' },
+        { model: 'taycan', nome: 'Taycan', preco: 105, imageFolder: 'vehicles' },
+        { model: 'S600', nome: 'S600', preco: 105, imageFolder: 'vehicles' },
+        { model: 'rmodsuprapandem', nome: 'rmodsuprapandem', preco: 105, imageFolder: 'vehicles' },
+        { model: 'hornet', nome: 'Hornet', preco: 105, imageFolder: 'vehicles' },
+        { model: 'vanzhycade', nome: 'vanzhycade', preco: 105, imageFolder: 'vehicles' },
+        { model: 'torofeo', nome: 'torofeo', preco: 105, imageFolder: 'vehicles' },
+        { model: 'r820', nome: 'r820', preco: 105, imageFolder: 'vehicles' },
+        { model: 'r35lb', nome: 'r35lb', preco: 105, imageFolder: 'vehicles' },
+        { model: 'mansory', nome: 'mansory', preco: 105, imageFolder: 'vehicles' },
+        { model: 'rmodsupralb', nome: 'rmodsupralb', preco: 105, imageFolder: 'vehicles' },
+        { model: 'rmodm3e36', nome: 'rmodm3e36', preco: 105, imageFolder: 'vehicles' },
+        { model: 'rmodamgc63', nome: 'rmodamgc63', preco: 105, imageFolder: 'vehicles' },
+        { model: 'giulia', nome: 'giulia', preco: 105, imageFolder: 'vehicles' },
+        { model: 'senna', nome: 'SENNA', preco: 105, imageFolder: 'vehicles' },
+        { model: 'mcgt20', nome: 'mcgt20', preco: 105, imageFolder: 'vehicles' },
+        { model: 'murus', nome: 'murus', preco: 105, imageFolder: 'vehicles' },
+        { model: 'Skyline', nome: 'Skyline', preco: 105, imageFolder: 'vehicles' },
+        { model: 'agtr35', nome: 'agtr35', preco: 105, imageFolder: 'vehicles' },
+        { model: 'e63amg', nome: 'e63amg', preco: 105, imageFolder: 'vehicles' },
+        { model: 'gcmroma', nome: 'gcmroma', preco: 105, imageFolder: 'vehicles' },
+        { model: 'bmw8mm', nome: 'bmw8mm', preco: 105, imageFolder: 'vehicles' },
+        { model: 'bentaygaplsd', nome: 'bentaygaplsd', preco: 105, imageFolder: 'vehicles' },
+        { model: '18performante', nome: '18performante', preco: 105, imageFolder: 'vehicles' },
+        { model: 'gcmlamboultimae', nome: 'gcmlamboultimae', preco: 105, imageFolder: 'vehicles' },
+        { model: 'dtdmansq60', nome: 'dtdmansq60', preco: 105, imageFolder: 'vehicles' },
+        { model: 'VictorHirot', nome: 'VictorHirot', preco: 105, imageFolder: 'vehicles' },
+        { model: 'CLS53', nome: 'CLS53', preco: 105, imageFolder: 'vehicles' },
+        { model: 'chrcst', nome: 'ChargerWidebody', preco: 105, imageFolder: 'vehicles' },
+        { model: 'chironssport110', nome: 'CHIRONSSPORT110', preco: 105, imageFolder: 'vehicles' },
+        { model: 'G632021', nome: 'S560', preco: 105, imageFolder: 'vehicles' },
+        { model: 'raptor2017', nome: 'RAPTOR2017', preco: 105, imageFolder: 'vehicles' },
+        { model: 'cx30wz', nome: 'cx30wz', preco: 105, imageFolder: 'vehicles' },
+        { model: 'ben17', nome: 'CONTINENTALGT', preco: 105, imageFolder: 'vehicles' },
+        { model: 'b63s', nome: 'b63s', preco: 105, imageFolder: 'vehicles' },
+        { model: 'rs6rabt20', nome: 'rs6rabt20', preco: 105, imageFolder: 'vehicles' },
+        { model: 'c6320', nome: 'C63W205', preco: 105, imageFolder: 'vehicles' },
+        { model: 'btsupra94', nome: 'BTSUPRA94', preco: 105, imageFolder: 'vehicles' },
+        { model: 'rmodm4n', nome: 'rmodm4n', preco: 105, imageFolder: 'vehicles' },
+        { model: 'sheriff2', nome: 'Sheriff Cruiser', preco: 105, imageFolder: 'vehicles' },
+        { model: 'stinger', nome: 'Stinger', preco: 97, imageFolder: 'vehicles' },
+        { model: 'retinue2', nome: 'Retinue MKII', preco: 97, imageFolder: 'vehicles' },
+        { model: 'peyote3', nome: 'Peyote Custom', preco: 101, imageFolder: 'vehicles' },
+        { model: 'zion3', nome: 'Zion Classic', preco: 100, imageFolder: 'vehicles' },
+        { model: 'z190', nome: '190Z', preco: 115, imageFolder: 'vehicles' },
+        { model: 'stingergt', nome: 'Stinger GT', preco: 111, imageFolder: 'vehicles' },
+        { model: 'tampa2', nome: 'Drift Tampa', preco: 112, imageFolder: 'vehicles' },
+        { model: 'yosemite2', nome: 'Yosemite Drift', preco: 102, imageFolder: 'vehicles' },
+        { model: 'vigero', nome: 'Vigero', preco: 95, imageFolder: 'vehicles' },
+        { model: 'jb7002', nome: 'JB 700W', preco: 98, imageFolder: 'vehicles' },
+        { model: 'btype3', nome: 'Roosevelt Valor', preco: 108, imageFolder: 'vehicles' },
+        { model: 'btype', nome: 'Roosevelt', preco: 113, imageFolder: 'vehicles' },
+        { model: 'peyote2', nome: 'Peyote Gasser', preco: 98, imageFolder: 'vehicles' },
+        { model: 'elegy2', nome: 'Elegy RH8', preco: 117, imageFolder: 'vehicles' },
+        { model: 'elegy', nome: 'Elegy Retro Custom', preco: 116, imageFolder: 'vehicles' },
+        { model: 'drafter', nome: '8F Drafter', preco: 100, imageFolder: 'vehicles' },
+        { model: 'furoregt', nome: 'Furore GT', preco: 99, imageFolder: 'vehicles' },
+        { model: 'flashgt', nome: 'Flash GT', preco: 104, imageFolder: 'vehicles' },
+        { model: 'feltzer2', nome: 'Feltzer', preco: 104, imageFolder: 'vehicles' },
+        { model: 'bestiagts', nome: 'Bestia GTS', preco: 98, imageFolder: 'vehicles' },
+        { model: 'banshee', nome: 'Banshee', preco: 108, imageFolder: 'vehicles' },
+        { model: 'alpha', nome: 'Alpha', preco: 106, imageFolder: 'vehicles' },
+        { model: 'coquette', nome: 'Coquette', preco: 116, imageFolder: 'vehicles' },
+        { model: 'comet4', nome: 'Comet Safari', preco: 107, imageFolder: 'vehicles' },
+        { model: 'comet2', nome: 'Comet', preco: 112, imageFolder: 'vehicles' },
+        { model: 'tulip', nome: 'Tulip', preco: 112, imageFolder: 'vehicles' },
+        { model: 'felon2', nome: 'Felon GT', preco: 95, imageFolder: 'vehicles' },
+        { model: 'exemplar', nome: 'Exemplar', preco: 97, imageFolder: 'vehicles' },
+        { model: 'toros', nome: 'Toros', preco: 109, imageFolder: 'vehicles' },
+        { model: 'dominator', nome: 'Dominator', preco: 105, imageFolder: 'vehicles' },
+        { model: 'deviant', nome: 'Deviant', preco: 108, imageFolder: 'vehicles' },
+        { model: 'sentinel3', nome: 'Sentinel Classic', preco: 109, imageFolder: 'vehicles' },
+        { model: 'baller6', nome: 'Baller LE LWB (Armored)', preco: 116, imageFolder: 'vehicles' },
+        { model: 'baller5', nome: 'Baller LE (Armored)', preco: 115, imageFolder: 'vehicles' },
+        { model: 'prairie', nome: 'Prairie', preco: 96, imageFolder: 'vehicles' },
+        { model: 'serrano', nome: 'Serrano', preco: 101, imageFolder: 'vehicles' },
+        { model: 'novak', nome: 'Novak', preco: 111, imageFolder: 'vehicles' },
+        { model: 'contender', nome: 'Contender', preco: 95, imageFolder: 'vehicles' },
+        { model: 'dominator2', nome: 'Pißwasser Dominator', preco: 100, imageFolder: 'vehicles' },
+        { model: 'phoenix', nome: 'Phoenix', preco: 106, imageFolder: 'vehicles' },
+        { model: 'nightshade', nome: 'Nightshade', preco: 108, imageFolder: 'vehicles' },
+        { model: 'hotknife', nome: 'Hotknife', preco: 116, imageFolder: 'vehicles' },
+        { model: 'stalion2', nome: 'Stallion Burgershot', preco: 96, imageFolder: 'vehicles' },
+        { model: 'slamvan2', nome: 'Lost Slam Van', preco: 116, imageFolder: 'vehicles' },
+        { model: 'ruiner2', nome: 'Ruiner 2000', preco: 100, imageFolder: 'vehicles' },
+        { model: 'ellie', nome: 'Ellie', preco: 96, imageFolder: 'vehicles' },
+        { model: 'dukes2', nome: 'Duke O\'Death', preco: 104, imageFolder: 'vehicles' },
+        { model: 'dominator3', nome: 'Dominator GTX', preco: 108, imageFolder: 'vehicles' },
+        { model: 'gauntlet4', nome: 'Gauntlet Hellfire', preco: 112, imageFolder: 'vehicles' },
+        { model: 'gauntlet3', nome: 'Classic Gauntlet', preco: 110, imageFolder: 'vehicles' },
+        { model: 'gauntlet2', nome: 'Redwood Gauntlet', preco: 108, imageFolder: 'vehicles' },
+        { model: 'gb200', nome: 'GB 200', preco: 115, imageFolder: 'vehicles' },
+        { model: 'wastelander', nome: 'Wastelander', preco: 110, imageFolder: 'vehicles' },
+        { model: 'pbus2', nome: 'Festival Bus', preco: 110, imageFolder: 'vehicles' },
+        { model: 'brickade', nome: 'Brickade', preco: 110, imageFolder: 'vehicles' },
+        { model: 'freight', nome: 'Freight Train', preco: 110, imageFolder: 'vehicles' },
+        { model: 'metrotrain', nome: 'Metro Train', preco: 110, imageFolder: 'vehicles' },
+        { model: 'rallytruck', nome: 'Dune', preco: 110, imageFolder: 'vehicles' },
+        { model: 'caracara2', nome: 'Caracara 4x4', preco: 100, imageFolder: 'vehicles' },
+        { model: 'sultanrs', nome: 'Sultan RS', preco: 99, imageFolder: 'vehicles' },
+        { model: 'vstr', nome: 'V-STR', preco: 100, imageFolder: 'vehicles' },
+        { model: 'vagrant', nome: 'Vagrant', preco: 98, imageFolder: 'vehicles' },
+        { model: 'trophytruck2', nome: 'Desert Raid', preco: 110, imageFolder: 'vehicles' },
+        { model: 'trophytruck', nome: 'Trophy Truck', preco: 102, imageFolder: 'vehicles' },
+        { model: 'tourbus', nome: 'Tour Bus', preco: 110, imageFolder: 'vehicles' },
+        { model: 'police2', nome: 'Police Buffalo', preco: 105, imageFolder: 'vehicles' },
+        { model: 'pbus', nome: 'Police Prison Bus', preco: 105, imageFolder: 'vehicles' },
+        { model: 'riot2', nome: 'RCV', preco: 105, imageFolder: 'vehicles' },
+        { model: 'sheriff', nome: 'Sheriff SUV', preco: 105, imageFolder: 'vehicles' },
+        { model: 'police4', nome: 'Unmarked Cruiser', preco: 105, imageFolder: 'vehicles' },
+        { model: 'police3', nome: 'Police Interceptor', preco: 105, imageFolder: 'vehicles' },
+        { model: 'coach', nome: 'Dashound', preco: 110, imageFolder: 'vehicles' },
+        { model: 'rentalbus', nome: 'Rental Shuttle Bus', preco: 110, imageFolder: 'vehicles' },
+        { model: 'taxi', nome: 'Taxi', preco: 110, imageFolder: 'vehicles' },
+        { model: 'riot', nome: 'Police Riot', preco: 105, imageFolder: 'vehicles' },
+        { model: 'airbus', nome: 'Airport Bus', preco: 110, imageFolder: 'vehicles' },
+        { model: 'bus', nome: 'Bus', preco: 110, imageFolder: 'vehicles' },
+        { model: 'tropos', nome: 'Tropos Rallye', preco: 96, imageFolder: 'vehicles' },
+        { model: 'lynx', nome: 'Lynx', preco: 117, imageFolder: 'vehicles' },
+        { model: 'kuruma2', nome: 'kuruma2', preco: 116, imageFolder: 'vehicles' },
+        { model: 'kuruma', nome: 'Kuruma', preco: 98, imageFolder: 'vehicles' },
+        { model: 'ninef', nome: '9F', preco: 103, imageFolder: 'vehicles' },
+        { model: 'massacro2', nome: 'Massacro Racecar', preco: 100, imageFolder: 'vehicles' },
+        { model: 'massacro', nome: 'Massacro', preco: 107, imageFolder: 'vehicles' },
+        { model: 'jugular', nome: 'Jugular', preco: 100, imageFolder: 'vehicles' },
+        { model: 'imorgon', nome: 'Imorgon', preco: 110, imageFolder: 'vehicles' },
+        { model: 'komoda', nome: 'Komoda', preco: 107, imageFolder: 'vehicles' },
+        { model: 'khamelion', nome: 'Khamelion', preco: 102, imageFolder: 'vehicles' },
+        { model: 'jester3', nome: 'Jester Classic', preco: 101, imageFolder: 'vehicles' },
+        { model: 'jester', nome: 'Jester', preco: 113, imageFolder: 'vehicles' },
+        { model: 'ninef2', nome: '9F Cabrio', preco: 106, imageFolder: 'vehicles' },
+        { model: 'schwarzer', nome: 'Schwartzer', preco: 103, imageFolder: 'vehicles' },
+        { model: 'schafter3', nome: 'Schafter V12', preco: 97, imageFolder: 'vehicles' },
+        { model: 'ruston', nome: 'Ruston', preco: 112, imageFolder: 'vehicles' },
+        { model: 'surano', nome: 'Surano', preco: 100, imageFolder: 'vehicles' },
+        { model: 'streiter', nome: 'Streiter', preco: 100, imageFolder: 'vehicles' },
+        { model: 'seven70', nome: 'Seven-70', preco: 115, imageFolder: 'vehicles' },
+        { model: 'rapidgt', nome: 'Rapid GT', preco: 101, imageFolder: 'vehicles' },
+        { model: 'pariah', nome: 'Pariah', preco: 102, imageFolder: 'vehicles' },
+        { model: 'omnis', nome: 'Omnis', preco: 102, imageFolder: 'vehicles' },
+        { model: 'revolter', nome: 'Revolter', preco: 103, imageFolder: 'vehicles' },
+        { model: 'raptor', nome: 'Raptor', preco: 102, imageFolder: 'vehicles' },
+        { model: 'rapidgt2', nome: 'Rapid GT Convertible', preco: 103, imageFolder: 'vehicles' }
+    ],
+    colecionaveis: [
+        { model: 'halftrack', nome: 'Half-Track', preco: 250, imageFolder: 'especial' },
+        { model: 'menacer', nome: 'Menacer', preco: 250, imageFolder: 'especial' },
+        { model: 'cerberus', nome: 'Future Shock Cerberus', preco: 260, imageFolder: 'especial' },
+        { model: 'cerberus2', nome: 'Apocalypse Cerberus', preco: 260, imageFolder: 'especial', imageModel: 'cerberus' },
+        { model: 'cerberus3', nome: 'Nightmare Cerberus', preco: 260, imageFolder: 'especial', imageModel: 'cerberus' },
+        { model: 'scarab', nome: 'Future Shock Scarab', preco: 260, imageFolder: 'especial' },
+        { model: 'scarab2', nome: 'Apocalypse Scarab', preco: 260, imageFolder: 'especial', imageModel: 'scarab' },
+        { model: 'scarab3', nome: 'Nightmare Scarab', preco: 260, imageFolder: 'especial', imageModel: 'scarab' },
+        { model: 'apc', nome: 'APC', preco: 260, imageFolder: 'especial' },
+        { model: 'vigilante', nome: 'Vigilante', preco: 260, imageFolder: 'especial' },
+        { model: 'insurgent', nome: 'Insurgent Pick-Up', preco: 260, imageFolder: 'especial' },
+        { model: 'insurgent2', nome: 'Insurgent', preco: 260, imageFolder: 'especial', imageModel: 'insurgent' },
+        { model: 'insurgent3', nome: 'Insurgent Custom', preco: 260, imageFolder: 'especial', imageModel: 'insurgent' },
+        { model: 'bmwm8', nome: 'BMW M8', preco: 155, imageFolder: 'vehicles' },
+        { model: 'bmwi8', nome: 'BMW i8', preco: 150, imageFolder: 'vehicles' },
+        { model: 'barracks3', nome: 'Barracks', preco: 130, imageFolder: 'vehicles' },
+        { model: 'nissangtr', nome: 'Nissan GTR', preco: 142, imageFolder: 'vehicles' },
+        { model: 'velociraptor', nome: 'Velociraptor', preco: 161, imageFolder: 'vehicles' },
+        { model: 'a80', nome: 'Toyota Supra A80', preco: 125, imageFolder: 'vehicles' },
+        { model: '20ramambo', nome: 'Ram Ambo 20', preco: 143, imageFolder: 'vehicles' },
+        { model: 'db11', nome: 'Aston Martin DB11', preco: 167, imageFolder: 'vehicles' },
+        { model: 'mercedesgt63', nome: 'Mercedes GT63', preco: 160, imageFolder: 'vehicles' },
+        { model: 'barracks2', nome: 'Barracks Semi', preco: 130, imageFolder: 'vehicles' },
+        { model: 'voltic', nome: 'Voltic', preco: 155, imageFolder: 'vehicles' },
+        { model: 'zentorno', nome: 'Zentorno', preco: 165, imageFolder: 'vehicles' },
+        { model: 'turismor', nome: 'Turismo R', preco: 167, imageFolder: 'vehicles' },
+        { model: 'vacca', nome: 'Vacca', preco: 145, imageFolder: 'vehicles' },
+        { model: 'terbyte', nome: 'Terrorbyte', preco: 130, imageFolder: 'vehicles' },
+        { model: 'crusader', nome: 'Crusader', preco: 130, imageFolder: 'vehicles' },
+        { model: 'barracks', nome: 'Barracks', preco: 130, imageFolder: 'vehicles' },
+        { model: 'trailerlarge', nome: 'Mobile Operations Center', preco: 130, imageFolder: 'vehicles' },
+        { model: 'trailersmall2', nome: 'Anti-Aircraft Trailer', preco: 130, imageFolder: 'vehicles' },
+        { model: 'rs6avant20', nome: 'Audi RS6 Avant 20', preco: 120, imageFolder: 'vehicles' },
+        { model: 'wrhiaceil', nome: 'wrhiaceil', preco: 167, imageFolder: 'vehicles' },
+        { model: 'tankercar', nome: 'Tanker Car', preco: 138, imageFolder: 'vehicles' },
+        { model: 'q820', nome: 'Q8 20', preco: 143, imageFolder: 'vehicles' },
+        { model: 'hiaceil', nome: 'hiaceil', preco: 167, imageFolder: 'vehicles' },
+        { model: 'alfieri', nome: 'Maserati Alfieri', preco: 167, imageFolder: 'vehicles' },
+        { model: 'rt70', nome: 'Charger R/T 70', preco: 167, imageFolder: 'vehicles' },
+        { model: 'chevette', nome: 'Chevette', preco: 155, imageFolder: 'vehicles' },
+        { model: 'saveiro', nome: 'Saveiro', preco: 155, imageFolder: 'vehicles' },
+        { model: 'tanker2', nome: 'Tanker 2', preco: 151, imageFolder: 'vehicles' },
+        { model: 'skyliner34', nome: 'Skyline R34', preco: 147, imageFolder: 'vehicles' },
+        { model: 'KillerRx7', nome: 'Mazda RX7 Killer', preco: 120, imageFolder: 'vehicles' },
+        { model: 'r34speedhunter', nome: 'Skyline R34 Speedhunter', preco: 152, imageFolder: 'vehicles' },
+        { model: 'bnr34', nome: 'Skyline BNR34', preco: 145, imageFolder: 'vehicles' },
+        { model: 'tornado3', nome: 'Tornado 3', preco: 147, imageFolder: 'vehicles' },
+        { model: 'rmodjeep', nome: 'Rmod Jeep', preco: 136, imageFolder: 'vehicles' },
+        { model: 'tanker', nome: 'Tanker', preco: 145, imageFolder: 'vehicles' },
+        { model: 'tornado4', nome: 'Tornado 4', preco: 152, imageFolder: 'vehicles' },
+        { model: 'tornado6', nome: 'Tornado 6', preco: 156, imageFolder: 'vehicles' },
+        { model: 'sc1', nome: 'SC1', preco: 136, imageFolder: 'vehicles' },
+        { model: 'btype2', nome: 'Franken Stange', preco: 119, imageFolder: 'vehicles' },
+        { model: 'feltzer3', nome: 'Stirling GT', preco: 131, imageFolder: 'vehicles' },
+        { model: 'impaler4', nome: 'Impaler Nightmare', preco: 118, imageFolder: 'vehicles' },
+        { model: 'clique2', nome: 'Clique Wagon', preco: 121, imageFolder: 'vehicles' },
+        { model: 'gt500', nome: 'GT500', preco: 138, imageFolder: 'vehicles' },
+        { model: 'pigalle', nome: 'Pigalle', preco: 121, imageFolder: 'vehicles' },
+        { model: 'rapidgt3', nome: 'Rapid GT Classic', preco: 120, imageFolder: 'vehicles' },
+        { model: 'mamba', nome: 'Mamba', preco: 143, imageFolder: 'vehicles' },
+        { model: 'monroe', nome: 'Monroe', preco: 131, imageFolder: 'vehicles' },
+        { model: 'impaler3', nome: 'Impaler Future Shock', preco: 118, imageFolder: 'vehicles' },
+        { model: 'issi6', nome: 'Issi Nightmare', preco: 125, imageFolder: 'vehicles' },
+        { model: 'issi7', nome: 'Issi Sport', preco: 136, imageFolder: 'vehicles' },
+        { model: 'issi4', nome: 'Issi Arena', preco: 125, imageFolder: 'vehicles' },
+        { model: 'issi5', nome: 'Issi Future Shock', preco: 125, imageFolder: 'vehicles' },
+        { model: 'coquette3', nome: 'Coquette BlackFin', preco: 152, imageFolder: 'vehicles' },
+        { model: 'impaler', nome: 'Impaler', preco: 118, imageFolder: 'vehicles' },
+        { model: 'impaler2', nome: 'Impaler Arena', preco: 118, imageFolder: 'vehicles' },
+        { model: 'gauntlet5', nome: 'Gauntlet Classic Custom', preco: 128, imageFolder: 'vehicles' },
+        { model: 'hustler', nome: 'Hustler', preco: 118, imageFolder: 'vehicles' },
+        { model: 'verlierer2', nome: 'Verlierer', preco: 125, imageFolder: 'vehicles' },
+        { model: 'cheetah2', nome: 'Cheetah Classic', preco: 128, imageFolder: 'vehicles' },
+        { model: 'schlagen', nome: 'Schlagen GT', preco: 120, imageFolder: 'vehicles' },
+        { model: 'specter', nome: 'Specter', preco: 120, imageFolder: 'vehicles' },
+        { model: 'banshee2', nome: 'Banshee 900R', preco: 155, imageFolder: 'vehicles' },
+        { model: 'penetrator', nome: 'Penetrator', preco: 161, imageFolder: 'vehicles' },
+        { model: 'reaper', nome: 'Reaper', preco: 142, imageFolder: 'vehicles' },
+        { model: 'fmj', nome: 'FMJ', preco: 158, imageFolder: 'vehicles' },
+        { model: 'gp1', nome: 'GP1', preco: 148, imageFolder: 'vehicles' },
+        { model: 'locust', nome: 'Locust', preco: 130, imageFolder: 'vehicles' },
+        { model: 'coquette2', nome: 'Coquette Classic', preco: 154, imageFolder: 'vehicles' },
+        { model: 'carbonizzare', nome: 'Carbonizzare', preco: 118, imageFolder: 'vehicles' },
+        { model: 'torero', nome: 'Torero', preco: 117, imageFolder: 'vehicles' },
+        { model: 'turismo2', nome: 'Turismo Classic', preco: 156, imageFolder: 'vehicles' },
+        { model: 'comet3', nome: 'Comet Retro Custom', preco: 123, imageFolder: 'vehicles' },
+        { model: 'italigto', nome: 'Itali GTO', preco: 145, imageFolder: 'vehicles' },
+        { model: 'jester2', nome: 'Jester Racecar', preco: 132, imageFolder: 'vehicles' },
+        { model: 'comet5', nome: 'Comet SR', preco: 118, imageFolder: 'vehicles' },
+        { model: 'coquette4', nome: 'Coquette D10', preco: 135, imageFolder: 'vehicles' }
+    ],
+    lendarios: [
+        { model: 'chernobog', nome: 'Chernobog', preco: 280, imageFolder: 'especial' },
+        { model: 'fnf4r34', nome: 'GT-R 34 FNF4', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fnfjetta', nome: 'Jetta 3', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fnfrx7dom', nome: 'RX7 Toretto', preco: 320, imageFolder: 'vehicles' },
+        { model: '350zdk', nome: '350Z DK', preco: 320, imageFolder: 'vehicles' },
+        { model: '350zm', nome: '350Z Morimoto', preco: 320, imageFolder: 'vehicles' },
+        { model: 'acura2f2f', nome: 'NSX NA1', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wri8e', nome: 'I8E 2021', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrlwcla45', nome: 'A45 LW', preco: 305, imageFolder: 'vehicles' },
+        { model: '22macgt', nome: 'Mustang Mach-E', preco: 320, imageFolder: 'vehicles' },
+        { model: 'hcej1', nome: 'Civic EJ1', preco: 320, imageFolder: 'vehicles' },
+        { model: 'silvias15varietta', nome: 'S15 Monalisa', preco: 320, imageFolder: 'vehicles' },
+        { model: 'minittrs', nome: 'OBEY TRS KID', preco: 320, imageFolder: 'vehicles' },
+        { model: '2f2fs2000', nome: 'S2000', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fd', nome: 'RX7', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rs6wb', nome: 'RS6WB', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodx6', nome: 'UBERMACHT X6', preco: 320, imageFolder: 'vehicles' },
+        { model: 'paredao', nome: 'Paredão', preco: 320, imageFolder: 'vehicles' },
+        { model: 'pistaspider19', nome: 'GROTTI Spider', preco: 320, imageFolder: 'vehicles' },
+        { model: 'ram2500', nome: 'Caminhonete RAM2500', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrbmwi8exc', nome: 'Storm', preco: 320, imageFolder: 'vehicles' },
+        { model: '2f2fgtr34', nome: 'GT-R 34', preco: 320, imageFolder: 'vehicles' },
+        { model: '2f2frx7', nome: 'RX7 FD', preco: 320, imageFolder: 'vehicles' },
+        { model: '918S', nome: 'PFISTER Spyder', preco: 320, imageFolder: 'vehicles' },
+        { model: 'macanturbo', nome: 'Porshe Macan', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodsianr', nome: 'PEGASSI Sian', preco: 320, imageFolder: 'vehicles' },
+        { model: 'focusrs', nome: 'Focus RS', preco: 320, imageFolder: 'vehicles' },
+        { model: 'lancerevolution9', nome: 'Lancer Evolution 9', preco: 320, imageFolder: 'vehicles' },
+        { model: 'i8', nome: 'UBERMACHT i8', preco: 320, imageFolder: 'vehicles' },
+        { model: 'bmwm3f80', nome: 'UBERMACHT M3 F80', preco: 320, imageFolder: 'vehicles' },
+        { model: 'nissangtrnismo', nome: 'ANNIS GTR Nismo', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mercedesa45', nome: 'BENEFACTOR A45', preco: 320, imageFolder: 'vehicles' },
+        { model: 'eleanor', nome: 'Mustang Eleanor', preco: 320, imageFolder: 'vehicles' },
+        { model: '19ramdonk', nome: 'BRAVADO Ram Donk', preco: 320, imageFolder: 'vehicles' },
+        { model: '70camarofn', nome: 'camaro Z28 1970', preco: 320, imageFolder: 'vehicles' },
+        { model: 'aperta', nome: 'La Ferrari', preco: 320, imageFolder: 'vehicles' },
+        { model: 's15', nome: 'ANNIS Silvia S15', preco: 320, imageFolder: 'vehicles' },
+        { model: 'g65amg', nome: 'BENEFACTOR G65', preco: 320, imageFolder: 'vehicles' },
+        { model: 'dodgechargersrt', nome: 'BRAVADO Charger SRT', preco: 320, imageFolder: 'vehicles' },
+        { model: '23s63l', nome: 'S63 Luxury', preco: 320, imageFolder: 'vehicles' },
+        { model: 'xplaid24c', nome: 'COIL Model X', preco: 320, imageFolder: 'vehicles' },
+        { model: 'noire19wb', nome: 'TRUFFADE La Voiture Noire', preco: 320, imageFolder: 'vehicles' },
+        { model: 'er34n', nome: 'ER34 (Skyline 4 Portas)', preco: 320, imageFolder: 'vehicles' },
+        { model: 's15lbwk', nome: 'S15 LW', preco: 320, imageFolder: 'vehicles' },
+        { model: 'ram226x6', nome: 'RAM TRX 6X6', preco: 320, imageFolder: 'vehicles' },
+        { model: 'policiaheli', nome: 'Policia Helicóptero', preco: 320, imageFolder: 'vehicles' },
+        { model: 'yacht2', nome: 'yacht2', preco: 320, imageFolder: 'vehicles' },
+        { model: 'nissan370z', nome: 'ANNIS 370Z', preco: 320, imageFolder: 'vehicles' },
+        { model: 'x7m60i', nome: 'UBERMACHT X7 2024', preco: 320, imageFolder: 'vehicles' },
+        { model: 'lexuslfa', nome: 'EMPEROR LFA', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrtiger1200', nome: 'Tiger 1200', preco: 320, imageFolder: 'vehicles' },
+        { model: 'teslaprior', nome: 'COIL Prior', preco: 320, imageFolder: 'vehicles' },
+        { model: 'bmws', nome: 'UBERMACHT S', preco: 320, imageFolder: 'vehicles' },
+        { model: 'hayabusa', nome: 'Hayabusa', preco: 320, imageFolder: 'vehicles' },
+        { model: 'audirs7', nome: 'OBEY RS7', preco: 320, imageFolder: 'vehicles' },
+        { model: '718b', nome: 'PFISTER 718B', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fordmustang', nome: 'VAPID Mustang', preco: 320, imageFolder: 'vehicles' },
+        { model: 'zx10', nome: 'ZX10', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodbacalar', nome: 'Bacalar', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodbentleygt', nome: 'ENUS GT', preco: 320, imageFolder: 'vehicles' },
+        { model: 'xj6', nome: 'XJ6', preco: 320, imageFolder: 'vehicles' },
+        { model: 'xt660vip', nome: 'XT 660', preco: 320, imageFolder: 'vehicles' },
+        { model: 'zx6r', nome: 'ZX6R', preco: 320, imageFolder: 'vehicles' },
+        { model: 'paredaohulk', nome: 'Paredão Hulk', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodcharger69', nome: 'BRAVADO Charger', preco: 320, imageFolder: 'vehicles' },
+        { model: 'civic', nome: 'Civic', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodcamaro', nome: 'Camaro', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRtacoma22core', nome: 'WRtacoma22core', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodlegosenna', nome: 'PROGEN Lego Senna', preco: 320, imageFolder: 'vehicles' },
+        { model: 'foxc8', nome: 'INVETERO C8', preco: 320, imageFolder: 'vehicles' },
+        { model: 'nissanskyliner34', nome: 'Skyline R34', preco: 320, imageFolder: 'vehicles' },
+        { model: '1000remap', nome: '1000 REMAP', preco: 320, imageFolder: 'vehicles' },
+        { model: '45hremap', nome: '45H REMAP', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodmartin', nome: 'rmodmartin', preco: 320, imageFolder: 'vehicles' },
+        { model: 'jetta2017', nome: 'Jetta 2017', preco: 320, imageFolder: 'vehicles' },
+        { model: 'dm1200', nome: 'Ducati', preco: 320, imageFolder: 'vehicles' },
+        { model: 'foxevo', nome: 'PEGASSI Evo', preco: 320, imageFolder: 'vehicles' },
+        { model: 'foxsenna', nome: 'PROGEN Senna', preco: 320, imageFolder: 'vehicles' },
+        { model: 'gemera', nome: 'Koenigsegg', preco: 320, imageFolder: 'vehicles' },
+        { model: 'd99', nome: 'PEGASSI 1199 Panigale', preco: 320, imageFolder: 'vehicles' },
+        { model: 'elva', nome: 'Elva', preco: 320, imageFolder: 'vehicles' },
+        { model: 'foxct', nome: 'COIL CyberTruck', preco: 320, imageFolder: 'vehicles' },
+        { model: 'bmwm4gts', nome: 'UBERMACHT M4GTS', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mansgt', nome: 'MANSGT', preco: 320, imageFolder: 'vehicles' },
+        { model: 'monza', nome: 'Monza', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodgt63', nome: 'BENEFACTOR GT63', preco: 320, imageFolder: 'vehicles' },
+        { model: 'huracangt3evo', nome: 'PEGASSI Huracan GT3 EVO', preco: 320, imageFolder: 'vehicles' },
+        { model: 'l200', nome: 'L200', preco: 320, imageFolder: 'vehicles' },
+        { model: '24humevof', nome: 'Hummer EV 2024', preco: 320, imageFolder: 'vehicles' },
+        { model: 'divo', nome: 'TRUFFADE Divo', preco: 320, imageFolder: 'vehicles' },
+        { model: 'evoque', nome: 'Range Rover Evoque', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fz07', nome: 'NAGASAKI FZ-07', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodbmwm8', nome: 'UBERMACHT M8', preco: 320, imageFolder: 'vehicles' },
+        { model: 'africat', nome: 'Africat', preco: 320, imageFolder: 'vehicles' },
+        { model: 'c7', nome: 'INVETERO Conversivel 7', preco: 320, imageFolder: 'vehicles' },
+        { model: 'civictyper', nome: 'CivicType R', preco: 320, imageFolder: 'vehicles' },
+        { model: 'silvias15', nome: 'ANNIS Silvia S15', preco: 320, imageFolder: 'vehicles' },
+        { model: 'silvia', nome: 'Silvia GK', preco: 320, imageFolder: 'vehicles' },
+        { model: 'nh2r', nome: 'NAGASAKI Ninja H2R', preco: 320, imageFolder: 'vehicles' },
+        { model: 'r1200', nome: 'UBERMACHT R1250', preco: 320, imageFolder: 'vehicles' },
+        { model: 'terzo', nome: 'PEGASSI Terzo', preco: 320, imageFolder: 'vehicles' },
+        { model: 'bbentayga', nome: 'ENUS Bentayga', preco: 320, imageFolder: 'vehicles' },
+        { model: 'levante', nome: 'Levante', preco: 320, imageFolder: 'vehicles' },
+        { model: '720s', nome: '720S', preco: 320, imageFolder: 'vehicles' },
+        { model: 'ninja250fi', nome: 'Ninja 250', preco: 320, imageFolder: 'vehicles' },
+        { model: 'pturismo', nome: 'P Turismo', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mach1', nome: 'Mach 1', preco: 320, imageFolder: 'vehicles' },
+        { model: 'urus2018', nome: 'Urus 2018', preco: 320, imageFolder: 'vehicles' },
+        { model: 'cbrr', nome: 'CB 1000RR', preco: 320, imageFolder: 'vehicles' },
+        { model: 'hcbr17', nome: 'Honda CBR17', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fm488', nome: 'Ferrari 488', preco: 320, imageFolder: 'vehicles' },
+        { model: 'zh2', nome: 'ZH2', preco: 320, imageFolder: 'vehicles' },
+        { model: '21camaro', nome: 'Camaro 21', preco: 320, imageFolder: 'vehicles' },
+        { model: 'golf8', nome: 'Golf 8', preco: 320, imageFolder: 'vehicles' },
+        { model: 'turs21', nome: 'Turs 21', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrbb64', nome: 'BB64', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrverusfac', nome: 'Verus FAC', preco: 320, imageFolder: 'vehicles' },
+        { model: '150', nome: '150', preco: 320, imageFolder: 'vehicles' },
+        { model: 'm2out', nome: 'M2 Outubro Rosa', preco: 320, imageFolder: 'vehicles' },
+        { model: 'chironss22', nome: 'Chiron SS', preco: 320, imageFolder: 'vehicles' },
+        { model: '718c', nome: '718 GT4', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rs5', nome: 'Audi RS5', preco: 320, imageFolder: 'vehicles' },
+        { model: 'x6m', nome: 'X6M', preco: 320, imageFolder: 'vehicles' },
+        { model: 'trx', nome: 'TRX', preco: 320, imageFolder: 'vehicles' },
+        { model: 'maverick2', nome: 'Maverick 2', preco: 260, imageFolder: 'vehicles' },
+        { model: 'superleggera', nome: 'Superleggera', preco: 320, imageFolder: 'vehicles' },
+        { model: 'audis8om', nome: 'Audi S8', preco: 320, imageFolder: 'vehicles' },
+        { model: 'bs17', nome: 'BMW S1000RR', preco: 260, imageFolder: 'vehicles' },
+        { model: 'fordtaurus', nome: 'Ford Taurus', preco: 260, imageFolder: 'vehicles' },
+        { model: 'fordexplorerPRF', nome: 'Ford Explorer PRF', preco: 260, imageFolder: 'vehicles' },
+        { model: 'rmodpolice', nome: 'RMod Police', preco: 260, imageFolder: 'vehicles' },
+        { model: 'crownvictoria', nome: 'Crown Victoria', preco: 260, imageFolder: 'vehicles' },
+        { model: 'ferrari812', nome: 'Ferrari 812', preco: 260, imageFolder: 'vehicles' },
+        { model: 'fordmustanggt', nome: 'Ford Mustang GT', preco: 260, imageFolder: 'vehicles' },
+        { model: 'fvgtr', nome: 'GTR R35', preco: 260, imageFolder: 'vehicles' },
+        { model: 'bmwm3e36', nome: 'BMW M3 E36', preco: 260, imageFolder: 'vehicles' },
+        { model: 'dodgecharger2015', nome: 'Charger 2015', preco: 260, imageFolder: 'vehicles' },
+        { model: 'dodgecharger2015PRF', nome: 'Charger 2015 PRF', preco: 260, imageFolder: 'vehicles' },
+        { model: 'mclarenp1', nome: 'McLaren P1', preco: 260, imageFolder: 'vehicles' },
+        { model: 'ferrarif12', nome: 'Ferrari F12', preco: 260, imageFolder: 'vehicles' },
+        { model: 'rs318', nome: 'RS3 18', preco: 320, imageFolder: 'vehicles' },
+        { model: 'pdfocus', nome: 'Focus Polícia', preco: 320, imageFolder: 'vehicles' },
+        { model: '240NismoTT', nome: 'Nissan Sentra Nismo', preco: 260, imageFolder: 'vehicles' },
+        { model: 'boss302', nome: 'Mustang Boss 302', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mercedespolicia', nome: 'Mercedes Polícia', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodmk7', nome: 'Golf GTI RMod', preco: 320, imageFolder: 'vehicles' },
+        { model: 'pol718', nome: 'Porsche 718 Polícia', preco: 260, imageFolder: 'vehicles' },
+        { model: 't680', nome: 'Kenworth T680', preco: 260, imageFolder: 'vehicles' },
+        { model: 'vnl780', nome: 'Volvo Vnl780', preco: 260, imageFolder: 'vehicles' },
+        { model: 'actros', nome: 'Mercedes Actros', preco: 260, imageFolder: 'vehicles' },
+        { model: 'cb500policia2', nome: 'CB500 Polícia', preco: 260, imageFolder: 'vehicles' },
+        { model: 'daf', nome: 'Caminhão Daf', preco: 260, imageFolder: 'vehicles' },
+        { model: 'fe86', nome: 'Escorte', preco: 205, imageFolder: 'vehicles' },
+        { model: 'type263', nome: 'Kombi 63', preco: 205, imageFolder: 'vehicles' },
+        { model: 'yzfr125', nome: 'NAGASAKI YZF R125', preco: 320, imageFolder: 'vehicles' },
+        { model: '2018zl1', nome: 'Camaro ZL1', preco: 320, imageFolder: 'vehicles' },
+        { model: 'lp700r', nome: 'PEGASSI LP700R', preco: 320, imageFolder: 'vehicles' },
+        { model: 'beetle74', nome: 'Fusca 74', preco: 205, imageFolder: 'vehicles' },
+        { model: 'SVR14', nome: 'Ranger Rover', preco: 320, imageFolder: 'vehicles' },
+        { model: 'Bimota', nome: 'PEGASSI Bimota', preco: 320, imageFolder: 'vehicles' },
+        { model: 'r8ppi', nome: 'OBEY R8 PPI Razor', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mt03', nome: 'NAGASAKI MT 03', preco: 320, imageFolder: 'vehicles' },
+        { model: 'flatbed3', nome: 'flatbed3', preco: 320, imageFolder: 'vehicles' },
+        { model: '20r1', nome: 'NAGASAKI YZF R1', preco: 320, imageFolder: 'vehicles' },
+        { model: 'filthynsx', nome: 'DINKA NSX', preco: 320, imageFolder: 'vehicles' },
+        { model: '19ftype', nome: 'OCELOT F-Type', preco: 320, imageFolder: 'vehicles' },
+        { model: '488gtb', nome: 'GROTTI 488 GTB', preco: 320, imageFolder: 'vehicles' },
+        { model: '71gtx', nome: 'Plymouth 71 GTX', preco: 320, imageFolder: 'vehicles' },
+        { model: 'nissantitan17', nome: 'ANNIS Titan 2017', preco: 320, imageFolder: 'vehicles' },
+        { model: 'regera', nome: 'OVERFLOD Regera', preco: 320, imageFolder: 'vehicles' },
+        { model: 'gt17', nome: 'VAPID GT 17', preco: 320, imageFolder: 'vehicles' },
+        { model: 'hondafk8', nome: 'DINKA FK8', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mustangmach1', nome: 'Mustang Mach 1', preco: 320, imageFolder: 'vehicles' },
+        { model: 'porsche930', nome: 'PFISTER 930', preco: 320, imageFolder: 'vehicles' },
+        { model: 'porsche992', nome: 'PFISTER 992', preco: 320, imageFolder: 'vehicles' },
+        { model: '18macan', nome: 'PFISTER Macan', preco: 320, imageFolder: 'vehicles' },
+        { model: '180sx', nome: 'ANNIS 180SX', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wreclipse', nome: 'WR Eclipse', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrgolquadrado', nome: 'WR Gol Quadrado', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mclarensenna', nome: 'PROGEN Senna', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrrelampagomarquinhos', nome: 'Wr Relampago', preco: 320, imageFolder: 'vehicles' },
+        { model: 'burritonatal', nome: 'Burrito Natal', preco: 320, imageFolder: 'vehicles' },
+        { model: 'gtb22', nome: 'GTB 22', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrarmoredgls600', nome: 'GLS 600', preco: 320, imageFolder: 'vehicles' },
+        { model: 'x6', nome: 'X6', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrr1sakura', nome: 'R1 SAKURA', preco: 320, imageFolder: 'vehicles' },
+        { model: 'q6audi23', nome: 'OBEY Q6', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mvso', nome: 'MV Agusta Brutalle 1000', preco: 320, imageFolder: 'vehicles' },
+        { model: 'haya24nbrt', nome: 'Hayabusa 2024', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrbrickade', nome: 'WR Brickade', preco: 320, imageFolder: 'vehicles' },
+        { model: 'zx10r', nome: 'NAGASAKI ZX10R', preco: 320, imageFolder: 'vehicles' },
+        { model: 'jeepg', nome: 'CANIS Gladiator', preco: 320, imageFolder: 'vehicles' },
+        { model: 'w900', nome: 'Kenworth W900', preco: 320, imageFolder: 'vehicles' },
+        { model: 'bobbes2', nome: 'Harley D. Bobber S', preco: 320, imageFolder: 'vehicles' },
+        { model: 'bobber', nome: 'Harley D. Bobber', preco: 320, imageFolder: 'vehicles' },
+        { model: '911tbs', nome: 'PFISTER 911S', preco: 320, imageFolder: 'vehicles' },
+        { model: 'palio2', nome: 'Palio2', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wruno', nome: 'Wr Uno', preco: 320, imageFolder: 'vehicles' },
+        { model: 'amrevu23mg', nome: 'PEGASSI Revuelto', preco: 320, imageFolder: 'vehicles' },
+        { model: '22g63', nome: '22g63', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fiatstilo', nome: 'Fiat Stilo', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fiat', nome: 'Fiat', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRr8', nome: 'WRr8', preco: 320, imageFolder: 'vehicles' },
+        { model: 'narremap', nome: 'NA Remap', preco: 320, imageFolder: 'vehicles' },
+        { model: 'dmevo', nome: 'DM EVO', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrharryii', nome: 'wrharryii', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRVolito', nome: 'Helicoptero HP', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mulemaka', nome: 'Mule Makakero', preco: 320, imageFolder: 'vehicles' },
+        { model: 'orosremap', nome: 'Oros Remap', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wdrzreaper', nome: 'wdrzreaper', preco: 320, imageFolder: 'vehicles' },
+        { model: 'gbprospero', nome: 'gbprospero', preco: 320, imageFolder: 'vehicles' },
+        { model: 'vw23gti', nome: 'vw23gti', preco: 320, imageFolder: 'vehicles' },
+        { model: 'cs500HG', nome: 'cs500HG', preco: 320, imageFolder: 'vehicles' },
+        { model: 'gsts951', nome: 'gsts951', preco: 320, imageFolder: 'vehicles' },
+        { model: 'jesterk5', nome: 'jesterk5', preco: 320, imageFolder: 'vehicles' },
+        { model: 'monster5', nome: 'Monster 5', preco: 320, imageFolder: 'vehicles' },
+        { model: 'veto2', nome: 'Veto 2', preco: 280, imageFolder: 'vehicles' },
+        { model: 'zhaba', nome: 'Zhaba', preco: 170, imageFolder: 'vehicles' },
+        { model: 'amgone', nome: 'AMG One', preco: 280, imageFolder: 'vehicles' },
+        { model: 'tr4', nome: 'TR4', preco: 267, imageFolder: 'vehicles' },
+        { model: 'trhawk', nome: 'TR Hawk', preco: 170, imageFolder: 'vehicles' },
+        { model: 'veto', nome: 'Veto', preco: 267, imageFolder: 'vehicles' },
+        { model: 'monster', nome: 'Monster', preco: 305, imageFolder: 'vehicles' },
+        { model: 'monster3', nome: 'Monster 3', preco: 320, imageFolder: 'vehicles' },
+        { model: 'monster4', nome: 'Monster 4', preco: 320, imageFolder: 'vehicles' },
+        { model: 'armytanker', nome: 'Army Tanker', preco: 177, imageFolder: 'vehicles' },
+        { model: 'ferrariitalia', nome: 'Ferrari Italia', preco: 175, imageFolder: 'vehicles' },
+        { model: 'limo2', nome: 'Limo 2', preco: 200, imageFolder: 'vehicles' },
+        { model: 'valkyrietp', nome: 'Valkyrie Track Pack', preco: 267, imageFolder: 'vehicles' },
+        { model: 'wrarmoredconada', nome: 'Conada Blindado', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrarmoredurus', nome: 'Urus Blindada', preco: 320, imageFolder: 'vehicles' },
+        { model: 'moss', nome: 'Moss', preco: 267, imageFolder: 'vehicles' },
+        { model: 'minijcwgp20', nome: 'Mini JCW GP 2020', preco: 267, imageFolder: 'vehicles' },
+        { model: 'seal24', nome: 'Seal 2024', preco: 267, imageFolder: 'vehicles' },
+        { model: 'rmodjesko', nome: 'Jesko', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodgtr50', nome: 'ANNIS GTR 50', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodmi8lb', nome: 'UBERMACHT i8 conversível', preco: 320, imageFolder: 'vehicles' },
+        { model: '2xlr35sakura', nome: 'R35 Sakura', preco: 320, imageFolder: 'vehicles' },
+        { model: 'ahksv', nome: 'Ahksv', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodf40', nome: 'Rmodf40', preco: 320, imageFolder: 'vehicles' },
+        { model: 'foxgt2', nome: 'Fox GT2', preco: 267, imageFolder: 'vehicles' },
+        { model: 'impala67', nome: 'Impala Supernatural', preco: 320, imageFolder: 'vehicles' },
+        { model: 'truckhalloween', nome: 'Caminhão Halloween', preco: 320, imageFolder: 'vehicles' },
+        { model: 'zxhalloween', nome: 'ZX10 Halloween', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrcorollaciv', nome: 'Corolla', preco: 320, imageFolder: 'vehicles' },
+        { model: 'evoquecabrio', nome: 'Evoque Cabrio', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrthundersasuke', nome: 'wrthundersasuke', preco: 320, imageFolder: 'vehicles' },
+        { model: 'adr8', nome: 'R8', preco: 267, imageFolder: 'vehicles' },
+        { model: 'cx75', nome: 'CX75', preco: 267, imageFolder: 'vehicles' },
+        { model: 'fc15', nome: 'Ferrari California T 2015', preco: 267, imageFolder: 'vehicles' },
+        { model: 'wrgtrnatal', nome: 'GTR Natalino', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrr1natal', nome: 'R1 Natalina', preco: 320, imageFolder: 'vehicles' },
+        { model: 'nivou', nome: 'Nivou', preco: 320, imageFolder: 'vehicles' },
+        { model: 'krieger', nome: 'Krieger', preco: 218, imageFolder: 'vehicles' },
+        { model: 'nero', nome: 'Nero', preco: 205, imageFolder: 'vehicles' },
+        { model: 'nero2', nome: 'Nero Custom', preco: 242, imageFolder: 'vehicles' },
+        { model: 'infernus', nome: 'Infernus', preco: 226, imageFolder: 'vehicles' },
+        { model: 'italigtb', nome: 'Itali GTB', preco: 186, imageFolder: 'vehicles' },
+        { model: 'italigtb2', nome: 'Itali GTB Custom', preco: 236, imageFolder: 'vehicles' },
+        { model: 't20', nome: 'T20', preco: 320, imageFolder: 'vehicles' },
+        { model: 'taipan', nome: 'Taipan', preco: 320, imageFolder: 'vehicles' },
+        { model: 'tezeract', nome: 'Tezeract', preco: 217, imageFolder: 'vehicles' },
+        { model: 'osiris', nome: 'Osiris', preco: 217, imageFolder: 'vehicles' },
+        { model: 'pfister811', nome: '811', preco: 217, imageFolder: 'vehicles' },
+        { model: 's80', nome: 'S80RR', preco: 208, imageFolder: 'vehicles' },
+        { model: 'emerus', nome: 'Emerus', preco: 217, imageFolder: 'vehicles' },
+        { model: 'swinger', nome: 'Swinger', preco: 179, imageFolder: 'vehicles' },
+        { model: 'viseris', nome: 'Viseris', preco: 174, imageFolder: 'vehicles' },
+        { model: 'ztype', nome: 'Z-Type', preco: 201, imageFolder: 'vehicles' },
+        { model: 'hermes', nome: 'Hermes', preco: 294, imageFolder: 'vehicles' },
+        { model: 'infernus2', nome: 'Infernus Classic', preco: 190, imageFolder: 'vehicles' },
+        { model: 'jb700', nome: 'JB 700', preco: 188, imageFolder: 'vehicles' },
+        { model: 'cyclone', nome: 'Cyclone', preco: 267, imageFolder: 'vehicles' },
+        { model: 'entity2', nome: 'Entity XXR', preco: 182, imageFolder: 'vehicles' },
+        { model: 'entityxf', nome: 'Entity XF', preco: 192, imageFolder: 'vehicles' },
+        { model: 'visione', nome: 'Visione', preco: 267, imageFolder: 'vehicles' },
+        { model: 'autarch', nome: 'Autarch', preco: 220, imageFolder: 'vehicles' },
+        { model: 'cheetah', nome: 'Cheetah', preco: 213, imageFolder: 'vehicles' },
+        { model: 'dune4', nome: 'Dune 4', preco: 267, imageFolder: 'vehicles' },
+        { model: 'dune5', nome: 'Dune 5', preco: 286, imageFolder: 'vehicles' },
+        { model: 'ruiner3', nome: 'Ruiner 3', preco: 320, imageFolder: 'vehicles' },
+        { model: 'marshall', nome: 'Marshall', preco: 320, imageFolder: 'vehicles' },
+        { model: 'dune2', nome: 'Dune 2', preco: 230, imageFolder: 'vehicles' },
+        { model: 'dune3', nome: 'Dune 3', preco: 248, imageFolder: 'vehicles' },
+        { model: 'STO', nome: 'Lamborghini STO', preco: 200, imageFolder: 'vehicles' },
+        { model: 'tr2', nome: 'TR2', preco: 230, imageFolder: 'vehicles' },
+        { model: 'tr3', nome: 'TR3', preco: 248, imageFolder: 'vehicles' },
+        { model: 'raiden', nome: 'Raiden', preco: 320, imageFolder: 'vehicles' },
+        { model: 'romero', nome: 'Romero', preco: 280, imageFolder: 'vehicles' },
+        { model: 'rrocket', nome: 'Rocket', preco: 320, imageFolder: 'vehicles' },
+        { model: 'stockade3', nome: 'Stockade 3', preco: 177, imageFolder: 'vehicles' },
+        { model: 'vagner', nome: 'Vagner', preco: 320, imageFolder: 'vehicles' },
+        { model: 'xa21', nome: 'XA-21', preco: 192, imageFolder: 'vehicles' },
+        { model: 'zorrusso', nome: 'Zorrusso', preco: 253, imageFolder: 'vehicles' },
+        { model: 'thrax', nome: 'Thrax', preco: 192, imageFolder: 'vehicles' },
+        { model: 'tyrant', nome: 'Tyrant', preco: 320, imageFolder: 'vehicles' },
+        { model: 'tyrus', nome: 'Tyrus', preco: 223, imageFolder: 'vehicles' },
+        { model: 'yosemite3', nome: 'Yosemite Rancher', preco: 186, imageFolder: 'vehicles' },
+        { model: 'ghispo2', nome: 'Ghi Spy 2', preco: 173, imageFolder: 'vehicles' },
+        { model: 'urus', nome: 'Lamborghini Urus', preco: 282, imageFolder: 'vehicles' },
+        { model: 'deveste', nome: 'Deveste', preco: 226, imageFolder: 'vehicles' },
+        { model: 'mesa3', nome: 'Mesa Merryweather', preco: 230, imageFolder: 'vehicles' },
+        { model: 'riata', nome: 'Riata', preco: 175, imageFolder: 'vehicles' },
+        { model: 'agerars', nome: 'Koenisegg Agera', preco: 320, imageFolder: 'vehicles' },
+        { model: 'gt3marlboro', nome: 'gt3marlboro', preco: 320, imageFolder: 'vehicles' },
+        { model: 'etrongt22', nome: 'etrongt22', preco: 320, imageFolder: 'vehicles' },
+        { model: '675ltsp', nome: 'PROGEN 675 LT SP', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrsw4civ', nome: 'wrsw4civ', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrcayenne', nome: 'wrcayenne', preco: 320, imageFolder: 'vehicles' },
+        { model: 'ix22', nome: 'ix22', preco: 320, imageFolder: 'vehicles' },
+        { model: 'c8z0623', nome: 'INVETERO C7 2023', preco: 320, imageFolder: 'vehicles' },
+        { model: 'dd911gtrsr', nome: 'PFISTER 911R GT2 DD', preco: 320, imageFolder: 'vehicles' },
+        { model: 'lpi8004', nome: 'PEGASSI Countach LPI800-4', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wladlc500', nome: 'EMPEROR LC 500', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rs520', nome: 'OBEY RS5 2020', preco: 320, imageFolder: 'vehicles' },
+        { model: 'sjdodge', nome: 'BRAVADO Charger Hellcat', preco: 320, imageFolder: 'vehicles' },
+        { model: 'amggtc', nome: 'AMG Conversivel', preco: 320, imageFolder: 'vehicles' },
+        { model: '370z', nome: 'ANNIS 370z', preco: 320, imageFolder: 'vehicles' },
+        { model: 'a452', nome: 'BENEFACTOR A45', preco: 320, imageFolder: 'vehicles' },
+        { model: 'bikelete', nome: 'Bikelete', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fxxkevo', nome: 'GROTTI FXXK Evo', preco: 320, imageFolder: 'vehicles' },
+        { model: 'biz25', nome: 'Biz 25', preco: 320, imageFolder: 'vehicles' },
+        { model: 'f150', nome: 'VAPID 150', preco: 320, imageFolder: 'vehicles' },
+        { model: 'huayrar', nome: 'Pagani Huayra', preco: 320, imageFolder: 'vehicles' },
+        { model: 'subwrx', nome: 'KARIN WRX', preco: 320, imageFolder: 'vehicles' },
+        { model: 'ds4', nome: 'DS4', preco: 320, imageFolder: 'vehicles' },
+        { model: 'c63w205', nome: 'MERCEDES-AMG C63W205', preco: 320, imageFolder: 'vehicles' },
+        { model: 'gle53', nome: 'BENEFACTOR GLE53', preco: 320, imageFolder: 'vehicles' },
+        { model: 'Hilux2019', nome: 'KARIN Hilux 2019', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRafricat', nome: 'WRafricat', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRpgt322', nome: 'WRpgt322', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRbell407', nome: 'WRbell407', preco: 320, imageFolder: 'vehicles' },
+        { model: 'm8gte', nome: 'm8gte', preco: 320, imageFolder: 'vehicles' },
+        { model: 'polestar1', nome: 'polestar1', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRsxr', nome: 'Sxr', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRtaycan', nome: 'WRtaycan', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRauditron', nome: 'WRauditron', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRq7', nome: 'WRq7', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRtacoma22', nome: 'WRtacoma22', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRtacoma22choque', nome: 'WRtacoma22choque', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRtacoma22cot', nome: 'WRtacoma22cot', preco: 320, imageFolder: 'vehicles' },
+        { model: 'f250deboxe', nome: 'F250 Deboxe', preco: 320, imageFolder: 'vehicles' },
+        { model: '2f2fmk4', nome: 'KARIN Supra Fast and Furious', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fnfmk4', nome: 'KARIN Supra Fast and Furious 2', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fnfmits', nome: 'MAIBATSU Eclipse do Brian', preco: 320, imageFolder: 'vehicles' },
+        { model: 'rmodskyline34', nome: 'Skyline R34', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fnflan', nome: 'MAIBATSU Lancer Evolution IX GSR', preco: 320, imageFolder: 'vehicles' },
+        { model: 'ff4wrx', nome: 'KARIN Impreza Fast and Furious', preco: 320, imageFolder: 'vehicles' },
+        { model: 'amggtr', nome: 'Mercedes-Benz AMGGTR', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrrs3pol', nome: 'RS3 Policia', preco: 320, imageFolder: 'vehicles' },
+        { model: 'ttrs', nome: 'OBEY TTrs', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fnfrx7', nome: 'Mazda RX7 do Han', preco: 320, imageFolder: 'vehicles' },
+        { model: '2f2fmle7', nome: 'Lancer Evolution do Brian', preco: 320, imageFolder: 'vehicles' },
+        { model: '2f2fgts', nome: 'MAIBATSU Spyder do Roman', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrarmoredx7m60i', nome: 'X7 M60i', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrarmoredx6', nome: 'X6 F96', preco: 320, imageFolder: 'vehicles' },
+        { model: '10r24nbrt', nome: 'ZX10-R KRT Edition', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrarmoredm3g80c', nome: 'M3 G80C', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrarmoredm5', nome: 'M5 SL', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrarmoredvelar', nome: 'Velar', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRsprinter22cbm', nome: 'WRsprinter22cbm', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRas350cbm', nome: 'WRas350cbm', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WR21hiluxcbm', nome: 'WR21hiluxcbm', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRxreparamedico', nome: 'XRE SAMU', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRas350samu', nome: 'AS350 SAMU', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRsprinter22', nome: 'Sprinter SAMU', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrarmoredjettagli', nome: 'Jetta GLI', preco: 320, imageFolder: 'vehicles' },
+        { model: '911r', nome: 'Porshe 911r', preco: 305, imageFolder: 'vehicles' },
+        { model: 'panamera17turbo', nome: 'Panamera Turbo', preco: 305, imageFolder: 'vehicles' },
+        { model: 'amarok', nome: 'Amarok', preco: 305, imageFolder: 'vehicles' },
+        { model: 'rmodf12tdf', nome: 'GROTTI 12 TDF', preco: 320, imageFolder: 'vehicles' },
+        { model: '350z', nome: 'ANNIS 350z', preco: 320, imageFolder: 'vehicles' },
+        { model: 'audiq8', nome: 'OBEY Q8', preco: 320, imageFolder: 'vehicles' },
+        { model: '18velar', nome: 'Range Rover Velar', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRvelar', nome: 'Range Rover Velar', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRsw4', nome: 'WRsw4', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fox720m', nome: 'Ahksv', preco: 305, imageFolder: 'vehicles' },
+        { model: 's10', nome: 'DECLASSE S10', preco: 320, imageFolder: 'vehicles' },
+        { model: 'survolt', nome: 'Citroen Survolt', preco: 320, imageFolder: 'vehicles' },
+        { model: 'club96', nome: 'Club 96', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRspeedoems', nome: 'WRspeedoems', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRurus', nome: 'WRurus', preco: 320, imageFolder: 'vehicles' },
+        { model: 'sonata18', nome: 'Sonata', preco: 320, imageFolder: 'vehicles' },
+        { model: 'fordka', nome: 'VAPID Ka', preco: 320, imageFolder: 'vehicles' },
+        { model: 'palio', nome: 'Palio', preco: 320, imageFolder: 'vehicles' },
+        { model: 'punto', nome: 'Fiat Punto', preco: 320, imageFolder: 'vehicles' },
+        { model: 'veneno', nome: 'PEGASSI Veneno', preco: 320, imageFolder: 'vehicles' },
+        { model: 'pcx', nome: 'PCX 2018', preco: 320, imageFolder: 'vehicles' },
+        { model: 'mercxclass', nome: 'BENEFACTOR Class X', preco: 320, imageFolder: 'vehicles' },
+        { model: 'civic2016', nome: 'Civic 2016', preco: 320, imageFolder: 'vehicles' },
+        { model: 'z4bmw', nome: 'UBERMACHT Z4', preco: 320, imageFolder: 'vehicles' },
+        { model: 'r8spyder20', nome: 'OBEY R8 Spyder', preco: 320, imageFolder: 'vehicles' },
+        { model: 'haitun', nome: 'haitun', preco: 320, imageFolder: 'vehicles' },
+        { model: 'caveiraopmerj', nome: 'Caveirão PMERJ', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRranger23', nome: 'Ranger 23', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRsw4cbm', nome: 'WRsw4cbm', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRranger23ebc', nome: 'WRranger23ebc', preco: 320, imageFolder: 'vehicles' },
+        { model: 'uh1exercito', nome: 'uh1exercito', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRl200prf', nome: 'L200', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRranger21', nome: 'Ranger 21', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRtrailblazerprf', nome: 'Trailblazer', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRxt660', nome: 'XT 660', preco: 320, imageFolder: 'vehicles' },
+        { model: 'wrtrxmct', nome: 'wrtrxmct', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRcruzeprf', nome: 'Cruze', preco: 320, imageFolder: 'vehicles' }
+    ],
+    voadores: [
+        { model: 'oppressor', nome: 'Oppressor', preco: 280, imageFolder: 'especial' },
+        { model: 'oppressor2', nome: 'Oppressor Mk II', preco: 280, imageFolder: 'especial' },
+        { model: 'deluxo', nome: 'Deluxo', preco: 200, imageFolder: 'especial' },
+        { model: 'thruster', nome: 'Thruster', preco: 280, imageFolder: 'especial' },
+        { model: 'dodo', nome: 'Dodo', preco: 100, imageFolder: 'vehicles' },
+        { model: 'hydra', nome: 'Hydra', preco: 100, imageFolder: 'vehicles' },
+        { model: 'velum2', nome: 'Velum 5-seater', preco: 100, imageFolder: 'vehicles' },
+        { model: 'vestra', nome: 'Vestra', preco: 100, imageFolder: 'vehicles' },
+        { model: 'besra', nome: 'Besra', preco: 100, imageFolder: 'vehicles' },
+        { model: 'miljet', nome: 'Miljet', preco: 100, imageFolder: 'vehicles' },
+        { model: 'luxor2', nome: 'Luxor Deluxe', preco: 100, imageFolder: 'vehicles' },
+        { model: 'tula', nome: 'Tula', preco: 100, imageFolder: 'vehicles' },
+        { model: 'molotok', nome: 'V-65 Molotok', preco: 100, imageFolder: 'vehicles' },
+        { model: 'howard', nome: 'Howard NX-25', preco: 100, imageFolder: 'vehicles' },
+        { model: 'nimbus', nome: 'Nimbus', preco: 100, imageFolder: 'vehicles' },
+        { model: 'alphaz1', nome: 'Alpha-Z1', preco: 100, imageFolder: 'vehicles' },
+        { model: 'rogue', nome: 'Rogue', preco: 100, imageFolder: 'vehicles' },
+        { model: 'cargoplane', nome: 'Cargo Plane', preco: 100, imageFolder: 'vehicles' },
+        { model: 'blimp', nome: 'Atomic Blimp', preco: 100, imageFolder: 'vehicles' },
+        { model: 'cuban800', nome: 'Cuban 800', preco: 100, imageFolder: 'vehicles' },
+        { model: 'duster', nome: 'Duster', preco: 100, imageFolder: 'vehicles' },
+        { model: 'valkyrie2', nome: 'Valkyrie 2', preco: 320, imageFolder: 'vehicles' },
+        { model: 'cargobob4', nome: 'Cargobob 4', preco: 320, imageFolder: 'vehicles' },
+        { model: 'WRPolmav', nome: 'WR Police Maverick', preco: 305, imageFolder: 'vehicles', imageModel: 'polmav' },
+        { model: 'jet', nome: 'Jet', preco: 100, imageFolder: 'vehicles' },
+        { model: 'shamal', nome: 'Shamal', preco: 100, imageFolder: 'vehicles' },
+        { model: 'titan', nome: 'Titan', preco: 100, imageFolder: 'vehicles' },
+        { model: 'velum', nome: 'Velum', preco: 100, imageFolder: 'vehicles' },
+        { model: 'luxor', nome: 'Luxor', preco: 100, imageFolder: 'vehicles' },
+        { model: 'mammatus', nome: 'Mammatus', preco: 100, imageFolder: 'vehicles' },
+        { model: 'lazer', nome: 'P-996 Lazer', preco: 100, imageFolder: 'vehicles' },
+        { model: 'mogul', nome: 'Mogul', preco: 100, imageFolder: 'vehicles' },
+        { model: 'swift', nome: 'Swift', preco: 103, imageFolder: 'vehicles' },
+        { model: 'savage', nome: 'Savage', preco: 103, imageFolder: 'vehicles' },
+        { model: 'valkyrie', nome: 'Valkyrie', preco: 103, imageFolder: 'vehicles' },
+        { model: 'skylift', nome: 'Skylift', preco: 103, imageFolder: 'vehicles' },
+        { model: 'cargobob2', nome: 'Cargobob Jetsam', preco: 103, imageFolder: 'vehicles' },
+        { model: 'annihilator', nome: 'Annihilator', preco: 103, imageFolder: 'vehicles' },
+        { model: 'swift2', nome: 'Swift Deluxe', preco: 103, imageFolder: 'vehicles' },
+        { model: 'havok', nome: 'Havok', preco: 103, imageFolder: 'vehicles' },
+        { model: 'hunter', nome: 'FH-1 Hunter', preco: 103, imageFolder: 'vehicles' },
+        { model: 'akula', nome: 'Akula', preco: 103, imageFolder: 'vehicles' },
+        { model: 'supervolito', nome: 'SuperVolito', preco: 103, imageFolder: 'vehicles' },
+        { model: 'supervolito2', nome: 'SuperVolito Carbon', preco: 103, imageFolder: 'vehicles' },
+        { model: 'volatus', nome: 'Volatus', preco: 103, imageFolder: 'vehicles' },
+        { model: 'maverick', nome: 'Maverick', preco: 103, imageFolder: 'vehicles' },
+        { model: 'volatol', nome: 'Volatol', preco: 100, imageFolder: 'vehicles' },
+        { model: 'avenger2', nome: 'Avenger', preco: 100, imageFolder: 'vehicles' },
+        { model: 'avenger', nome: 'Avenger', preco: 100, imageFolder: 'vehicles' },
+        { model: 'pyro', nome: 'Pyro', preco: 100, imageFolder: 'vehicles' },
+        { model: 'seabreeze', nome: 'Seabreeze', preco: 100, imageFolder: 'vehicles' },
+        { model: 'nokota', nome: 'P-45 Nokota', preco: 100, imageFolder: 'vehicles' },
+        { model: 'strikeforce', nome: 'B-11 Strikeforce', preco: 100, imageFolder: 'vehicles' },
+        { model: 'cargobob', nome: 'Cargobob', preco: 103, imageFolder: 'vehicles' },
+        { model: 'frogger2', nome: 'Frogger', preco: 103, imageFolder: 'vehicles' },
+        { model: 'frogger', nome: 'Frogger', preco: 103, imageFolder: 'vehicles' },
+        { model: 'buzzard2', nome: 'Buzzard', preco: 103, imageFolder: 'vehicles' },
+        { model: 'buzzard', nome: 'Buzzard Attack Chopper', preco: 103, imageFolder: 'vehicles' },
+        { model: 'cargobob3', nome: 'Cargobob', preco: 103, imageFolder: 'vehicles' }
+    ]
+};
+
+window.VEICULOS_TOTAL = 1080;
+window.VEICULOS_GERADO_EM = '2026-02-10 22:22';
+
+    </script>
+
+
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__inner wrap">
+            <a href="index.html" class="header__brand" aria-label="Medellin RP – Início">
+                <img src="assets/logo.webp" alt="" class="header__logo" width="40" height="40">
+                <span class="header__name">MEDELLIN <strong>RP</strong></span>
+            </a>
+            <button type="button" class="header__toggle" aria-label="Abrir menu" aria-expanded="false" id="menuToggle"><span class="header__toggle-bar"></span></button>
+            <nav class="header__nav" id="headerNav" aria-label="Menu principal">
+                <a href="veiculos.html" class="header__link is-active">Veículos</a>
+                <a href="armas-skins.html" class="header__link">Armas e Skins</a>
+                <a href="checkout.html" class="header__link">Carrinho</a>
+            </nav>
+            <div class="header__actions">
+                <a href="#" class="btn btn-secondary btn-sm" id="btnLogin">Entrar</a>
+                <a href="checkout.html" class="btn btn-primary btn-sm btn-cart">Carrinho <span class="btn-cart__count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1 class="banner-title">Veículos</h1>
+            <p class="banner-subtitle">Carros, motos, aeronaves e veículos especiais para sua garagem.</p>
+        </div>
+    </div>
+
+    <main class="main-content section section--loja">
+        <div class="wrap">
+            <div class="armas-skins-intro">
+                <h2 class="armas-skins-intro__title">Escolha uma categoria</h2>
+                <p class="armas-skins-intro__text">Veículos da base que a loja pode vender (com imagem). Clique na aba para ver por categoria.</p>
+                <p class="armas-skins-intro__total" id="veiculosTotalLinha" style="margin-top:0.5rem; font-weight:600; color:#00FF88;">Carregando…</p>
+                <p class="armas-skins-intro__aviso file-only-aviso" id="avisoFileOnly" style="display:none; margin-top:1rem; padding:0.75rem; background:rgba(0,255,136,0.15); border:1px solid #00FF88; border-radius:6px; color:#ddd; font-size:0.9rem;">Você está abrindo por <strong>file://</strong>. Só parte da lista aparece. Para ver <strong>todos os veículos da base</strong>, abra por servidor: na pasta <code>vip-store-web</code> execute <code>npx serve</code> e acesse <code>http://localhost:3000/veiculos.html</code>.</p>
+            </div>
+            <nav class="armas-skins-tabs" aria-label="Categorias de veículos">
+                <button type="button" class="armas-skins-tabs__btn is-active" data-veiculos-cat="start" aria-pressed="true">Veículos Start</button>
+                <button type="button" class="armas-skins-tabs__btn" data-veiculos-cat="elite" aria-pressed="false">Veículos Elite</button>
+                <button type="button" class="armas-skins-tabs__btn" data-veiculos-cat="colecionaveis" aria-pressed="false">Veículos Colecionáveis</button>
+                <button type="button" class="armas-skins-tabs__btn" data-veiculos-cat="lendarios" aria-pressed="false">Veículos Lendários</button>
+                <button type="button" class="armas-skins-tabs__btn" data-veiculos-cat="voadores" aria-pressed="false">Veículos Voadores</button>
+            </nav>
+            <div class="armas-skins-conteudo">
+                <div id="panel-start" class="armas-skins-panel" role="tabpanel" aria-labelledby="cat-start">
+                    <h2 id="cat-start" class="section-title section-title--sm">Veículos Start</h2>
+                    <p class="section-intro">Entrada: veículos a partir de R$ 120. Entrega na garagem.</p>
+                    <div class="product-grid" id="grid-start"></div>
+                </div>
+                <div id="panel-elite" class="armas-skins-panel armas-skins-panel--hidden" role="tabpanel" aria-labelledby="cat-elite">
+                    <h2 id="cat-elite" class="section-title section-title--sm">Veículos Elite</h2>
+                    <p class="section-intro">Intermediário: veículos de R$ 181 a R$ 240. Entrega na garagem.</p>
+                    <div class="product-grid" id="grid-elite"></div>
+                </div>
+                <div id="panel-colecionaveis" class="armas-skins-panel armas-skins-panel--hidden" role="tabpanel" aria-labelledby="cat-colecionaveis">
+                    <h2 id="cat-colecionaveis" class="section-title section-title--sm">Veículos Colecionáveis</h2>
+                    <p class="section-intro">Raros: veículos de R$ 241 a R$ 260. Entrega na garagem.</p>
+                    <div class="product-grid" id="grid-colecionaveis"></div>
+                </div>
+                <div id="panel-lendarios" class="armas-skins-panel armas-skins-panel--hidden" role="tabpanel" aria-labelledby="cat-lendarios">
+                    <h2 id="cat-lendarios" class="section-title section-title--sm">Veículos Lendários</h2>
+                    <p class="section-intro">Topo: veículos de R$ 261 em diante. Entrega na garagem.</p>
+                    <div class="product-grid" id="grid-lendarios"></div>
+                </div>
+                <div id="panel-voadores" class="armas-skins-panel armas-skins-panel--hidden" role="tabpanel" aria-labelledby="cat-voadores">
+                    <h2 id="cat-voadores" class="section-title section-title--sm">Veículos Voadores</h2>
+                    <p class="section-intro">Motos e veículos voadores. Entrega na garagem.</p>
+                    <div class="product-grid" id="grid-voadores"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner wrap">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="assets/logo.webp" alt="" class="footer__logo" width="40" height="40">
+                    <div class="footer__brand-text">
+                        <span class="footer__name">MEDELLIN <strong>RP</strong></span>
+                        <p class="footer__tagline">Loja VIP · GTA RP</p>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">LOJA</h3>
+                    <nav class="footer__links" aria-label="Loja">
+                        <a class="footer__link footer__link--planos" href="index.html#planos">Planos</a>
+                        <a class="footer__link footer__link--promocoes" href="promocoes.html">Promoções</a>
+                        <a class="footer__link footer__link--temporadas" href="vips-temporadas.html">Vips Temporadas</a>
+                        <a class="footer__link footer__link--carrinho" href="checkout.html">Carrinho</a>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">AJUDA</h3>
+                    <nav class="footer__links" aria-label="Ajuda">
+                        <a class="footer__link footer__link--painel" href="painel.html">Painel</a>
+                        <a class="footer__link footer__link--regras" href="index.html#regras">Regras</a>
+                        <a class="footer__link footer__link--suporte" href="index.html#suporte">Suporte</a>
+                    </nav>
+                </div>
+                <div class="footer__col footer__col--social">
+                    <h3 class="footer__col-title">REDES SOCIAIS</h3>
+                    <div class="footer__social" aria-label="Redes sociais">
+                        <a class="footer__social-link footer__social-link--discord" href="https://discord.com/" rel="noopener noreferrer" target="_blank" title="Discord"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></span></a>
+                        <a class="footer__social-link footer__social-link--instagram" href="https://instagram.com/" rel="noopener noreferrer" target="_blank" title="Instagram"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37a4 4 0 1 1-7.37-2.37 4 4 0 0 1 7.37 2.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></a>
+                        <a class="footer__social-link footer__social-link--tiktok" href="https://www.tiktok.com/" rel="noopener noreferrer" target="_blank" title="TikTok"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/></svg></span></a>
+                        <a class="footer__social-link footer__social-link--facebook" href="https://facebook.com/" rel="noopener noreferrer" target="_blank" title="Facebook"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span></a>
+                        <a class="footer__social-link footer__social-link--youtube" href="https://youtube.com/" rel="noopener noreferrer" target="_blank" title="YouTube"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/></svg></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <section class="footer__payments" aria-labelledby="footer-payments-title">
+                <h3 id="footer-payments-title" class="footer__payments-label">Formas de pagamento</h3>
+                <ul class="footer__payments-icons" role="list" aria-label="Bandeiras e meios aceitos">
+                    <li class="footer__payment-icon" role="listitem" aria-label="Visa"><svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#1A1F71"/><path d="M17 8.5h-2L13 15h2l2-6.5zm8.2 6.5l1.4-3.8-.4-1c-.2-.4-.6-.8-1-.9l-1.4-.2h-2.2l-.2.9h2.2s.4.02.5.2c.1.2 0 .6-.1.8l-1.4 4.2h2.1l2-4.9.9 4.9h2zm-6.2-4.2c0-1.2-.7-1.9-1.7-1.9-.6 0-1 .2-1.3.4l.2-1.8h-1.9c-.4 0-.7.3-.8.7l-1.7 5.7h2l.3-1.3h1.9c.3 0 .5-.2.6-.5l.1-.2.7 2h1.8l-.4-4.2zm-2 .8l.6-2.5.3 2.5h-.9z" fill="#fff"/></svg></li>
+                    <li class="footer__payment-icon" role="listitem" aria-label="Mastercard"><svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#fff" stroke="#E5E5E5" stroke-width="1"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="25" cy="12" r="7" fill="#F79E1B"/><path d="M20 8.3a7 7 0 0 1 0 7.4 7 7 0 0 1 0-7.4z" fill="#FF5F00"/></svg></li>
+                    <li class="footer__payment-icon" role="listitem" aria-label="Elo"><svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#FFCB05"/><path d="M14 7h-2.5L9 17h2.2l.8-3h2.2c1.4 0 2.4-.6 2.9-1.8.4-.9.4-1.9 0-2.8-.5-1.1-1.5-1.7-2.9-1.7H14V7zm.2 5.2h-.8l.4-1.6c.1-.3.3-.5.6-.5h.2c.3 0 .5.2.5.5 0 .5-.4.9-.9 1.6zm7.2-5.2h-2.2l-2.2 6.2 2.2.1 1-2.6 1 2.6h2.2l-2-6.3zm2.2 0v6.2h2V7h-2zm9.2 4.2c0 1.2-.9 2-2.2 2-.8 0-1.4-.3-1.8-.8l1.3-.9c.2.2.4.3.6.3.4 0 .6-.3.6-.8 0-.4-.2-.7-.6-.7-.2 0-.4.1-.6.3l-1.2-.9c.4-.6 1.1-1 1.9-1 1.2 0 2 .8 2 2z" fill="#000"/></svg></li>
+                    <li class="footer__payment-icon" role="listitem" aria-label="PIX"><svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#32BCAD"/><path d="M20 6l-3 3h2v3h2V9h2L20 6zm-6 6l-3 3 3 3v-2H9v-2h5v-2zm12 0v2h5v2h-5v2l3-3-3-3zm-8 2h-2v3l3-3h-1v-3h-2v3z" fill="#fff"/></svg></li>
+                    <li class="footer__payment-icon footer__payment-icon--mp" role="listitem" aria-label="Mercado Pago"><svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="24" rx="4" fill="#009EE3"/><text x="50" y="16" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="11" font-weight="700">Mercado Pago</text></svg></li>
+                </ul>
+                <p class="footer__payments-note">
+                    <span class="footer__payments-lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                    Pagamentos processados com segurança pelo Mercado Pago
+                </p>
+            </section>
+            <div class="footer__bottom">
+                <p class="footer__copy">© Medellin RP – Pagamento em R$ (BRL). Todos os direitos reservados. Não afiliado à Rockstar Games, Take-Two ou GTA. Marcas aos respectivos donos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var BASE = window.IMAGE_BASE || '';
+        var categorias = window.VEICULOS_CATEGORIAS;
+        var porCategoria = window.VEICULOS_POR_CATEGORIA;
+        if (!porCategoria) return;
+
+        function formatPreco(n) { return 'R$ ' + Number(n).toFixed(2).replace('.', ','); }
+
+        function getImageSrc(v, useModelOnly) {
+            var folder = v.imageFolder || 'vehicles';
+            var baseName = (useModelOnly ? v.model : (v.imageModel || v.model));
+            var imgName = baseName + (v.imageExt || '.png');
+            var path = 'assets/' + folder + '/' + imgName;
+            if (folder === 'especial') path += '?v=' + (useModelOnly ? v.model : baseName);
+            return (window.resolveAssetUrl ? window.resolveAssetUrl(path) : path);
+        }
+
+        function createCard(v, productId) {
+            var primarySrc = getImageSrc(v, true);
+            var fallbackSrc = v.imageModel ? getImageSrc(v, false) : null;
+            var card = document.createElement('article');
+            card.className = 'card product-card';
+            card.setAttribute('data-category', 'especial');
+            card.setAttribute('data-type', 'permanente');
+            card.setAttribute('data-price', String(v.preco));
+            card.setAttribute('data-product-id', productId);
+            card.innerHTML =
+                '<div class="product-card__image-wrap">' +
+                '<img src="' + primarySrc + '" alt="' + (v.nome || v.model).replace(/"/g, '&quot;') + '" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=\'assets/logo.webp\';">' +
+                '</div>' +
+                '<h3 class="product-card__name card-title">' + (v.nome || v.model) + '</h3>' +
+                '<p class="product-card__type card-type">Veículo especial</p>' +
+                '<ul class="product-card__benefits" role="list"><li>Entrega na garagem</li></ul>' +
+                '<p class="product-card__price">' + formatPreco(v.preco) + '</p>' +
+                '<a href="especial-detalhe.html?id=' + encodeURIComponent(productId) + '" class="product-card__link">Ver detalhes</a>' +
+                '<button type="button" class="btn btn-primary product-card__btn vip-btn" data-btn-label="Adicionar ao carrinho">Adicionar ao carrinho</button>';
+            var img = card.querySelector('.product-card__image');
+            if (img) {
+                if (fallbackSrc) {
+                    img.onerror = function () { img.onerror = null; img.src = fallbackSrc; };
+                }
+            }
+            var btn = card.querySelector('.vip-btn');
+            if (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (window.medellinAddToCart) {
+                        window.medellinAddToCart({ name: v.nome || v.model, price: v.preco, image: primarySrc, productId: productId, productType: 'veiculo' });
+                    } else {
+                        var cart = [];
+                        try { var raw = localStorage.getItem('medellin_cart'); if (raw) cart = JSON.parse(raw); } catch (_) {}
+                        cart.push({ id: Date.now() + '-' + Math.random().toString(36).slice(2), name: v.nome || v.model, price: v.preco, image: primarySrc, productId: productId });
+                        try { localStorage.setItem('medellin_cart', JSON.stringify(cart)); } catch (_) {}
+                        var countEl = document.getElementById('cartCount'); if (countEl) countEl.textContent = cart.length;
+                    }
+                });
+            }
+            return card;
+        }
+
+        var totalCards = 0;
+        categorias.forEach(function (cat) {
+            var grid = document.getElementById('grid-' + cat.id);
+            var list = porCategoria[cat.id];
+            if (!grid || !list) return;
+            list.forEach(function (v) {
+                var productId = 'especial_' + v.model;
+                grid.appendChild(createCard(v, productId));
+                totalCards++;
+            });
+        });
+        var totalEl = document.getElementById('veiculosTotalLinha');
+        if (totalEl) {
+            var geradoEm = window.VEICULOS_GERADO_EM || '';
+            totalEl.textContent = totalCards + ' veículos da base disponíveis para venda' + (geradoEm ? ' (lista atualizada em ' + geradoEm + ')' : '');
+        }
+        if (totalCards > 0 && totalCards < 50) {
+            var aviso = document.getElementById('avisoFileOnly');
+            if (aviso) aviso.style.display = 'block';
+        }
+
+        var panels = document.querySelectorAll('.armas-skins-panel');
+        var buttons = document.querySelectorAll('.armas-skins-tabs__btn[data-veiculos-cat]');
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var cat = btn.getAttribute('data-veiculos-cat');
+                if (!cat) return;
+                buttons.forEach(function (b) { b.classList.remove('is-active'); b.setAttribute('aria-pressed', 'false'); });
+                btn.classList.add('is-active');
+                btn.setAttribute('aria-pressed', 'true');
+                panels.forEach(function (p) {
+                    var isMatch = p.id === 'panel-' + cat;
+                    p.classList.toggle('armas-skins-panel--hidden', !isMatch);
+                });
+            });
+        });
+
+        var cartCountEl = document.getElementById('cartCount');
+        if (cartCountEl) {
+            try {
+                var raw = localStorage.getItem('medellin_cart');
+                var arr = raw ? JSON.parse(raw) : [];
+                cartCountEl.textContent = Array.isArray(arr) ? arr.length : 0;
+            } catch (_) { cartCountEl.textContent = '0'; }
+        }
+    })();
+    </script>
+</body>
+</html>

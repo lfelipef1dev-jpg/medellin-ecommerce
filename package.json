@@ -1,0 +1,15 @@
+{
+  "name": "vip-store-web",
+  "private": true,
+  "scripts": {
+    "convert-webp": "node scripts/convert-png-to-webp.js",
+    "responsive": "node scripts/generate-responsive-images.js"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^8.0.0",
+    "clean-css": "^5.3.3",
+    "purgecss": "^8.0.0",
+    "sharp": "^0.33.5",
+    "terser": "^5.46.0"
+  }
+}

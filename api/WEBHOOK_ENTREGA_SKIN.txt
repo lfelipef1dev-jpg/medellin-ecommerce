@@ -1,0 +1,45 @@
+================================================================================
+POR QUE A SKIN NÃO CAIU NO INVENTÁRIO – WEBHOOK E ENTREGA
+================================================================================
+
+COMO FUNCIONA (fluxo correto)
+------------------------------
+1. Você compra no site → checkout chama a API → API cria preferência no Mercado Pago.
+2. Você paga no MP → Mercado Pago aprova o pagamento.
+3. Mercado Pago envia um WEBHOOK (notificação) para a URL que está cadastrada no painel do MP (e que a API usa ao criar a preferência).
+4. A API (Node, no seu PC) recebe o webhook em POST /api/webhook/mp → insere na tabela medellin_loja_pending (license, product_type=skin, product_id=WEAPON_M4_AC etc).
+5. O recurso FiveM "medellin-loja-entregas" lê medellin_loja_pending e, para tipo "skin", chama "medellin-loja-armas", que dá o item no inventário (ou na fila para quando o jogador logar).
+
+
+PROBLEMA MAIS PROVÁVEL
+----------------------
+No seu .env está: WEBHOOK_URL=https://roleplaymedellin.com.br/api/webhook/mp
+
+O site roleplaymedellin.com.br é estático (Cloudflare Workers). A API Node roda no seu PC (porta 3000). Quando o Mercado Pago envia o webhook para roleplaymedellin.com.br, não há nenhum servidor Node ali – então a API nunca recebe o aviso, não grava em medellin_loja_pending e a skin nunca é entregue.
+
+
+O QUE FAZER
+-----------
+1) O webhook precisa apontar para onde a API Node está rodando.
+   - No painel do Mercado Pago: Sua integração → Webhooks → a URL deve ser a da SUA API (ex.: https://api.roleplaymedellin.com.br/api/webhook/mp).
+   - No .env da API: WEBHOOK_URL deve ser essa MESMA URL (HTTPS). O MP só aceita webhook em HTTPS.
+
+2) A API precisa estar acessível em HTTPS nessa URL.
+   - Se api.roleplaymedellin.com.br hoje só abre em HTTP (porta 3000), o MP não vai conseguir chamar. Opções:
+     a) Colocar a API atrás de um proxy com SSL (ex.: Nginx + Certbot) em https://api.roleplaymedellin.com.br.
+     b) Usar Cloudflare Tunnel (cloudflared) para expor o localhost:3000 como https://api.roleplaymedellin.com.br (sem abrir porta 3000 no roteador).
+     c) Usar ngrok (ou similar) para gerar uma URL HTTPS temporária que aponta para o seu localhost:3000 e cadastrar essa URL no MP.
+
+3) Depois de corrigir o webhook:
+   - Reinicie a API.
+   - Para um pagamento já aprovado que não entregou: você pode inserir manualmente na medellin_loja_pending (license do jogador, product_type=skin, product_id=WEAPON_M4_AC ou o id da skin comprada, product_tipo=permanente, transaction_id=qualquer_id_unico) e deixar o medellin-loja-entregas processar na próxima vez que o jogador estiver online ou logar.
+
+
+SKIN "FUYA - The M4 blood"
+--------------------------
+No catálogo do site temos "M4 Sangue" (WEAPON_M4_AC). Se a skin que você comprou tem outro nome no site, o product_id é o "id" do item no checkout (ex.: WEAPON_M4_AC). A entrega usa esse id em minúsculo como item no qb-core (ex.: weapon_m4_ac). Esse item precisa existir em qb-core/shared/items.lua (ou onde estiverem os itens) para a skin aparecer no inventário.
+
+
+RESUMO
+------
+Pagamento aprovado → webhook tem que CHEGAR na API Node → API grava em medellin_loja_pending → FiveM (medellin-loja-entregas + medellin-loja-armas) entrega no jogo. Se o webhook está indo para o site estático em vez da API, nada é gravado e a skin não cai. Corrija a URL do webhook para a da API em HTTPS.

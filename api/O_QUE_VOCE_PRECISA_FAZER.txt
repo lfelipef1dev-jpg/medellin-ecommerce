@@ -1,0 +1,75 @@
+================================================================================
+O QUE SÓ VOCÊ PRECISA FAZER (fora do código)
+================================================================================
+No checkout da loja ficou só a opção "ID do painel" (o ID da conta, ordem de
+entrada no servidor / Discord). A entrega no jogo usa esse ID: o servidor
+(medellin-whitelist) resolve o ID para a license e entrega no inventário do
+personagem certo. Para isso funcionar de forma automática, o webhook do Mercado
+Pago precisa chegar na API (passos abaixo). Quando terminar, skins, VIPs e
+demais itens passam a ser entregues automaticamente após o pagamento aprovado.
+
+--------------------------------------------------------------------------------
+1. MERCADO PAGO – Cadastrar a URL do webhook
+--------------------------------------------------------------------------------
+- Acesse: https://www.mercadopago.com.br/developers/panel/app
+- Entre na sua aplicação → Aba "Webhooks" (ou "Notificações")
+- Cadastre esta URL (a da sua API, em HTTPS):
+
+    https://api.roleplaymedellin.com.br/api/webhook/mp
+
+- Se o MP pedir "eventos", marque pelo menos "Pagamentos" (payment).
+
+
+--------------------------------------------------------------------------------
+2. API EM HTTPS – O Mercado Pago só chama webhook em HTTPS
+--------------------------------------------------------------------------------
+Hoje a API roda no seu PC na porta 3000. O endereço api.roleplaymedellin.com.br
+precisa abrir em HTTPS e levar até essa API. Escolha UMA opção:
+
+  A) CLOUDFLARE TUNNEL (recomendado, grátis)
+     - Instale o Cloudflare Tunnel (cloudflared)
+     - Configure um túnel para: https://api.roleplaymedellin.com.br → localhost:3000
+     - Assim não precisa abrir porta 3000 no roteador; o Cloudflare gera HTTPS.
+
+  B) NGORK (rápido para testar)
+     - Rode ngrok http 3000
+     - Use a URL HTTPS que o ngrok mostrar (ex: https://xxxx.ngrok.io)
+     - No passo 1, cadastre no MP: https://xxxx.ngrok.io/api/webhook/mp
+     - No .env da API: WEBHOOK_URL=https://xxxx.ngrok.io/api/webhook/mp
+
+  C) SERVIDOR COM SSL (se a API for para um VPS/servidor)
+     - Coloque a API atrás de Nginx (ou outro) com certificado SSL
+     - O domínio api.roleplaymedellin.com.br deve apontar para esse servidor e responder em HTTPS na porta 443 (e encaminhar para a API na 3000).
+
+
+--------------------------------------------------------------------------------
+3. DEPOIS DE CONFIGURAR
+--------------------------------------------------------------------------------
+- Reinicie a API (node server.js ou seu .bat).
+- Faça um pagamento de teste. Quando o MP aprovar, ele vai chamar a URL do webhook;
+  a API vai gravar em medellin_loja_pending e o FiveM vai entregar a skin no jogo.
+
+
+Resumo: no código já está tudo. Falta só (1) cadastrar a URL no painel do MP e
+(2) fazer essa URL ser HTTPS e chegar na sua API (túnel ou servidor com SSL).
+
+
+--------------------------------------------------------------------------------
+SE VOCÊ JÁ COMPROU "M4 SANGUE" E NÃO CAIU NO INVENTÁRIO
+--------------------------------------------------------------------------------
+Foi criado um script para você mesmo entregar essa skin uma vez (sem depender
+do webhook):
+
+  1. Rode na pasta api:  ENTREGAR_M4_SANGUE_MANUAL.bat
+     Isso mostra os últimos pedidos e a fila de entrega (para conferir se o
+     webhook chegou ou não).
+
+  2. Para INSERIR a entrega e receber a skin no próximo login no servidor:
+     - Abra o prompt na pasta api (cd ...\vip-store-web\api)
+     - Execute:  node check_compra_m4_sangue.js SUA_LICENSE
+     - Troque SUA_LICENSE pela sua license do FiveM (ex: license:abc123...).
+       A license aparece no console do servidor quando você conecta, ou no
+       banco na tabela players.
+
+Depois que você logar (ou estando online), o recurso medellin-loja-entregas
+vai processar a fila e a skin M4 Sangue vai para o seu inventário.

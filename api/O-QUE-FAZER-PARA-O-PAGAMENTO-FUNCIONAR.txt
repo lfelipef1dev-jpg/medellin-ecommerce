@@ -1,0 +1,52 @@
+========================================
+  O QUE FAZER PARA O PAGAMENTO FUNCIONAR
+========================================
+
+RECOMENDACAO: API JUNTO COM A BASE
+  Rode a API no mesmo PC/servidor da base. Ao subir a base use:
+  - Na pasta Medellin: INICIAR_BASE.bat  (ja inicia a API da loja + FXServer)
+  - Ou so a API: INICIAR-API-LOJA-JUNTO-COM-BASE.bat (se a base ja estiver rodando)
+  O Worker (api.roleplaymedellin.com.br) encaminha para sua API; mantenha API_UPSTREAM_URL com o IP desse PC.
+
+Esta API já está integrada com Mercado Pago e com a tabela medellin_loja_pending.
+O FiveM (medellin-loja-entregas) lê essa tabela e entrega no jogo. Não precisa do
+webhook separado em medellin-loja-entregas/webhook para Mercado Pago.
+
+1. ABRIR A API DA LOJA (esta pasta, porta 3000)
+   - Dê dois cliques em: INICIAR-API-LOJA-PAGAMENTO.bat
+   - Ou em: INICIAR-API.bat
+   - Deixe a janela ABERTA.
+   - Deve aparecer: "Medellin VIP Store API rodando na porta 3000"
+
+   ATENÇÃO: Se você tiver outro programa na porta 5001 (XAMPP), esse NÃO é o da loja.
+   O checkout usa a API na PORTA 3000 (esta pasta).
+
+2. .env (já preenchido com banco e MP)
+   - DB_PASSWORD e DB_NAME=qbcore já estão configurados.
+   - WEBHOOK_URL deve ser a URL pública da API (ex: https://api.roleplaymedellin.com.br/api/webhook/mp).
+   - No painel do Mercado Pago (sua app): Notificações / Webhook = mesma URL (HTTPS).
+
+3. PRODUÇÃO: Worker (api.roleplaymedellin.com.br) já faz proxy para sua API
+   - O Worker envia todo o tráfego para o IP em API_UPSTREAM_URL (ex: http://SEU_IP:3000).
+   - Rode a API no PC/VPS que tem esse IP (ou atualize o IP no Worker).
+   - Em vip-store-web/worker-api/wrangler.toml está API_UPSTREAM_URL = "http://160.238.154.194:3000".
+   - Se seu IP mudar: edite wrangler.toml e faça deploy do Worker (cd worker-api && npx wrangler deploy).
+   - Porta 3000 deve estar aberta no firewall do PC onde a API roda.
+   - Mercado Pago já recebe notification_url = https://api.roleplaymedellin.com.br/api/webhook/mp (enviamos ao criar a preferência). Não precisa cadastrar webhook manualmente no painel do MP para cada pagamento.
+
+4. CHECKOUT: jogador informa o ID da loja
+   - No jogo: /lojaid (mostra o número).
+   - No checkout: escolher "ID da conta" e colar esse número. A API grava em medellin_loja_pending
+     com account_id; o FiveM resolve para a license e entrega.
+
+5. FIREWALL (uma vez, se testar na rede local)
+   - Windows: Firewall -> Regras de entrada -> Porta TCP 3000 -> Permitir.
+
+6. TESTAR
+   - Abra: https://roleplaymedellin.com.br/checkout.html
+   - Item no carrinho, ID do painel (ou license), "Pagar com Mercado Pago".
+   - Na janela da API: [create-preference] Requisição recebida.
+   - Após pagar no MP, o MP chama o webhook; a API insere em medellin_loja_pending;
+     o servidor FiveM entrega na próxima checagem ou ao logar.
+
+========================================

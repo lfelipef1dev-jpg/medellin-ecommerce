@@ -1,0 +1,19 @@
+# Imagens que FALTAM para Blindados 16 tiros
+# Coloque cada arquivo .png nesta pasta (assets/vehicles/) com o nome exato abaixo.
+# Depois que adicionar, a imagem aparecerá automaticamente na loja.
+
+wrarmoredg63.png
+wrarmoredct.png
+wrarmoredcayenne.png
+wrarmoredgle.png
+wrarmoredmacan.png
+wrarmoredrs7.png
+armored18velar.png
+armoredx7m60i.png
+wrarmoredpurosangue.png
+wrarmoredvenatus.png
+wrarmoredescalade.png
+
+# Já existem na pasta (14): baller5, baller6, schafter5, xls2, kuruma2,
+# wrarmoredconada, wrarmoredurus, wrarmoredjettagli, wrarmoredm3g80c,
+# wrarmoredm5, wrarmoredvelar, wrarmoredx7m60i, wrarmoredx6, wrarmoredgls600

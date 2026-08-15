@@ -1,0 +1,55 @@
+================================================================================
+CONFIRMAÇÃO: ID DO PAINEL – TUDO NO MESMO PADRÃO
+================================================================================
+Verificado no código em 09/02/2026. Os três "IDs" que você citou são o mesmo
+número: o id da tabela player_accounts (medellin-whitelist).
+
+--------------------------------------------------------------------------------
+1. ORIGEM DO ID
+--------------------------------------------------------------------------------
+Tabela: player_accounts (criada pelo medellin-whitelist)
+- Coluna: id INT UNSIGNED AUTO_INCREMENT
+- Quando o jogador entra pela primeira vez (ou passa na whitelist), é criada
+  uma linha com a license dele e o id é atribuído em ordem (1, 2, 3...).
+- Esse id é o "ID da conta" / "ID do painel" / "account_id".
+
+--------------------------------------------------------------------------------
+2. ONDE ESSE ID APARECE (TUDO IGUAL)
+--------------------------------------------------------------------------------
+a) CHECKOUT DA LOJA (ID do painel)
+   - O jogador digita o número (ex.: 1).
+   - A API grava em medellin_loja_pending como account_id.
+   - O FiveM (medellin-loja-entregas) usa GetLicenseByAccountId(account_id)
+     que faz: SELECT license FROM player_accounts WHERE id = ?
+   - Entrega no personagem certo.
+
+b) HUD NO JOGO
+   - Recurso: medellin-fixed-ids (servidor) envia displayId para o client via
+     statebag (displayId).
+   - displayId = GetOrCreateAccountId(license) = player_accounts.id.
+   - Recurso: java-hud (client) lê LocalPlayer.state.displayId e mostra na HUD.
+   - Ou seja: o número que aparece na HUD é o player_accounts.id.
+
+c) PAINEL ADM (qb-adminmenu)
+   - Listagem de jogadores usa: SELECT pa.id AS account_id FROM players p
+     LEFT JOIN player_accounts pa ON p.license = pa.license.
+   - O "ID conta (Discord/WL)" exibido no modal do jogador é esse account_id,
+     ou seja, player_accounts.id.
+
+d) DISCORD (se vocês exibem ID lá)
+   - Se o bot/integração do Discord mostra o "ID do jogador", para estar
+     padronizado deve ser o mesmo player_accounts.id (account_id). Não foi
+     verificado no código do bot; desde que usem a mesma tabela/export
+     (GetOrCreateAccountId ou consulta a player_accounts.id), será o mesmo.
+
+--------------------------------------------------------------------------------
+3. RESUMO
+--------------------------------------------------------------------------------
+- Um único número: player_accounts.id (account_id).
+- Checkout da loja: usa esse ID → entrega certa quando o webhook estiver OK.
+- HUD: mostra esse ID (via displayId do medellin-fixed-ids).
+- Painel ADM: mostra esse ID como "ID conta (Discord/WL)".
+- Tudo dentro do padrão: um ID por conta, ordem de entrada, mesmo em todo o projeto.
+
+Nenhuma alteração necessária no código para os IDs; só garantir que o webhook
+do Mercado Pago chegue na API para a entrega automática funcionar.

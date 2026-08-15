@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículo Especial – Medellin RP</title>
+    <link rel="dns-prefetch" href="https://pub-89b867ec225e45518f185a48a96ed88e.r2.dev">
+    <link rel="preconnect" href="https://pub-89b867ec225e45518f185a48a96ed88e.r2.dev" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260207-especial">
+    <script src="config.js"></script>
+    <script src="veiculos-data.js"></script>
+    <script src="veiculos-ficha-tecnica.js"></script>
+    <script src="app.js?v=20260211-cart" defer></script>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__inner wrap">
+            <a href="index.html" class="header__brand" aria-label="Medellin RP – Início">
+                <img src="assets/logo.webp" alt="" class="header__logo" width="40" height="40">
+                <span class="header__name">MEDELLIN <strong>RP</strong></span>
+            </a>
+            <button type="button" class="header__toggle" aria-label="Abrir menu" aria-expanded="false" id="menuToggle"><span class="header__toggle-bar"></span></button>
+            <nav class="header__nav" id="headerNav" aria-label="Menu principal">
+                <a href="veiculos.html" class="header__link is-active">Veículos</a>
+                <a href="checkout.html" class="header__link">Carrinho</a>
+            </nav>
+            <div class="header__actions">
+                <a href="#" class="btn btn-secondary btn-sm" id="btnLogin">Entrar</a>
+                <a href="checkout.html" class="btn btn-primary btn-sm btn-cart">Carrinho <span class="btn-cart__count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1 class="banner-title" id="especialTitle">Veículo Especial</h1>
+            <p class="banner-subtitle" id="especialSubtitle">Entrega na garagem · Permanente</p>
+        </div>
+    </div>
+
+    <main class="main-content single-vip">
+        <div class="vip-detail-layout" id="especialContent">
+            <div class="vip-detail-card" id="especialCard">
+                <div class="vip-detail-card__image-wrap">
+                    <img src="" alt="" class="vip-detail-card__image" id="especialImage" width="280" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                </div>
+                <p class="vip-detail-price" id="especialPrice">R$ 0,00</p>
+                <p class="vip-detail-price-alt">Veículo especial · Permanente</p>
+                <button type="button" class="vip-btn" id="especialBtnCart">Comprar</button>
+            </div>
+
+            <div class="vip-benefits" id="especialBenefits">
+                <p class="benefits-intro" id="especialIntro">Veículo exclusivo da loja VIP. Após o pagamento, o veículo é entregue na sua garagem no jogo.</p>
+                <div id="especialSpecsBlock">
+                    <h3 class="benefits-section benefits-section--key">Ficha do veículo</h3>
+                    <ul class="benefits-list" id="especialSpecsList"></ul>
+                </div>
+                <div class="ficha-tecnica hidden" id="especialFichaTecnica" aria-hidden="true"></div>
+                <div id="especialBenefitsBlock">
+                    <h3 class="benefits-section benefits-section--gift">O que inclui</h3>
+                    <ul class="benefits-list" id="especialBenefitsList"></ul>
+                </div>
+                <p class="benefits-intro" style="margin-top: 1rem;"><a href="veiculos.html" class="btn btn-secondary btn-sm">Voltar aos Veículos</a></p>
+            </div>
+        </div>
+        <div class="wrap hidden" id="especialNotFound">
+            <p>Veículo não encontrado.</p>
+            <a href="veiculos.html" class="btn btn-primary">Voltar aos Veículos</a>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner wrap">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="assets/logo.webp" alt="" class="footer__logo" width="40" height="40">
+                    <div class="footer__brand-text">
+                        <span class="footer__name">MEDELLIN <strong>RP</strong></span>
+                        <p class="footer__tagline">Loja VIP · GTA RP</p>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">LOJA</h3>
+                    <nav class="footer__links" aria-label="Loja">
+                        <a class="footer__link footer__link--planos" href="index.html#planos">Planos</a>
+                        <a class="footer__link footer__link--promocoes" href="promocoes.html">Promoções</a>
+                        <a class="footer__link footer__link--temporadas" href="vips-temporadas.html">Vips Temporadas</a>
+                        <a class="footer__link footer__link--carrinho" href="checkout.html">Carrinho</a>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">AJUDA</h3>
+                    <nav class="footer__links" aria-label="Ajuda">
+                        <a class="footer__link footer__link--painel" href="painel.html">Painel</a>
+                        <a class="footer__link footer__link--regras" href="index.html#regras">Regras</a>
+                        <a class="footer__link footer__link--suporte" href="index.html#suporte">Suporte</a>
+                    </nav>
+                </div>
+                <div class="footer__col footer__col--social">
+                    <h3 class="footer__col-title">REDES SOCIAIS</h3>
+                    <div class="footer__social" aria-label="Redes sociais">
+                        <a class="footer__social-link footer__social-link--discord" href="https://discord.com/" rel="noopener noreferrer" target="_blank" title="Discord"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></span></a>
+                        <a class="footer__social-link footer__social-link--instagram" href="https://instagram.com/" rel="noopener noreferrer" target="_blank" title="Instagram"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37a4 4 0 1 1-7.37-2.37 4 4 0 0 1 7.37 2.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span></a>
+                        <a class="footer__social-link footer__social-link--tiktok" href="https://www.tiktok.com/" rel="noopener noreferrer" target="_blank" title="TikTok"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/></svg></span></a>
+                        <a class="footer__social-link footer__social-link--facebook" href="https://facebook.com/" rel="noopener noreferrer" target="_blank" title="Facebook"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span></a>
+                        <a class="footer__social-link footer__social-link--youtube" href="https://youtube.com/" rel="noopener noreferrer" target="_blank" title="YouTube"><span class="footer__social-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/></svg></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <section class="footer__payments" aria-labelledby="footer-payments-title">
+                <h3 id="footer-payments-title" class="footer__payments-label">Formas de pagamento</h3>
+                <ul class="footer__payments-icons" role="list" aria-label="Bandeiras e meios aceitos">
+                    <li class="footer__payment-icon" role="listitem" aria-label="Visa"><svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#1A1F71"/><path d="M17 8.5h-2L13 15h2l2-6.5zm8.2 6.5l1.4-3.8-.4-1c-.2-.4-.6-.8-1-.9l-1.4-.2h-2.2l-.2.9h2.2s.4.02.5.2c.1.2 0 .6-.1.8l-1.4 4.2h2.1l2-4.9.9 4.9h2zm-6.2-4.2c0-1.2-.7-1.9-1.7-1.9-.6 0-1 .2-1.3.4l.2-1.8h-1.9c-.4 0-.7.3-.8.7l-1.7 5.7h2l.3-1.3h1.9c.3 0 .5-.2.6-.5l.1-.2.7 2h1.8l-.4-4.2zm-2 .8l.6-2.5.3 2.5h-.9z" fill="#fff"/></svg></li>
+                    <li class="footer__payment-icon" role="listitem" aria-label="Mastercard"><svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#fff" stroke="#E5E5E5" stroke-width="1"/><circle cx="15" cy="12" r="7" fill="#EB001B"/><circle cx="25" cy="12" r="7" fill="#F79E1B"/><path d="M20 8.3a7 7 0 0 1 0 7.4 7 7 0 0 1 0-7.4z" fill="#FF5F00"/></svg></li>
+                    <li class="footer__payment-icon" role="listitem" aria-label="Elo"><svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#FFCB05"/><path d="M14 7h-2.5L9 17h2.2l.8-3h2.2c1.4 0 2.4-.6 2.9-1.8.4-.9.4-1.9 0-2.8-.5-1.1-1.5-1.7-2.9-1.7H14V7zm.2 5.2h-.8l.4-1.6c.1-.3.3-.5.6-.5h.2c.3 0 .5.2.5.5 0 .5-.4.9-.9 1.6zm7.2-5.2h-2.2l-2.2 6.2 2.2.1 1-2.6 1 2.6h2.2l-2-6.3zm2.2 0v6.2h2V7h-2zm9.2 4.2c0 1.2-.9 2-2.2 2-.8 0-1.4-.3-1.8-.8l1.3-.9c.2.2.4.3.6.3.4 0 .6-.3.6-.8 0-.4-.2-.7-.6-.7-.2 0-.4.1-.6.3l-1.2-.9c.4-.6 1.1-1 1.9-1 1.2 0 2 .8 2 2z" fill="#000"/></svg></li>
+                    <li class="footer__payment-icon" role="listitem" aria-label="PIX"><svg viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="24" rx="3" fill="#32BCAD"/><path d="M20 6l-3 3h2v3h2V9h2L20 6zm-6 6l-3 3 3 3v-2H9v-2h5v-2zm12 0v2h5v2h-5v2l3-3-3-3zm-8 2h-2v3l3-3h-1v-3h-2v3z" fill="#fff"/></svg></li>
+                    <li class="footer__payment-icon footer__payment-icon--mp" role="listitem" aria-label="Mercado Pago"><svg viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="24" rx="4" fill="#009EE3"/><text x="50" y="16" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="11" font-weight="700">Mercado Pago</text></svg></li>
+                </ul>
+                <p class="footer__payments-note">
+                    <span class="footer__payments-lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                    Pagamentos processados com segurança pelo Mercado Pago
+                </p>
+            </section>
+            <div class="footer__bottom">
+                <p class="footer__copy">© Medellin RP – Pagamento em R$ (BRL). Todos os direitos reservados. Não afiliado à Rockstar Games, Take-Two ou GTA. Marcas aos respectivos donos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        function getImageSrc(v) {
+            if (!v) return '';
+            var folder = v.imageFolder || 'especial';
+            var imgName = (v.imageModel || v.model) + (v.imageExt || '.png');
+            var path = 'assets/' + folder + '/' + imgName;
+            return (window.resolveAssetUrl ? window.resolveAssetUrl(path) : path);
+        }
+        // blindado, voa, submersivel, armas, categoria, descricao (dados reais GTA V/Online) - 32 especiais com ficha completa
+        var ESPECIAL_WITH_IMAGE = [
+            { model: 'apc', nome: 'APC', preco: 260, blindado: true, voa: false, submersivel: true, armas: 'Canhão principal + metralhadora. Anfíbio: navega na água.', categoria: 'Militar', descricao: 'Tanque anfíbio blindado (HVY). Opera em terra e água; canhão e metralhadora. Entrega na garagem após o pagamento.', beneficios: ['Blindado anfíbio', 'Canhão + metralhadora', 'Entrega na garagem'], dadosTecnicos: ['Anfíbio: navega em terra e água', 'Torre com canhão + metralhadora', 'Tração esteiras · 4 ocupantes', 'Tipo: Militar · HVY'] },
+            { model: 'barrage', nome: 'Barrage', preco: 240, blindado: true, voa: false, submersivel: false, armas: 'Metralhadora dupla frontal. Cabine blindada.', categoria: 'Militar', descricao: 'Caminhão blindado com metralhadora dupla. Resistente a tiros. Entrega na garagem.', beneficios: ['Blindado', 'Metralhadora dupla', 'Entrega na garagem'], dadosTecnicos: ['Metralhadora dupla frontal fixa', 'Cabine blindada', 'Chassis pesado militar', 'Tipo: Militar · HVY'] },
+            { model: 'bruiser', nome: 'Future Shock Bruiser', preco: 220, blindado: true, voa: false, submersivel: false, armas: 'Arena War: armas montadas conforme configuração.', categoria: 'Arena War', descricao: 'Veículo Arena War (Future Shock). Blindado, customizável com armas. Entrega na garagem.', beneficios: ['Arena War', 'Blindado', 'Entrega na garagem'], dadosTecnicos: ['Arena War Future Shock', 'Blindado · armas montadas configuráveis', 'Off-road', 'Tipo: Automóvel · Benefactor'] },
+            { model: 'brutus', nome: 'Future Shock Brutus', preco: 220, blindado: true, voa: false, submersivel: false, armas: 'Arena War: armas e lâminas.', categoria: 'Arena War', descricao: 'Muscle Arena War (Future Shock). Blindado, armas e lâminas. Entrega na garagem.', beneficios: ['Arena War', 'Blindado', 'Entrega na garagem'], dadosTecnicos: ['Arena War Future Shock', 'Blindado · armas e lâminas', 'Base muscle', 'Tipo: Automóvel · Declasse'] },
+            { model: 'cerberus', nome: 'Future Shock Cerberus', preco: 260, blindado: true, voa: false, submersivel: false, armas: 'Caminhão Arena War: canhão e armas montadas.', categoria: 'Arena War', descricao: 'Caminhão pesado Arena War. Blindado, alto poder de fogo. Entrega na garagem.', beneficios: ['Arena War', 'Blindado', 'Entrega na garagem'], dadosTecnicos: ['Arena War · caminhão pesado', 'Canhão e armas montadas', 'Blindado', 'Tipo: Automóvel · MTL'] },
+            { model: 'chernobog', nome: 'Chernobog', preco: 280, blindado: true, voa: false, submersivel: false, armas: 'Lançador de mísseis guiados (até 30 mísseis). Estacionário para disparar.', categoria: 'Militar', descricao: 'Sistema de lançamento de mísseis sobre chassis (HVY). Blindado; dispara mísseis guiados — deve estar parado para ativar o lançador. Entrega na garagem.', beneficios: ['Lançador de mísseis (até 30)', 'Blindado', 'Entrega na garagem'], dadosTecnicos: ['Lançador de mísseis guiados (até 30)', 'Disparo estacionário', 'Chassis blindado', 'Tipo: Militar · HVY'] },
+            { model: 'deathbike', nome: 'Deathbike Apocalypse', preco: 180, blindado: false, voa: false, submersivel: false, armas: 'Arena War: metralhadora e/ou lança-chamas.', categoria: 'Arena War', descricao: 'Moto Arena War (Apocalypse). Pode ter metralhadora ou lança-chamas. Entrega na garagem.', beneficios: ['Arena War', 'Armas montadas', 'Entrega na garagem'], dadosTecnicos: ['Arena War Apocalypse', 'Metralhadora ou lança-chamas (configurável)', 'Moto', 'Tipo: Moto · Deathbike'] },
+            { model: 'deluxo', nome: 'Deluxo', preco: 200, blindado: false, voa: true, submersivel: false, armas: 'Mísseis (capacidade padrão). Condução e modo voo.', categoria: 'Especial', descricao: 'Carro voador estilo DeLorean. Conduz em estrada ou ativa modo voo; pode equipar mísseis. Entrega na garagem.', beneficios: ['Voa', 'Mísseis', 'Entrega na garagem'], dadosTecnicos: ['Modo estrada, hover e voo', 'Mísseis guiados (opcional)', 'Estilo DeLorean · 2 lugares', 'Tipo: Sports Classics · Imponte'] },
+            { model: 'dominator4', nome: 'Future Shock Dominator', preco: 210, blindado: true, voa: false, submersivel: false, armas: 'Arena War: armas e reforços.', categoria: 'Arena War', descricao: 'Muscle Arena War (Future Shock). Blindado, armas. Entrega na garagem.', beneficios: ['Arena War', 'Blindado', 'Entrega na garagem'], dadosTecnicos: ['Arena War Future Shock', 'Blindado · armas e reforços', 'Base Dominator muscle', 'Tipo: Automóvel · Vapid'] },
+            { model: 'halftrack', nome: 'Half-Track', preco: 250, blindado: true, voa: false, submersivel: false, armas: 'Metralhadora pesada rotativa (torre).', categoria: 'Militar', descricao: 'Meio-blindado militar com torre de metralhadora. Resistente a tiros. Entrega na garagem.', beneficios: ['Blindado', 'Metralhadora torre', 'Entrega na garagem'], dadosTecnicos: ['Metralhadora pesada em torre rotativa', 'Meio-blindado · esteiras dianteiras', 'Chassis militar', 'Tipo: Militar · Bravado'] },
+            { model: 'imperator', nome: 'Future Shock Imperator', preco: 210, blindado: true, voa: false, submersivel: false, armas: 'Arena War: armas e lâminas.', categoria: 'Arena War', descricao: 'Muscle Arena War (Future Shock). Blindado, armas. Entrega na garagem.', beneficios: ['Arena War', 'Blindado', 'Entrega na garagem'], dadosTecnicos: ['Arena War Future Shock', 'Blindado · armas e lâminas', 'Base muscle Imperator', 'Tipo: Automóvel · Vapid'] },
+            { model: 'insurgent', nome: 'Insurgent Pick-Up', preco: 260, blindado: true, voa: false, submersivel: false, armas: 'Metralhadora .50 na caçamba (opcional).', categoria: 'Off-road', descricao: 'Pick-up blindado (HVY). Alta resistência; pode ter metralhadora na caçamba. Entrega na garagem.', beneficios: ['Blindado', 'Metralhadora opcional', 'Entrega na garagem'], dadosTecnicos: ['Pick-up blindado · alta resistência', 'Metralhadora .50 na caçamba (opcional)', 'Off-road', 'Tipo: Automóvel · HVY'] },
+            { model: 'khanjali', nome: 'Khanjali', preco: 240, blindado: true, voa: false, submersivel: false, armas: 'Canhão principal + metralhadora coaxial. Mísseis guiados (capacidade padrão).', categoria: 'Militar', descricao: 'Tanque moderno. Canhão, metralhadora e mísseis guiados. Totalmente blindado. Entrega na garagem.', beneficios: ['Tanque', 'Canhão + mísseis', 'Entrega na garagem'], dadosTecnicos: ['Canhão principal + metralhadora coaxial', 'Mísseis guiados', 'Blindagem total', 'Tipo: Militar · TM-02 Khanjali'] },
+            { model: 'menacer', nome: 'Menacer', preco: 250, blindado: true, voa: false, submersivel: false, armas: 'Metralhadora montada (torre).', categoria: 'Off-road', descricao: 'Off-road blindado com torre de metralhadora. Resistente. Entrega na garagem.', beneficios: ['Blindado', 'Metralhadora torre', 'Entrega na garagem'], dadosTecnicos: ['Off-road blindado', 'Torre com metralhadora montada', 'Alta resistência', 'Tipo: Automóvel · HVY'] },
+            { model: 'nightshark', nome: 'Nightshark', preco: 230, blindado: true, voa: false, submersivel: false, armas: 'Metralhadoras duplas frontais (fixas).', categoria: 'Off-road', descricao: 'SUV blindado (HVY) com metralhadoras duplas. Muito resistente a explosões e tiros. Entrega na garagem.', beneficios: ['Blindado', 'Metralhadoras duplas', 'Entrega na garagem'], dadosTecnicos: ['Metralhadoras duplas frontais fixas', 'Blindagem anti-explosão e tiros', 'SUV off-road', 'Tipo: Automóvel · HVY'] },
+            { model: 'oppressor', nome: 'Oppressor', preco: 280, blindado: false, voa: true, submersivel: false, armas: 'Mísseis guiados (mira estilo aeronave).', categoria: 'Especial', descricao: 'Moto voadora Pegassi. Planador, propulsão foguete e mísseis guiados. Entrega na garagem.', beneficios: ['Voa', 'Planador', 'Propulsão foguete', 'Mísseis guiados', 'Entrega na garagem'], dadosTecnicos: ['Propulsão foguete (rocket boost)', 'Planador (asas)', 'Mísseis com mira estilo aeronave', 'Câmera moto voadora', 'Tipo: Moto · Pegassi'] },
+            { model: 'oppressor2', nome: 'Oppressor Mk II', preco: 280, blindado: false, voa: true, submersivel: false, armas: 'Mísseis guiados (mira estilo aeronave).', categoria: 'Especial', descricao: 'Moto voadora Mk II Pegassi. Voo estável, propulsão e mísseis. Entrega na garagem.', beneficios: ['Voa', 'Propulsão foguete', 'Mísseis guiados', 'Entrega na garagem'], dadosTecnicos: ['Propulsão foguete (rocket boost)', 'Mísseis com mira estilo aeronave', 'Câmera moto voadora', 'Tipo: Moto · Pegassi'] },
+            { model: 'rcbandito', nome: 'RC Bandito', preco: 120, blindado: false, voa: false, submersivel: false, armas: 'Explosivo: detonação remota. Miniaturizado.', categoria: 'Especial', descricao: 'Carro RC explosivo. Controlado à distância; pode detonar. Entrega na garagem.', beneficios: ['RC explosivo', 'Detonação remota', 'Entrega na garagem'], dadosTecnicos: ['Controle remoto · miniaturizado', 'Detonação explosiva remota', 'Off-road RC', 'Tipo: Automóvel · RC'] },
+            { model: 'rhino', nome: 'Rhino', preco: 240, blindado: true, voa: false, submersivel: false, armas: 'Canhão principal (projéteis explosivos).', categoria: 'Militar', descricao: 'Tanque clássico. Canhão principal de alto calibre. Blindagem total. Entrega na garagem.', beneficios: ['Tanque', 'Canhão', 'Entrega na garagem'], dadosTecnicos: ['Canhão principal projéteis explosivos', 'Blindagem total · esteiras', 'Tanque clássico', 'Tipo: Militar'] },
+            { model: 'scarab', nome: 'Future Shock Scarab', preco: 260, blindado: true, voa: false, submersivel: false, armas: 'Arena War: armas e lâminas (três variantes).', categoria: 'Arena War', descricao: 'Buggy Arena War (Future Shock). Blindado, armas. Entrega na garagem.', beneficios: ['Arena War', 'Blindado', 'Entrega na garagem'], dadosTecnicos: ['Arena War Future Shock', 'Buggy blindado · armas e lâminas', 'Três variantes de armamento', 'Tipo: Militar · HVY'] },
+            { model: 'scramjet', nome: 'Scramjet', preco: 230, blindado: false, voa: false, submersivel: false, armas: 'Mísseis + propulsão para saltos.', categoria: 'Especial', descricao: 'Carro de ação com mísseis e propulsão (saltos no ar). Estilo Speed Racer. Entrega na garagem.', beneficios: ['Mísseis', 'Propulsão saltos', 'Entrega na garagem'], dadosTecnicos: ['Propulsão para saltos no ar', 'Mísseis guiados', 'Estilo Speed Racer', 'Tipo: Hypercar · Declasse'] },
+            { model: 'slamvan4', nome: 'Future Shock Slamvan', preco: 200, blindado: true, voa: false, submersivel: false, armas: 'Arena War: armas montadas.', categoria: 'Arena War', descricao: 'Van Arena War (Future Shock). Blindada, armas. Entrega na garagem.', beneficios: ['Arena War', 'Blindado', 'Entrega na garagem'], dadosTecnicos: ['Arena War Future Shock', 'Van muscle blindada', 'Armas montadas', 'Tipo: Automóvel · Vapid'] },
+            { model: 'stromberg', nome: 'Stromberg', preco: 220, blindado: true, voa: false, submersivel: true, armas: 'Mísseis subaquáticos e em superfície. Homing.', categoria: 'Especial', descricao: 'Carro submersível (Ocelot). Conduz e navega submerso; mísseis guiados em terra e água. Entrega na garagem.', beneficios: ['Submersível', 'Mísseis', 'Entrega na garagem'], dadosTecnicos: ['Submersível: terra e água', 'Mísseis guiados (homing) em superfície e submerso', 'Blindado', 'Tipo: Sports Classics · Ocelot'] },
+            { model: 'submersible', nome: 'Submersible', preco: 150, blindado: false, voa: false, submersivel: true, armas: 'Nenhuma. Apenas submersão.', categoria: 'Aquático', descricao: 'Submarino de dois lugares. Apenas navegação subaquática. Entrega na garagem.', beneficios: ['Submarino', 'Entrega na garagem'], dadosTecnicos: ['Submarino · 2 lugares', 'Apenas navegação subaquática', 'Sem armas', 'Tipo: Barco · Kraken Subs'] },
+            { model: 'submersible2', nome: 'Kraken', preco: 150, blindado: false, voa: false, submersivel: true, armas: 'Nenhuma. Submarino grande.', categoria: 'Aquático', descricao: 'Submarino Kraken. Maior capacidade; só navegação. Entrega na garagem.', beneficios: ['Submarino', 'Entrega na garagem'], dadosTecnicos: ['Submarino grande · maior capacidade', 'Apenas navegação subaquática', 'Sem armas', 'Tipo: Barco · Kraken Subs'] },
+            { model: 'tampa3', nome: 'Weaponized Tampa', preco: 230, blindado: false, voa: false, submersivel: false, armas: 'Metralhadora dupla, mísseis, minas, lança-chamas (conforme configuração).', categoria: 'Especial', descricao: 'Tampa armado: múltiplas armas (metralhadora, mísseis, minas, lança-chamas). Entrega na garagem.', beneficios: ['Múltiplas armas', 'Entrega na garagem'], dadosTecnicos: ['Metralhadora dupla, mísseis, minas, lança-chamas', 'Configurável no MOC/Avenger', 'Base muscle Tampa', 'Tipo: Muscle · Declasse'] },
+            { model: 'technical', nome: 'Technical', preco: 240, blindado: false, voa: false, submersivel: false, armas: 'Metralhadora pesada na caçamba.', categoria: 'Off-road', descricao: 'Pick-up com metralhadora .50 na caçamba. Sem blindagem extra. Entrega na garagem.', beneficios: ['Metralhadora caçamba', 'Entrega na garagem'], dadosTecnicos: ['Metralhadora pesada .50 na caçamba', 'Pick-up off-road · sem blindagem', 'Tipo: Automóvel · Karin'] },
+            { model: 'thruster', nome: 'Thruster', preco: 280, blindado: false, voa: true, submersivel: false, armas: 'Mísseis (opcional). Jato pessoal.', categoria: 'Militar', descricao: 'Jato de mochila (Mammoth). Voo livre; pode equipar mísseis. Entrega na garagem.', beneficios: ['Voa', 'Mísseis opcionais', 'Entrega na garagem'], dadosTecnicos: ['Jato de mochila · voo livre', 'Mísseis opcionais', 'Um ocupante', 'Tipo: Militar · Mammoth'] },
+            { model: 'tornado2', nome: 'Tornado', preco: 180, blindado: false, voa: false, submersivel: false, armas: 'Nenhuma. Clássico.', categoria: 'Clássico', descricao: 'Carro clássico (Declasse Tornado). Sem armas. Entrega na garagem.', beneficios: ['Clássico', 'Entrega na garagem'], dadosTecnicos: ['Conversível · sem armas', 'Sports classics', 'Tipo: Automóvel · Declasse'] },
+            { model: 'vigilante', nome: 'Vigilante', preco: 260, blindado: false, voa: false, submersivel: false, armas: 'Canhão frontal + mísseis guiados (capacidade padrão). Propulsão traseira.', categoria: 'Especial', descricao: 'Carro estilo Batmóvel (Grotti). Canhão e mísseis; propulsão para aceleração. Entrega na garagem.', beneficios: ['Canhão + mísseis', 'Propulsão', 'Entrega na garagem'], dadosTecnicos: ['Canhão frontal + mísseis guiados', 'Propulsão traseira (boost)', 'Estilo Batmóvel', 'Tipo: Hypercar · Grotti'] },
+            { model: 'voltic2', nome: 'Rocket Voltic', preco: 170, blindado: false, voa: false, submersivel: false, armas: 'Propulsão foguete (boost). Sem armas de fogo.', categoria: 'Especial', descricao: 'Superesportivo com propulsão foguete (boost). Sem mísseis. Entrega na garagem.', beneficios: ['Propulsão foguete', 'Entrega na garagem'], dadosTecnicos: ['Propulsão foguete (boost)', 'Sem armas', 'Superesportivo elétrico base', 'Tipo: Hypercar · Coil'] },
+            { model: 'zr380', nome: 'Future Shock ZR380', preco: 220, blindado: true, voa: false, submersivel: false, armas: 'Arena War: armas e reforços.', categoria: 'Arena War', descricao: 'Compacto Arena War (Future Shock). Blindado, armas. Entrega na garagem.', beneficios: ['Arena War', 'Blindado', 'Entrega na garagem'], dadosTecnicos: ['Arena War Future Shock', 'Compacto blindado · armas e reforços', 'Tipo: Automóvel · Annis'] }
+        ];
+
+        var dataByProductId = {};
+        ESPECIAL_WITH_IMAGE.forEach(function (v) {
+            var d = Object.assign({}, v);
+            d.imageFolder = 'especial';
+            dataByProductId['especial_' + v.model] = d;
+        });
+        if (window.VEICULOS_POR_CATEGORIA) {
+            var cats = ['start','elite','colecionaveis','lendarios','voadores'];
+            cats.forEach(function (catId) {
+                var list = window.VEICULOS_POR_CATEGORIA[catId];
+                if (list) list.forEach(function (v) {
+                    if (!dataByProductId['especial_' + v.model]) {
+                        dataByProductId['especial_' + v.model] = v;
+                    }
+                });
+            });
+        }
+        if (window.VEICULOS_POR_CATEGORIA) {
+            var cats = ['start','elite','colecionaveis','lendarios','voadores'];
+            cats.forEach(function (catId) {
+                var list = window.VEICULOS_POR_CATEGORIA[catId];
+                if (!list) return;
+                list.forEach(function (v) {
+                    var id = 'especial_' + v.model;
+                    if (!dataByProductId[id]) dataByProductId[id] = v;
+                });
+            });
+        }
+
+        function getImageSrc(v) {
+            if (!v) return '';
+            var folder = v.imageFolder || 'vehicles';
+            var imgName = (v.imageModel || v.model) + (v.imageExt || '.png');
+            var path = 'assets/' + folder + '/' + imgName;
+            return (window.resolveAssetUrl ? window.resolveAssetUrl(path) : path);
+        }
+
+        function getQueryParam(name) {
+            try { return new URLSearchParams(window.location.search).get(name); } catch (_) { return null; }
+        }
+        function formatBRL(value) {
+            var n = Number(value);
+            if (!isFinite(n)) n = 0;
+            try { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); } catch (_) { return 'R$ ' + n.toFixed(2).replace('.', ','); }
+        }
+
+        var id = getQueryParam('id');
+        var data = id ? dataByProductId[id] : null;
+        var content = document.getElementById('especialContent');
+        var notFound = document.getElementById('especialNotFound');
+
+        if (!data) {
+            if (content) content.classList.add('hidden');
+            if (notFound) notFound.classList.remove('hidden');
+            document.getElementById('especialTitle').textContent = 'Veículo não encontrado';
+        } else {
+            if (notFound) notFound.classList.add('hidden');
+            document.getElementById('especialTitle').textContent = data.nome;
+            document.getElementById('especialSubtitle').textContent = 'Veículo especial · Entrega na garagem · Permanente';
+
+            var img = document.getElementById('especialImage');
+            if (img) { img.src = getImageSrc(data); img.alt = data.nome; }
+
+            var priceEl = document.getElementById('especialPrice');
+            if (priceEl) priceEl.textContent = formatBRL(data.preco);
+
+            var intro = document.getElementById('especialIntro');
+            if (intro) intro.textContent = data.descricao || 'Veículo da loja VIP. Após o pagamento, o veículo é entregue na sua garagem no jogo.';
+
+            var fichaBase = (window.VEICULOS_FICHA_TECNICA && data.model) ? window.VEICULOS_FICHA_TECNICA[data.model.toLowerCase()] : null;
+
+            var specsList = document.getElementById('especialSpecsList');
+            if (specsList) {
+                var specs = [];
+                if (fichaBase) {
+                    if (fichaBase.brand) specs.push('<li><strong>Marca:</strong> ' + fichaBase.brand + '</li>');
+                    if (fichaBase.category) specs.push('<li><strong>Categoria:</strong> ' + fichaBase.category + '</li>');
+                    if (fichaBase.type) specs.push('<li><strong>Tipo:</strong> ' + fichaBase.type + '</li>');
+                    specs.push('<li><strong>Baú:</strong> ' + fichaBase.trunkKg + ' kg, ' + fichaBase.trunkSlots + ' slots</li>');
+                    if (fichaBase.gloveboxSlots > 0) specs.push('<li><strong>Porta-luvas:</strong> ' + fichaBase.gloveboxKg + ' kg, ' + fichaBase.gloveboxSlots + ' slots</li>');
+                    if (fichaBase.priceGame > 0) specs.push('<li><strong>Preço no jogo:</strong> $' + fichaBase.priceGame.toLocaleString('pt-BR') + '</li>');
+                }
+                if (data.blindado !== undefined || data.voa !== undefined || data.armas) {
+                    specs.push('<li><strong>Blindado:</strong> ' + (data.blindado ? 'Sim' : 'Não') + '</li>');
+                    specs.push('<li><strong>Voa:</strong> ' + (data.voa ? 'Sim' : 'Não') + '</li>');
+                    specs.push('<li><strong>Submersível:</strong> ' + (data.submersivel ? 'Sim' : 'Não') + '</li>');
+                    if (data.armas) specs.push('<li><strong>Armas:</strong> ' + data.armas + '</li>');
+                    if (data.categoria && !fichaBase) specs.push('<li><strong>Categoria:</strong> ' + data.categoria + '</li>');
+                }
+                if (specs.length === 0) specs.push('<li>Entrega na garagem</li>');
+                specsList.innerHTML = specs.join('');
+            }
+
+            var fichaTecnicaEl = document.getElementById('especialFichaTecnica');
+            if (fichaTecnicaEl) {
+                var fichaItems = [];
+                if (data.dadosTecnicos && data.dadosTecnicos.length) {
+                    fichaItems = data.dadosTecnicos.slice();
+                }
+                if (fichaBase) {
+                    fichaItems.push('Baú: ' + fichaBase.trunkKg + ' kg, ' + fichaBase.trunkSlots + ' slots');
+                    if (fichaBase.gloveboxSlots > 0) fichaItems.push('Porta-luvas: ' + fichaBase.gloveboxKg + ' kg, ' + fichaBase.gloveboxSlots + ' slots');
+                    if (fichaBase.brand) fichaItems.push('Marca: ' + fichaBase.brand);
+                    if (fichaBase.type) fichaItems.push('Tipo: ' + fichaBase.type);
+                }
+                if (fichaItems.length > 0) {
+                    fichaTecnicaEl.setAttribute('aria-hidden', 'false');
+                    fichaTecnicaEl.classList.remove('hidden');
+                    fichaTecnicaEl.innerHTML = '<h4 class="ficha-tecnica__title">Ficha técnica (dados do jogo)</h4><ul class="ficha-tecnica__list">' + fichaItems.map(function (item) { return '<li>' + String(item).replace(/</g, '&lt;') + '</li>'; }).join('') + '</ul>';
+                } else {
+                    fichaTecnicaEl.classList.add('hidden');
+                    fichaTecnicaEl.innerHTML = '';
+                    fichaTecnicaEl.setAttribute('aria-hidden', 'true');
+                }
+            }
+
+            var list = document.getElementById('especialBenefitsList');
+            if (list) {
+                if (data.beneficios && data.beneficios.length) {
+                    list.innerHTML = data.beneficios.map(function (b) { return '<li>' + b + '</li>'; }).join('');
+                } else {
+                    list.innerHTML = '<li>Entrega na garagem</li>';
+                }
+            }
+
+            var card = document.getElementById('especialCard');
+            if (card) { card.setAttribute('data-product-id', id); card.setAttribute('data-price', String(data.preco)); }
+
+            var btn = document.getElementById('especialBtnCart');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    if (window.medellinAddToCart) {
+                        window.medellinAddToCart({ name: data.nome, price: data.preco, image: getImageSrc(data), productId: id, productType: 'veiculo' });
+                    } else {
+                        var cart = []; try { var raw = localStorage.getItem('medellin_cart'); if (raw) cart = JSON.parse(raw); } catch (_) {}
+                        cart.push({ id: Date.now() + '-' + Math.random().toString(36).slice(2), name: data.nome, price: data.preco, image: getImageSrc(data), productId: id });
+                        try { localStorage.setItem('medellin_cart', JSON.stringify(cart)); } catch (_) {}
+                        var countEl = document.querySelector('.btn-cart__count'); if (countEl) countEl.textContent = cart.length;
+                    }
+                    btn.textContent = 'Adicionado ✓';
+                    btn.disabled = true;
+                    setTimeout(function () { btn.textContent = 'Comprar'; btn.disabled = false; }, 1500);
+                });
+            }
+        }
+
+        var cartCountEl = document.getElementById('cartCount');
+        if (cartCountEl) {
+            try {
+                var raw = localStorage.getItem('medellin_cart');
+                var arr = raw ? JSON.parse(raw) : [];
+                cartCountEl.textContent = Array.isArray(arr) ? arr.length : 0;
+            } catch (_) { cartCountEl.textContent = '0'; }
+        }
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Lista – Blindados 16 tiros COM PNEU FULL (25 veículos)
+# Sistema igual Santa: entrega na garagem. Pneu full = pneus não estouram no jogo.
+# Categoria na loja: BLINDADOS 16 TIROS COM PNEU FULL
+
+baller5          - Baller LE (Armored)
+baller6          - Baller LE LWB (Armored)
+schafter5        - Schafter 5
+xls2             - XLS 2
+kuruma2          - Kuruma Armored
+wrarmoredg63     - G63 Blindado
+wrarmoredconada  - Conada Blindado
+wrarmoredurus    - Urus Blindada
+wrarmoredct      - CT Blindado
+wrarmoredcayenne - Cayenne GT Blindado
+wrarmoredgle     - GLE63 Blindado
+wrarmoredjettagli - Jetta GLI Blindado
+wrarmoredm3g80c  - M3 G80C Blindado
+wrarmoredm5      - M5 SL Blindado
+wrarmoredmacan   - Macan Blindado
+wrarmoredrs7     - RS7 Blindado
+wrarmoredvelar   - Velar Blindado
+wrarmoredx7m60i  - X7 M60i Blindado
+wrarmoredx6      - X6 F96 Blindado
+armored18velar   - Velar Blindada
+armoredx7m60i    - X7 2024 Blindada
+wrarmoredgls600  - GLS 600 Blindado
+wrarmoredpurosangue - Purosangue Blindado
+wrarmoredvenatus - Venatus Blindado
+wrarmoredescalade - Armored Escalade

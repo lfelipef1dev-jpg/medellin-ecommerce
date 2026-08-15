@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blindado 16 tiros – Medellin RP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260210-blindados-detalhe">
+    <script src="config.js"></script>
+    <script src="blindados-data.js"></script>
+    <script src="veiculos-ficha-tecnica.js"></script>
+    <script src="app.js?v=20260211-cart" defer></script>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__inner wrap">
+            <a href="index.html" class="header__brand" aria-label="Medellin RP – Início">
+                <img src="assets/logo.webp" alt="" class="header__logo" width="40" height="40">
+                <span class="header__name">MEDELLIN <strong>RP</strong></span>
+            </a>
+            <button type="button" class="header__toggle" aria-label="Abrir menu" aria-expanded="false" id="menuToggle"><span class="header__toggle-bar"></span></button>
+            <nav class="header__nav" id="headerNav" aria-label="Menu principal">
+                <a href="veiculos.html" class="header__link">Veículos</a>
+                <a href="blindados-voadores.html" class="header__link is-active">Blindados e Voadores</a>
+                <a href="armas-skins.html" class="header__link">Armas e Skins</a>
+                <a href="checkout.html" class="header__link">Carrinho</a>
+            </nav>
+            <div class="header__actions">
+                <a href="#" class="btn btn-secondary btn-sm" id="btnLogin">Entrar</a>
+                <a href="checkout.html" class="btn btn-primary btn-sm btn-cart">Carrinho <span class="btn-cart__count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1 class="banner-title" id="blindadoTitle">Blindado 16 tiros</h1>
+            <p class="banner-subtitle" id="blindadoSubtitle">Carro blindado · Entrega na garagem · Permanente</p>
+        </div>
+    </div>
+
+    <main class="main-content single-vip">
+        <div class="vip-detail-layout" id="blindadoContent">
+            <div class="vip-detail-card" id="blindadoCard">
+                <div class="vip-detail-card__image-wrap">
+                    <img src="" alt="" class="vip-detail-card__image" id="blindadoImage" width="280" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                </div>
+                <p class="vip-detail-price" id="blindadoPrice">R$ 0,00</p>
+                <p class="vip-detail-price-alt">Blindado 16 tiros · Permanente</p>
+                <div class="vip-detail-cart-options" id="blindadoCartOptions">
+                    <button type="button" class="vip-btn vip-btn--cart" id="blindadoBtnCart">Adicionar ao carrinho</button>
+                    <div class="vip-detail-alt-variant" id="blindadoAltVariant"></div>
+                </div>
+            </div>
+
+            <div class="vip-benefits" id="blindadoBenefits">
+                <p class="benefits-intro" id="blindadoIntro"></p>
+                <div id="blindadoSpecsBlock">
+                    <h3 class="benefits-section benefits-section--key">Ficha técnica</h3>
+                    <ul class="benefits-list" id="blindadoSpecsList"></ul>
+                </div>
+                <div class="ficha-tecnica" id="blindadoFichaTecnica"></div>
+                <div id="blindadoBenefitsBlock">
+                    <h3 class="benefits-section benefits-section--gift">O que inclui</h3>
+                    <ul class="benefits-list" id="blindadoBenefitsList"></ul>
+                </div>
+                <p class="benefits-intro" style="margin-top: 1rem;"><a href="blindados-voadores.html" class="btn btn-secondary btn-sm">Voltar a Blindados e Voadores</a></p>
+            </div>
+        </div>
+        <div class="wrap hidden" id="blindadoNotFound">
+            <p>Veículo não encontrado.</p>
+            <a href="blindados-voadores.html" class="btn btn-primary">Voltar a Blindados e Voadores</a>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner wrap">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="assets/logo.webp" alt="" class="footer__logo" width="40" height="40">
+                    <div class="footer__brand-text">
+                        <span class="footer__name">MEDELLIN <strong>RP</strong></span>
+                        <p class="footer__tagline">Loja VIP · GTA RP</p>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">LOJA</h3>
+                    <nav class="footer__links" aria-label="Loja">
+                        <a class="footer__link" href="index.html#planos">Planos</a>
+                        <a class="footer__link" href="promocoes.html">Promoções</a>
+                        <a class="footer__link" href="checkout.html">Carrinho</a>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">AJUDA</h3>
+                    <nav class="footer__links" aria-label="Ajuda">
+                        <a class="footer__link" href="painel.html">Painel</a>
+                        <a class="footer__link" href="index.html#suporte">Suporte</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">© Medellin RP – Pagamento em R$ (BRL). Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        function getImageSrc(v) {
+            if (!v) return '';
+            var folder = v.imageFolder || 'vehicles';
+            var imgName = (v.imageModel || v.model) + (v.imageExt || '.png');
+            var path = 'assets/' + folder + '/' + imgName;
+            return (window.resolveAssetUrl ? window.resolveAssetUrl(path) : path);
+        }
+        function getQueryParam(name) {
+            try { return new URLSearchParams(window.location.search).get(name); } catch (_) { return null; }
+        }
+        function formatBRL(value) {
+            var n = Number(value);
+            if (!isFinite(n)) n = 0;
+            try { return n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); } catch (_) { return 'R$ ' + n.toFixed(2).replace('.', ','); }
+        }
+
+        var id = getQueryParam('id');
+        var list = [];
+        var model = '';
+        var isPneuFull = false;
+        var variantLabel = '16 tiros';
+        if (id) {
+            if (id.indexOf('blindado_16_pneu_full_') === 0) {
+                list = window.BLINDADOS_16_TIROS_PNEU_FULL || [];
+                model = id.replace('blindado_16_pneu_full_', '');
+                isPneuFull = true;
+                variantLabel = '16 tiros + Pneu Full';
+            } else if (id.indexOf('blindado_16_') === 0) {
+                list = window.BLINDADOS_16_TIROS || [];
+                model = id.replace('blindado_16_', '');
+                variantLabel = '16 tiros';
+            } else if (id.indexOf('blindado_32_') === 0) {
+                list = window.BLINDADOS_32_TIROS || [];
+                model = id.replace('blindado_32_', '');
+                variantLabel = '32 tiros';
+            } else if (id.indexOf('full_blindado_voador_') === 0) {
+                list = window.FULL_BLINDADOS_VOADORES || [];
+                model = id.replace('full_blindado_voador_', '');
+                variantLabel = 'Full Blindado Voador';
+            } else if (id.indexOf('full_blindado_') === 0) {
+                list = window.FULL_BLINDADOS || [];
+                model = id.replace('full_blindado_', '');
+                variantLabel = 'Full Blindado';
+            }
+        }
+        var data = null;
+        if (model && list.length) {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].model === model) { data = list[i]; break; }
+            }
+        }
+
+        var content = document.getElementById('blindadoContent');
+        var notFound = document.getElementById('blindadoNotFound');
+
+        if (!data) {
+            if (content) content.classList.add('hidden');
+            if (notFound) notFound.classList.remove('hidden');
+            document.getElementById('blindadoTitle').textContent = 'Veículo não encontrado';
+        } else {
+            if (notFound) notFound.classList.add('hidden');
+            document.getElementById('blindadoTitle').textContent = data.nome;
+            document.getElementById('blindadoSubtitle').textContent = variantLabel + ' · Entrega na garagem · Permanente';
+
+            var img = document.getElementById('blindadoImage');
+            if (img) { img.src = getImageSrc(data); img.alt = data.nome; }
+
+            var priceEl = document.getElementById('blindadoPrice');
+            if (priceEl) priceEl.textContent = formatBRL(data.preco);
+            var priceAlt = document.querySelector('.vip-detail-price-alt');
+            if (priceAlt) priceAlt.textContent = variantLabel + ' · Permanente';
+
+            var intro = document.getElementById('blindadoIntro');
+            if (intro) intro.textContent = data.descricao || 'Carro blindado com resistência a 16 tiros. Após o pagamento, o veículo é entregue na sua garagem no jogo.';
+
+            var fichaBase = (window.VEICULOS_FICHA_TECNICA && data.model) ? window.VEICULOS_FICHA_TECNICA[data.model.toLowerCase()] : null;
+            var specsList = document.getElementById('blindadoSpecsList');
+            if (specsList) {
+                var specs = [];
+                if (data.brand) specs.push('<li><strong>Marca:</strong> ' + data.brand + '</li>');
+                if (fichaBase && fichaBase.brand && !data.brand) specs.push('<li><strong>Marca:</strong> ' + fichaBase.brand + '</li>');
+                specs.push('<li><strong>Modelo (jogo):</strong> ' + data.model + '</li>');
+                if (fichaBase) {
+                    specs.push('<li><strong>Baú:</strong> ' + fichaBase.trunkKg + ' kg, ' + fichaBase.trunkSlots + ' slots</li>');
+                    if (fichaBase.gloveboxSlots > 0) specs.push('<li><strong>Porta-luvas:</strong> ' + fichaBase.gloveboxKg + ' kg, ' + fichaBase.gloveboxSlots + ' slots</li>');
+                    if (fichaBase.category) specs.push('<li><strong>Categoria:</strong> ' + fichaBase.category + '</li>');
+                }
+                specs.push('<li><strong>Blindagem:</strong> ' + variantLabel + '</li>');
+                if (isPneuFull) specs.push('<li><strong>Pneus:</strong> full (não estouram)</li>');
+                specs.push('<li><strong>Entrega:</strong> Garagem</li>');
+                specsList.innerHTML = specs.join('');
+            }
+
+            var fichaEl = document.getElementById('blindadoFichaTecnica');
+            var fichaItems = [];
+            if (data.dadosTecnicos && data.dadosTecnicos.length) fichaItems = data.dadosTecnicos.slice();
+            if (fichaBase) {
+                fichaItems.push('Baú: ' + fichaBase.trunkKg + ' kg, ' + fichaBase.trunkSlots + ' slots');
+                if (fichaBase.gloveboxSlots > 0) fichaItems.push('Porta-luvas: ' + fichaBase.gloveboxKg + ' kg, ' + fichaBase.gloveboxSlots + ' slots');
+                if (fichaBase.brand) fichaItems.push('Marca: ' + fichaBase.brand);
+                if (fichaBase.type) fichaItems.push('Tipo: ' + fichaBase.type);
+            }
+            if (fichaEl) {
+                if (fichaItems.length > 0) {
+                    fichaEl.innerHTML = '<h4 class="ficha-tecnica__title">Ficha técnica (dados do jogo)</h4><ul class="ficha-tecnica__list">' +
+                        fichaItems.map(function (item) { return '<li>' + String(item).replace(/</g, '&lt;') + '</li>'; }).join('') + '</ul>';
+                    fichaEl.classList.remove('hidden');
+                    fichaEl.setAttribute('aria-hidden', 'false');
+                } else {
+                    fichaEl.classList.add('hidden');
+                    fichaEl.setAttribute('aria-hidden', 'true');
+                }
+            }
+
+            var listEl = document.getElementById('blindadoBenefitsList');
+            if (listEl) {
+                if (data.beneficios && data.beneficios.length) {
+                    listEl.innerHTML = data.beneficios.map(function (b) { return '<li>' + b + '</li>'; }).join('');
+                } else {
+                    listEl.innerHTML = '<li>' + variantLabel + '</li><li>Entrega na garagem</li><li>Permanente</li>';
+                }
+            }
+
+            var card = document.getElementById('blindadoCard');
+            if (card) { card.setAttribute('data-product-id', id); card.setAttribute('data-price', String(data.preco)); }
+
+            var btn = document.getElementById('blindadoBtnCart');
+            var btnLabel = variantLabel + ' · ' + formatBRL(data.preco);
+            if (btn) {
+                btn.textContent = 'Adicionar ao carrinho – ' + btnLabel;
+                btn.addEventListener('click', function () {
+                    addToCart(id, data.nome + (isPneuFull ? ' (Pneu Full)' : ''), data.preco, getImageSrc(data));
+                    btn.textContent = 'Adicionado ✓';
+                    btn.disabled = true;
+                    setTimeout(function () { btn.textContent = 'Adicionar ao carrinho – ' + btnLabel; btn.disabled = false; }, 1500);
+                });
+            }
+            var altEl = document.getElementById('blindadoAltVariant');
+            var prefix = id.indexOf('blindado_16_') === 0 ? 'blindado_16' : null;
+            if (altEl && prefix) {
+                var listNormal = window.BLINDADOS_16_TIROS || [];
+                var listPneuFull = window.BLINDADOS_16_TIROS_PNEU_FULL || [];
+                var otherId, otherName, otherPrice, otherLabel;
+                if (isPneuFull) {
+                    var dNormal = listNormal.find(function (x) { return x.model === data.model; });
+                    if (dNormal) {
+                        otherId = 'blindado_16_' + data.model;
+                        otherName = dNormal.nome || data.nome;
+                        otherPrice = dNormal.preco;
+                        otherLabel = '16 tiros';
+                    }
+                } else {
+                    var dPneu = listPneuFull.find(function (x) { return x.model === data.model; });
+                    if (dPneu) {
+                        otherId = 'blindado_16_pneu_full_' + data.model;
+                        otherName = (data.nome || data.model) + ' (Pneu Full)';
+                        otherPrice = dPneu.preco;
+                        otherLabel = '16 tiros + Pneu Full';
+                    }
+                }
+                if (otherId) {
+                    altEl.innerHTML = '<button type="button" class="vip-btn vip-btn--cart vip-btn--cart-alt" id="blindadoBtnCartAlt">Adicionar ao carrinho – ' + otherLabel + ' · ' + formatBRL(otherPrice) + '</button>';
+                    var altBtn = document.getElementById('blindadoBtnCartAlt');
+                    if (altBtn) altBtn.addEventListener('click', function () {
+                        addToCart(otherId, otherName, otherPrice, getImageSrc(data));
+                        altBtn.textContent = 'Adicionado ✓';
+                        altBtn.disabled = true;
+                        setTimeout(function () { altBtn.textContent = 'Adicionar ao carrinho – ' + otherLabel + ' · ' + formatBRL(otherPrice); altBtn.disabled = false; }, 1500);
+                    });
+                }
+            }
+        }
+        function addToCart(productId, name, price, image) {
+            if (window.medellinAddToCart) {
+                window.medellinAddToCart({ name: name, price: price, image: image, productId: productId, productType: 'veiculo' });
+                if (window.medellinUpdateCartCount) window.medellinUpdateCartCount();
+            } else {
+                var cart = [];
+                try { var raw = localStorage.getItem('medellin_cart'); if (raw) cart = JSON.parse(raw); } catch (_) {}
+                cart.push({ id: Date.now() + '-' + Math.random().toString(36).slice(2), name: name, price: price, image: image, productId: productId, productType: 'veiculo' });
+                try { localStorage.setItem('medellin_cart', JSON.stringify(cart)); } catch (_) {}
+                var countEl = document.querySelector('.btn-cart__count'); if (countEl) countEl.textContent = cart.length;
+            }
+        }
+
+        var cartCountEl = document.getElementById('cartCount');
+        if (cartCountEl) {
+            try {
+                var raw = localStorage.getItem('medellin_cart');
+                var arr = raw ? JSON.parse(raw) : [];
+                cartCountEl.textContent = Array.isArray(arr) ? arr.length : 0;
+            } catch (_) { cartCountEl.textContent = '0'; }
+        }
+    })();
+    </script>
+</body>
+</html>

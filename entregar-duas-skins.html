@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receber M4 Batalha + M4 Sangue</title>
+  <style>
+    body { font-family: sans-serif; max-width: 420px; margin: 40px auto; padding: 20px; background: #1a1a1a; color: #eee; }
+    h1 { font-size: 1.2rem; color: #00FF88; }
+    label { display: block; margin-top: 12px; }
+    input { width: 100%; padding: 10px; margin-top: 4px; box-sizing: border-box; border: 1px solid #444; background: #2a2a2a; color: #eee; }
+    button { margin-top: 16px; padding: 12px 24px; background: #00FF88; color: #000; border: none; cursor: pointer; font-weight: bold; }
+    button:hover { opacity: 0.9; }
+    .msg { margin-top: 16px; padding: 12px; border-radius: 4px; }
+    .msg.ok { background: #0a3d0a; color: #00FF88; }
+    .msg.err { background: #5c1a1a; color: #ff8888; }
+    .hint { font-size: 0.85rem; color: #888; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Receber as 2 skins (M4 Batalha + M4 Sangue)</h1>
+  <p>Quem comprou e não recebeu: preencha e envie. Depois saia e entre no servidor.</p>
+  <form id="f">
+    <label>URL da API (onde a API da loja está rodando)</label>
+    <input type="text" name="apiUrl" placeholder="http://localhost:3000" value="http://localhost:3000">
+    <span class="hint">Se abriu esta página pelo site da loja, use http://localhost:3000 (com a API rodando no seu PC) ou a URL da API (ex: https://api.roleplaymedellin.com.br).</span>
+    <label>Token (só se configurou ENTREGA_MANUAL_TOKEN no .env)</label>
+    <input type="password" name="token" placeholder="Deixe em branco se não usou">
+    <label>ID da conta <span style="color:#888">(ou license)</span></label>
+    <input type="text" name="ident" placeholder="Ex: 1 (número que você usa para entrar na cidade)" required>
+    <span class="hint">Use o <strong>ID da conta</strong>: o número que você usou no checkout e para entrar na cidade (ex: 1). Não precisa de license.</span>
+    <button type="submit">Enviar – colocar skins na fila</button>
+  </form>
+  <div id="msg"></div>
+  <script>
+    document.getElementById('f').onsubmit = async function(e) {
+      e.preventDefault();
+      const apiUrl = document.querySelector('[name=apiUrl]').value.trim().replace(/\/+$/, '') || window.location.origin;
+      const token = document.querySelector('[name=token]').value.trim();
+      const ident = document.querySelector('[name=ident]').value.trim();
+      const msgEl = document.getElementById('msg');
+      msgEl.textContent = '';
+      msgEl.className = 'msg';
+      let body = {};
+      if (token) body.token = token;
+      if (/^\d+$/.test(ident)) body.account_id = parseInt(ident, 10);
+      else body.license = ident;
+      try {
+        const base = apiUrl;
+        const r = await fetch(base + '/api/entregar-duas-skins', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body)
+        });
+        const data = await r.json().catch(() => ({}));
+        if (r.ok && data.ok) {
+          msgEl.className = 'msg ok';
+          msgEl.textContent = 'Feito! Saia e entre no servidor para as skins caírem no inventário.';
+        } else {
+          msgEl.className = 'msg err';
+          msgEl.textContent = data.error || 'Erro ' + r.status;
+          if (r.status === 404) msgEl.textContent += ' Reinicie a API (INICIAR-API-LOJA-PAGAMENTO.bat) e use URL = http://localhost:3000.';
+        }
+      } catch (err) {
+        msgEl.className = 'msg err';
+        msgEl.textContent = 'Erro: ' + (err.message || 'Verifique se a API está rodando e a URL está certa.');
+      }
+    };
+  </script>
+</body>
+</html>

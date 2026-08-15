@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévia – Imagens munição (aprovar antes de publicar)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .preview-page { padding: 2rem; max-width: 900px; margin: 0 auto; background: #0d0f12; min-height: 100vh; }
+        .preview-page h1 { color: #00FF88; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .preview-page p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 2rem; }
+        .preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+        .preview-card { background: #14171c; border: 1px solid rgba(0,255,136,0.3); border-radius: 12px; padding: 1rem; text-align: center; }
+        .preview-card img { width: 200px; height: 200px; object-fit: contain; display: block; margin: 0 auto 0.75rem; }
+        .preview-card .label { color: #00FF88; font-size: 0.85rem; font-weight: 600; }
+        .preview-card .status { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem; }
+    </style>
+    <script src="config.js"></script>
+</head>
+<body>
+    <div class="preview-page">
+        <h1>Prévia – Imagens da munição especial</h1>
+        <p>Estas são as imagens que serão usadas na loja. Abra esta página para ver e aprovar. Só depois de você aprovar é que colocamos na tela principal (Armas e Skins → Munição especial).</p>
+        <div class="preview-grid" id="previewGrid">
+            <div class="preview-card">
+                <img src="assets/armas/municao-rpg-medellin.png" alt="Munição RPG">
+                <span class="label">Munição RPG – 50 / 20</span>
+                <span class="status">Aplicado</span>
+            </div>
+            <div class="preview-card">
+                <img src="assets/armas/municao-minigun-medellin.png" alt="Munição Minigun">
+                <span class="label">Munição Minigun – 500 / 200</span>
+                <span class="status">Aplicado</span>
+            </div>
+            <div class="preview-card">
+                <img src="assets/armas/municao-stinger-medellin.png" alt="Munição Stinger">
+                <span class="label">Munição Stinger (Teleguiado) – 50</span>
+                <span class="status">Aplicado</span>
+            </div>
+            <div class="preview-card">
+                <img src="assets/armas/municao-grenadelauncher-medellin.png" alt="Munição Lançador Granadas">
+                <span class="label">Munição Lançador Granadas – 50 / 20</span>
+                <span class="status">Aplicado</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

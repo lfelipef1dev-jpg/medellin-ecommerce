@@ -1,0 +1,22 @@
+========================================
+  CONFIGURAR DEPLOY AUTOMÁTICO (SEM LOGIN)
+========================================
+
+Para o deploy-auto-vitoria.ps1 / deploy-auto-vitoria.bat (e R2) funcionarem sem abrir o navegador para login, crie um arquivo na mesma pasta do script:
+
+  vip-store-web\.env.cloudflare
+
+Com o conteúdo (substitua pelos seus valores):
+
+  CLOUDFLARE_API_TOKEN=seu_token_aqui
+  CLOUDFLARE_ACCOUNT_ID=sua_account_id_aqui
+  CLOUDFLARE_ZONE_ID=opcional_zone_id_do_dominio
+
+Onde obter:
+- Account ID: Painel Cloudflare -> lado direito da página inicial (ou Workers & Pages -> Overview).
+- API Token: My Profile -> API Tokens -> Create Token. Use o template "Edit Cloudflare Workers" ou crie um token com permissão "Cloudflare Pages Edit" (e R2 Object Read & Write se for usar UPLOAD-R2-ASSETS.bat). Para purge de cache em producao: adicione permissao "Zone Cache Purge".
+- Zone ID (opcional): se o site em producao usa dominio proprio (ex: roleplaymedellin.com.br), no Painel Cloudflare va no dominio -> Overview -> copie "Zone ID". Coloque em .env.cloudflare como CLOUDFLARE_ZONE_ID=xxx. Apos cada deploy o script vai purgar o cache do CDN para a atualizacao aparecer na hora.
+
+IMPORTANTE: O arquivo .env.cloudflare está no .gitignore. Não commite esse arquivo (contém segredos).
+
+Depois de configurar, basta rodar deploy-auto-vitoria.bat para publicar o site em https://roleplaymedellin.pages.dev

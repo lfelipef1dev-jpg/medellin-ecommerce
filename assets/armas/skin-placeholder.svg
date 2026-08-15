@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="12" fill="#111114" stroke="rgba(0,255,136,0.3)" stroke-width="2"/>
+  <path d="M100 50v100M50 100h100M70 70l60 60M130 70l-60 60" stroke="#00FF88" stroke-width="2" opacity="0.6"/>
+  <text x="100" y="115" text-anchor="middle" fill="#00FF88" font-family="sans-serif" font-size="14" font-weight="bold">SKIN</text>
+</svg>

@@ -1,0 +1,18 @@
+# Worker: proxy api.roleplaymedellin.com.br -> sua API (IP:3000)
+# Token automatico: edite a linha MP_ACCESS_TOKEN abaixo, cole o token entre as aspas, salve.
+# Depois rode DEPLOY-WORKER.bat. (Nao commite este arquivo com o token real.)
+
+name = "medellin-api-proxy"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+API_UPSTREAM_URL = "http://160.238.154.194:3000"
+FRONT_URL = "https://roleplaymedellin.com.br"
+# Cole abaixo o Access Token do Mercado Pago (Produção). Nao commite este arquivo com o token real.
+MP_ACCESS_TOKEN = "APP_USR-235180535112278-020900-938b65c00322ce51fd3c4f9e88146371-53702953"
+
+# Rota: todo tráfego em api.roleplaymedellin.com.br vai para este Worker
+[[routes]]
+pattern = "api.roleplaymedellin.com.br/*"
+zone_name = "roleplaymedellin.com.br"

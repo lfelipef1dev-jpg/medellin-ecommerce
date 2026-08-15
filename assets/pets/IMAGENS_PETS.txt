@@ -1,0 +1,23 @@
+Imagens de pets – loja VIP
+Nomes exatos usados no index.html (assets/pets/NOME.png):
+
+COM IMAGEM REAL (copiadas de medellin-assets-items/items):
+  husky-siberiana.png  (de husky.png)
+  poodle.png
+  pug.png
+  rottweiler.png
+  golden-retriever.png (de golden.png)
+
+FALTAM (não existem no projeto – colocar PNG 200x200):
+  ursa.png
+  lobo-sirius.png
+  chimp.png
+  rhesus.png
+  crocodilo.png
+  tigor.png
+  rajah.png
+  gato-gris.png
+  pastor-alemao.png
+  greyhound.png
+  yorkshire.png
+  bulldog.png

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm – Medellin RP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260211-farm">
+    <script src="config.js"></script>
+    <script src="app.js?v=20260211-cart" defer></script>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__inner wrap">
+            <a href="index.html" class="header__brand" aria-label="Medellin RP – Início">
+                <img src="assets/logo.webp" alt="" class="header__logo" width="40" height="40">
+                <span class="header__name">MEDELLIN <strong>RP</strong></span>
+            </a>
+            <button type="button" class="header__toggle" aria-label="Abrir menu" aria-expanded="false" id="menuToggle"><span class="header__toggle-bar"></span></button>
+            <nav class="header__nav" id="headerNav" aria-label="Menu principal">
+                <a href="veiculos.html" class="header__link">Veículos</a>
+                <a href="blindados-voadores.html" class="header__link">Blindados e Voadores</a>
+                <a href="grandes-baus.html" class="header__link">Grandes Baús</a>
+                <a href="farm.html" class="header__link is-active">Farm</a>
+                <a href="armas-skins.html" class="header__link">Armas e Skins</a>
+                <a href="checkout.html" class="header__link">Carrinho</a>
+            </nav>
+            <div class="header__actions">
+                <a href="#" class="btn btn-secondary btn-sm" id="btnLogin">Entrar</a>
+                <a href="checkout.html" class="btn btn-primary btn-sm btn-cart">Carrinho <span class="btn-cart__count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="banner-content">
+            <h1 class="banner-title">Farm</h1>
+            <p class="banner-subtitle">Farm Ativo, AFK, Tecla e Plantio. Benefícios no jogo.</p>
+        </div>
+    </div>
+
+    <main class="main-content section section--loja">
+        <div class="wrap">
+            <div class="armas-skins-intro">
+                <h2 class="armas-skins-intro__title">Escolha o tipo de farm</h2>
+                <p class="armas-skins-intro__text">Benefícios de farm para seu personagem. Após o pagamento, o benefício é ativado no jogo.</p>
+            </div>
+            <div class="product-grid" id="grid-farm"></div>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner wrap">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="assets/logo.webp" alt="" class="footer__logo" width="40" height="40">
+                    <div class="footer__brand-text">
+                        <span class="footer__name">MEDELLIN <strong>RP</strong></span>
+                        <p class="footer__tagline">Loja VIP · GTA RP</p>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">LOJA</h3>
+                    <nav class="footer__links" aria-label="Loja">
+                        <a class="footer__link" href="index.html#planos">Planos</a>
+                        <a class="footer__link" href="promocoes.html">Promoções</a>
+                        <a class="footer__link" href="checkout.html">Carrinho</a>
+                    </nav>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__col-title">AJUDA</h3>
+                    <nav class="footer__links" aria-label="Ajuda">
+                        <a class="footer__link" href="painel.html">Painel</a>
+                        <a class="footer__link" href="index.html#suporte">Suporte</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">© Medellin RP – Pagamento em R$ (BRL). Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var FARM_ITEMS = [
+            { id: 'farm_ativo', nome: 'Farm Ativo', preco: 675.74, img: 'assets/farm/farm-ativo.png', desc: 'Farm de rotas para facções (medellin-farm).' },
+            { id: 'farm_afk', nome: 'Farm AFK', preco: 675.74, img: 'assets/farm/farm-afk.png', desc: 'Farm AFK – coleta automática (medellin-farm_afk).' },
+            { id: 'farm_tecla', nome: 'Farm Tecla', preco: 675.74, img: 'assets/farm/farm-tecla.png', desc: 'Farm por tecla (medellin-farm_tecla).' },
+            { id: 'farm_plantio', nome: 'Farm Plantio', preco: 675.74, img: 'assets/farm/farm-plantio.png', desc: 'Farming / plantio – plantar e colher (medellin-farming).' }
+        ];
+        function formatPreco(n) {
+            if (typeof n !== 'number') n = parseFloat(n) || 0;
+            return 'R$ ' + n.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+        var grid = document.getElementById('grid-farm');
+        if (!grid) return;
+        FARM_ITEMS.forEach(function (v) {
+            var card = document.createElement('article');
+            card.className = 'card product-card';
+            card.setAttribute('data-category', 'farm');
+            card.setAttribute('data-product-id', v.id);
+            card.setAttribute('data-price', String(v.preco));
+            card.innerHTML =
+                '<div class="product-card__image-wrap">' +
+                '<img src="' + v.img + '" alt="' + (v.nome || '').replace(/"/g, '&quot;') + '" class="product-card__image" width="200" height="200" loading="lazy" onerror="this.onerror=null;this.src=\'assets/armas/skin-placeholder.svg\';this.alt=\'Farm\';" />' +
+                '</div>' +
+                '<h3 class="product-card__name card-title">' + v.nome + '</h3>' +
+                '<p class="product-card__price">' + formatPreco(v.preco) + '</p>' +
+                '<ul class="product-card__benefits" role="list"><li>' + (v.desc || 'Benefício de farm') + '</li><li>Ativação no jogo após pagamento</li></ul>' +
+                '<button type="button" class="btn btn-primary product-card__btn vip-btn">Adicionar ao carrinho</button>';
+            var btn = card.querySelector('.vip-btn');
+            if (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (window.medellinAddToCart) {
+                        window.medellinAddToCart({ name: v.nome, price: v.preco, image: v.img, productId: v.id, productType: 'farm' });
+                    } else {
+                        var cart = []; try { var raw = localStorage.getItem('medellin_cart'); if (raw) cart = JSON.parse(raw); } catch (_) {}
+                        cart.push({ id: Date.now() + '-' + Math.random().toString(36).slice(2), name: v.nome, price: v.preco, image: v.img, productId: v.id, productType: 'farm' });
+                        try { localStorage.setItem('medellin_cart', JSON.stringify(cart)); } catch (_) {}
+                        var countEl = document.getElementById('cartCount'); if (countEl) countEl.textContent = cart.length;
+                    }
+                });
+            }
+            grid.appendChild(card);
+        });
+        var cartCountEl = document.getElementById('cartCount');
+        if (cartCountEl) {
+            try {
+                var raw = localStorage.getItem('medellin_cart');
+                var arr = raw ? JSON.parse(raw) : [];
+                cartCountEl.textContent = Array.isArray(arr) ? arr.length : 0;
+            } catch (_) { cartCountEl.textContent = '0'; }
+        }
+    })();
+    </script>
+</body>
+</html>

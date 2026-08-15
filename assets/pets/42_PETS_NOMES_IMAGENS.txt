@@ -1,0 +1,41 @@
+Lista dos 42 pets nativos na loja VIP – nomes dos arquivos de imagem
+Coloque cada foto em: vip-store-web/assets/pets/
+Com o nome EXATO abaixo (minúsculas, hífen onde indicado).
+
+JÁ COM IMAGEM (13):
+  husky-siberiana.png, poodle.png, pug.png, golden-retriever.png, rottweiler.png,
+  pastor-alemao.png, westy.png, gato-gris.png, chimp.png, rhesus.png,
+  lobo-sirius.png, tigor.png, rajah.png
+
+PENDENTES – VOCÊ VAI ENVIAR AS FOTOS (29):
+  boar.png
+  boar-02.png
+  cat-02.png
+  chickenhawk.png
+  chimp-02.png
+  chop.png
+  chop-02.png
+  cormorant.png
+  cow.png
+  coyote-02.png
+  crow.png
+  deer.png
+  deer-02.png
+  dolphin.png
+  fish.png
+  hen.png
+  humpback.png
+  killerwhale.png
+  panther.png
+  pig.png
+  pigeon.png
+  pug-02.png
+  rabbit-01.png
+  rabbit-02.png
+  rat.png
+  seagull.png
+  sharkhammer.png
+  sharktiger.png
+  stingray.png
+
+Quando tiver a foto, salve com esse nome na pasta assets/pets/ e a loja já exibe.

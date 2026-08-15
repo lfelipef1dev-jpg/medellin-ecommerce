@@ -1,0 +1,34 @@
+# Cloudflare Pages – ignorar no deploy da loja VIP (site é estático; imagens vêm do R2)
+
+# Imagens – servidas pelo R2, nao enviar no deploy
+assets/
+
+# API backend – nao faz parte do site estático
+api/
+
+# Dependências e scripts locais
+node_modules/
+scripts/
+package.json
+package-lock.json
+
+# Scripts e config local (deploy usa DEPLOY-AUTO / UPLOAD-R2)
+*.bat
+*.ps1
+.env.cloudflare
+.env*
+deploy-secrets.env
+CONFIGURAR-DEPLOY-AUTO.txt
+UPLOAD-R2-ASSETS.bat
+_upload-r2-temp.ps1
+PUBLICAR-TUDO.bat
+
+# Pastas temporárias de deploy
+_deploy_temp_pages
+_deploy
+
+# Docs e controle de versão
+*.md
+.github/
+.git/
+.gitignore

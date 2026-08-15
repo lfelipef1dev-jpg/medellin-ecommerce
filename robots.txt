@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://roleplaymedellin.com.br/sitemap.xml

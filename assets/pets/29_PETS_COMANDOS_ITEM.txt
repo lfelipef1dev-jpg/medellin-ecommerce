@@ -1,0 +1,76 @@
+================================================================================
+29 PETS SEM FOTO – COMANDOS PARA RECEBER O ITEM NO INVENTÁRIO
+================================================================================
+No jogo, use o comando /item (admin) para dar o item a si mesmo.
+Depois: use o item no inventário → o pet spawna → tire a foto → limpe e envie.
+
+Comando: /item [nome_do_item] 1
+
+--------------------------------------------------------------------------------
+COPIE E COLE NO CONSOLE (uma linha por vez) ou digite no chat:
+--------------------------------------------------------------------------------
+
+/item boar 1
+/item boar_02 1
+/item cat_02 1
+/item chickenhawk 1
+/item chimp_02 1
+/item chop 1
+/item chop_02 1
+/item cormorant 1
+/item cow 1
+/item coyote_02 1
+/item crow 1
+/item deer 1
+/item deer_02 1
+/item dolphin 1
+/item fish 1
+/item hen 1
+/item humpback 1
+/item killerwhale 1
+/item panther 1
+/item pig 1
+/item pigeon 1
+/item pug_02 1
+/item rabbit_01 1
+/item rabbit_02 1
+/item rat 1
+/item seagull 1
+/item sharkhammer 1
+/item sharktiger 1
+/item stingray 1
+
+--------------------------------------------------------------------------------
+RESUMO: nome do item → nome do arquivo da imagem (quando enviar a foto)
+--------------------------------------------------------------------------------
+boar         → boar.png
+boar_02      → boar-02.png
+cat_02       → cat-02.png
+chickenhawk  → chickenhawk.png
+chimp_02     → chimp-02.png
+chop         → chop.png
+chop_02      → chop-02.png
+cormorant    → cormorant.png
+cow          → cow.png
+coyote_02    → coyote-02.png
+crow         → crow.png
+deer         → deer.png
+deer_02      → deer-02.png
+dolphin      → dolphin.png
+fish         → fish.png
+hen          → hen.png
+humpback     → humpback.png
+killerwhale  → killerwhale.png
+panther      → panther.png
+pig          → pig.png
+pigeon       → pigeon.png
+pug_02       → pug-02.png
+rabbit_01    → rabbit-01.png
+rabbit_02    → rabbit-02.png
+rat          → rat.png
+seagull      → seagull.png
+sharkhammer  → sharkhammer.png
+sharktiger   → sharktiger.png
+stingray     → stingray.png
+
+Depois de tirar e limpar as fotos, envie; eu adiciono em assets/pets/ com esses nomes.

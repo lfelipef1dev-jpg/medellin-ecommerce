@@ -1,0 +1,65 @@
+================================================================================
+PASSO A PASSO - ONDE ESTÁ E COMO RODAR O check_compra_m4_sangue.js
+================================================================================
+
+ONDE ESTÁ O ARQUIVO
+------------------
+Pasta do projeto:
+  C:\Users\lfeli\Desktop\Medellin
+
+O script está em:
+  C:\Users\lfeli\Desktop\Medellin\vip-store-web\api\check_compra_m4_sangue.js
+
+Ou seja: dentro de Medellin → vip-store-web → api → check_compra_m4_sangue.js
+
+
+OPÇÃO 1 - SÓ DAR DUPLO CLIQUE (MAIS FÁCIL)
+-------------------------------------------
+1. Abra a pasta no Explorador de Arquivos:
+   C:\Users\lfeli\Desktop\Medellin\vip-store-web\api
+
+2. Dê duplo clique no arquivo:
+   ENTREGAR_M4_SANGUE_MANUAL.bat
+
+3. Vai abrir uma janela preta (prompt) e rodar o script. Você verá:
+   - Últimos pedidos (medellin_loja_orders)
+   - Fila de entrega (medellin_loja_pending)
+
+4. Aperte qualquer tecla para fechar a janela.
+
+
+OPÇÃO 2 - ABRIR O PROMPT E DIGITAR (PASSO A PASSO)
+-------------------------------------------------
+1. Aperte as teclas:  Windows + R
+   (abre "Executar")
+
+2. Digite:  cmd
+   e aperte Enter.
+   (abre o Prompt de Comando - janela preta)
+
+3. Digite exatamente (ou copie e cole) e aperte Enter:
+   cd /d C:\Users\lfeli\Desktop\Medellin\vip-store-web\api
+
+4. Digite e aperte Enter:
+   node check_compra_m4_sangue.js
+
+5. A tela vai mostrar os últimos pedidos e a fila de entrega.
+
+
+PARA RECEBER A SKIN M4 SANGUE NO PRÓXIMO LOGIN
+-----------------------------------------------
+Depois de rodar o script uma vez (só consulta), se quiser INSERIR a entrega:
+
+- Pelo .bat: edite o arquivo ENTREGAR_M4_SANGUE_MANUAL.bat com Bloco de Notas.
+  Troque a linha:
+    node check_compra_m4_sangue.js
+  por:
+    node check_compra_m4_sangue.js SUA_LICENSE
+  (troque SUA_LICENSE pela sua license do FiveM). Salve e rode o .bat de novo.
+
+- Pelo prompt: na mesma pasta (api), digite:
+  node check_compra_m4_sangue.js license:abc123...
+  (troque license:abc123... pela sua license real).
+
+Sua license: no console do servidor FiveM quando você conecta, ou no banco
+(qbcore, tabela players, coluna license).

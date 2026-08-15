@@ -1,0 +1,41 @@
+Worker medellin-api-proxy – proxy api.roleplaymedellin.com.br -> API (IP:3000).
+Se usar túnel (tunnel-api), remova a rota deste Worker em Triggers.
+
+RECOMENDACAO: API JUNTO COM A BASE
+==================================
+Sugestao: rode a API no MESMO PC/servidor onde roda a base (FiveM).
+- Quando a base estiver ligada, inicie a API tambem (pasta vip-store-web\api).
+- Mesmo MySQL, zero custo extra; o Worker encaminha para seu IP (API_UPSTREAM_URL).
+- Entrega no jogo funciona quando o pagamento for feito com a API no ar.
+Se a API estiver fora: com MP_ACCESS_TOKEN no Worker o cliente ainda e redirecionado
+ao Mercado Pago e pode pagar; a entrega no jogo so funciona se a API receber o webhook
+(ou processar manualmente). Para 24/7 total: hospede a API num VPS/Railway e aponte
+API_UPSTREAM_URL para essa URL.
+
+CHECKOUT (sem túnel)
+=====================================
+1. No Cloudflare: DNS do domínio roleplaymedellin.com.br
+   - Encontre o registro "api" (tipo A, conteúdo 72.14.201.239).
+   - Clique no ícone da NUVEM (cinza = "Somente DNS").
+   - Mude para NUVEM LARANJA ("Com proxy").
+   - Salve.
+   Assim o tráfego em api.roleplaymedellin.com.br passa pela Cloudflare e o Worker encaminha para sua API.
+
+2. No seu PC: deixe a API rodando (INICIAR-API na pasta vip-store-web\api).
+
+3. Teste: https://roleplaymedellin.com.br/checkout.html → Pagar com Mercado Pago.
+
+
+TOKEN MERCADO PAGO (para redirecionar ao pagamento mesmo sem API no ar)
+========================================================================
+Para o checkout em produção redirecionar ao Mercado Pago mesmo quando a API Node estiver fora:
+  npx wrangler secret put MP_ACCESS_TOKEN
+Quando pedir, cole o Access Token do seu app no painel do Mercado Pago (Produção).
+
+QUANDO SEU IP PÚBLICO MUDAR
+===========================
+Se sua internet mudar o IP (ex.: 72.14.201.239 vira outro):
+- Atualize o Worker: na pasta worker-api rode:
+    npx wrangler secret put API_UPSTREAM_URL
+  Quando pedir, digite: http://SEU_NOVO_IP:3000
+- Ou edite wrangler.toml (API_UPSTREAM_URL), depois: npx wrangler deploy

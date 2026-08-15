@@ -1,0 +1,9 @@
+﻿version: "2"
+authtoken: 39YMA4ZauIXNw8JFYFnfmDDhWBv_7CwBi4Fgi2YZVkmAhJYLt
+tunnels:
+  fivem:
+    proto: tcp
+    addr: 30120
+  api-loja:
+    proto: http
+    addr: 3000

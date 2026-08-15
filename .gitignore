@@ -1,0 +1,11 @@
+# Deploy - nao commitar token
+.env.cloudflare
+deploy-secrets.env
+
+# Temp deploy (local e CI)
+_deploy_temp_pages
+_deploy
+
+# ngrok saida (script loja)
+ngrok_saida.txt
+ngrok_err.txt
