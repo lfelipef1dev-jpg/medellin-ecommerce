@@ -9,3 +9,9 @@ _deploy
 # ngrok saida (script loja)
 ngrok_saida.txt
 ngrok_err.txt
+
+wrangler.toml
+worker-api/wrangler.toml
+.env.cloudflare
+ngrok_err.txt
+ngrok_saida.txt
