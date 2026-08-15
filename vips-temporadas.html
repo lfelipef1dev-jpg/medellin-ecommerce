@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260210-perf">
+    <link rel="stylesheet" href="style.css?v=20260815-temporadas">
     <script src="config.js"></script>
     <script src="app.js?v=20260211-cart" defer></script>
 </head>
@@ -161,11 +161,74 @@
                     </div>
                 </div>
                 <!-- Outras temporadas: em breve -->
+                <!-- Black Friday: conteúdo pronto -->
                 <div id="panel-black-friday" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
-                    <div class="temporadas-embreve">
-                        <p class="temporadas-embreve__titulo">Black Friday</p>
-                        <p class="temporadas-embreve__texto">Ofertas em breve. Em breve você poderá conferir os pacotes de Black Friday.</p>
-                        <a href="index.html#planos" class="btn btn-primary">Ver todos os VIPs</a>
+                    <h3 class="section-title section-title--sm">Ofertas Black Friday</h3>
+                    <p class="section-intro">Escolha seu pacote e finalize pelo checkout. Ativação automática após o pagamento.</p>
+                    <div class="product-grid">
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="30.00" data-destaque="" data-product-id="promo_oferta_blackfriday">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/blackfriday/blackfriday-oferta.png" alt="Oferta Black Friday" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Oferta Black Friday</h3>
+                            <p class="product-card__type card-type">Oferta limitada</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículo exclusivo</li>
+                                <li>Colecionável</li>
+                                <li>Oferta por tempo</li>
+                            </ul>
+                            <p class="product-card__price">R$ 30,00</p>
+                            <a href="medellin-black-friday.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="50.00" data-destaque="promo" data-product-id="promo_vip_blackfriday">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/blackfriday/blackfriday-vip.png" alt="VIP Black Friday" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Black Friday</h3>
+                            <p class="product-card__type card-type">Pacote especial</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículos + itens</li>
+                                <li>Benefícios exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 50,00</p>
+                            <a href="medellin-black-friday.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="95.00" data-destaque="destaque" data-product-id="promo_super_combo_blackfriday">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/blackfriday/blackfriday-super-combo.png" alt="Super Combo Black Friday" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Super Combo Black Friday</h3>
+                            <p class="product-card__type card-type">Combo completo</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo</li>
+                                <li>Colecionáveis</li>
+                                <li>Vantagens extras</li>
+                            </ul>
+                            <p class="product-card__price">R$ 95,00</p>
+                            <a href="medellin-black-friday.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="139.90" data-destaque="" data-product-id="promo_medellin_blackfriday">
+                            <span class="product-card__badge product-card__badge--destaque">Premium</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/blackfriday/medellin-black-friday.webp" alt="Medellin Edition Black Friday" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Medellin Edition Black Friday</h3>
+                            <p class="product-card__type card-type">Edição premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo premium</li>
+                                <li>Itens exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 139,90</p>
+                            <a href="medellin-black-friday.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
                     </div>
                 </div>
                 <div id="panel-carnaval" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
@@ -221,32 +284,284 @@
                         </article>
                     </div>
                 </div>
+                <!-- Férias: conteúdo pronto -->
                 <div id="panel-ferias" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
-                    <div class="temporadas-embreve">
-                        <p class="temporadas-embreve__titulo">Férias</p>
-                        <p class="temporadas-embreve__texto">Ofertas em breve. Em breve você poderá conferir os pacotes de Férias.</p>
-                        <a href="index.html#planos" class="btn btn-primary">Ver todos os VIPs</a>
+                    <h3 class="section-title section-title--sm">Ofertas Férias</h3>
+                    <p class="section-intro">Escolha seu pacote e finalize pelo checkout. Ativação automática após o pagamento.</p>
+                    <div class="product-grid">
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="35.00" data-destaque="" data-product-id="promo_oferta_ferias">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/ferias/ferias-oferta.png" alt="Oferta Férias" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Oferta Férias</h3>
+                            <p class="product-card__type card-type">Oferta limitada</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículo exclusivo</li>
+                                <li>Colecionável</li>
+                                <li>Oferta por tempo</li>
+                            </ul>
+                            <p class="product-card__price">R$ 35,00</p>
+                            <a href="medellin-ferias.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="55.00" data-destaque="promo" data-product-id="promo_vip_ferias">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/ferias/ferias-vip.png" alt="VIP Férias" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Férias</h3>
+                            <p class="product-card__type card-type">Pacote especial</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículos + itens</li>
+                                <li>Benefícios exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 55,00</p>
+                            <a href="medellin-ferias.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="100.00" data-destaque="destaque" data-product-id="promo_super_combo_ferias">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/ferias/ferias-super-combo.png" alt="Super Combo Férias" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Super Combo Férias</h3>
+                            <p class="product-card__type card-type">Combo completo</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo</li>
+                                <li>Colecionáveis</li>
+                                <li>Vantagens extras</li>
+                            </ul>
+                            <p class="product-card__price">R$ 100,00</p>
+                            <a href="medellin-ferias.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="149.90" data-destaque="" data-product-id="promo_medellin_ferias">
+                            <span class="product-card__badge product-card__badge--destaque">Premium</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/ferias/medellin-ferias.webp" alt="Medellin Edition Férias" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Medellin Edition Férias</h3>
+                            <p class="product-card__type card-type">Edição premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo premium</li>
+                                <li>Itens exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 149,90</p>
+                            <a href="medellin-ferias.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
                     </div>
                 </div>
+                <!-- Halloween: conteúdo pronto -->
                 <div id="panel-halloween" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
-                    <div class="temporadas-embreve">
-                        <p class="temporadas-embreve__titulo">Halloween</p>
-                        <p class="temporadas-embreve__texto">Ofertas em breve. Em breve você poderá conferir os pacotes de Halloween.</p>
-                        <a href="index.html#planos" class="btn btn-primary">Ver todos os VIPs</a>
+                    <h3 class="section-title section-title--sm">Ofertas Halloween</h3>
+                    <p class="section-intro">Escolha seu pacote e finalize pelo checkout. Ativação automática após o pagamento.</p>
+                    <div class="product-grid">
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="35.00" data-destaque="" data-product-id="promo_oferta_halloween">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/halloween/halloween-oferta.png" alt="Oferta Halloween" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Oferta Halloween</h3>
+                            <p class="product-card__type card-type">Oferta limitada</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículo exclusivo</li>
+                                <li>Colecionável</li>
+                                <li>Oferta por tempo</li>
+                            </ul>
+                            <p class="product-card__price">R$ 35,00</p>
+                            <a href="medellin-halloween.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="55.00" data-destaque="promo" data-product-id="promo_vip_halloween">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/halloween/halloween-vip.png" alt="VIP Halloween" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Halloween</h3>
+                            <p class="product-card__type card-type">Pacote especial</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículos + itens</li>
+                                <li>Benefícios exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 55,00</p>
+                            <a href="medellin-halloween.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="100.00" data-destaque="destaque" data-product-id="promo_super_combo_halloween">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/halloween/halloween-super-combo.png" alt="Super Combo Halloween" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Super Combo Halloween</h3>
+                            <p class="product-card__type card-type">Combo completo</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo</li>
+                                <li>Colecionáveis</li>
+                                <li>Vantagens extras</li>
+                            </ul>
+                            <p class="product-card__price">R$ 100,00</p>
+                            <a href="medellin-halloween.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="149.90" data-destaque="" data-product-id="promo_medellin_halloween">
+                            <span class="product-card__badge product-card__badge--destaque">Premium</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/halloween/medellin-halloween.webp" alt="Medellin Edition Halloween" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Medellin Edition Halloween</h3>
+                            <p class="product-card__type card-type">Edição premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo premium</li>
+                                <li>Itens exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 149,90</p>
+                            <a href="medellin-halloween.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
                     </div>
                 </div>
+                <!-- Natal: conteúdo pronto -->
                 <div id="panel-natal" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
-                    <div class="temporadas-embreve">
-                        <p class="temporadas-embreve__titulo">Natal</p>
-                        <p class="temporadas-embreve__texto">Ofertas em breve. Em breve você poderá conferir os pacotes de Natal.</p>
-                        <a href="index.html#planos" class="btn btn-primary">Ver todos os VIPs</a>
+                    <h3 class="section-title section-title--sm">Ofertas Natal</h3>
+                    <p class="section-intro">Escolha seu pacote e finalize pelo checkout. Ativação automática após o pagamento.</p>
+                    <div class="product-grid">
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="35.00" data-destaque="" data-product-id="promo_oferta_natal">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/natal/natal-oferta.png" alt="Oferta Natal" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Oferta Natal</h3>
+                            <p class="product-card__type card-type">Oferta limitada</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículo exclusivo</li>
+                                <li>Colecionável</li>
+                                <li>Oferta por tempo</li>
+                            </ul>
+                            <p class="product-card__price">R$ 35,00</p>
+                            <a href="medellin-natal.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="55.00" data-destaque="promo" data-product-id="promo_vip_natal">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/natal/natal-vip.png" alt="VIP Natal" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Natal</h3>
+                            <p class="product-card__type card-type">Pacote especial</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículos + itens</li>
+                                <li>Benefícios exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 55,00</p>
+                            <a href="medellin-natal.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="100.00" data-destaque="destaque" data-product-id="promo_super_combo_natal">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/natal/natal-super-combo.png" alt="Super Combo Natal" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Super Combo Natal</h3>
+                            <p class="product-card__type card-type">Combo completo</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo</li>
+                                <li>Colecionáveis</li>
+                                <li>Vantagens extras</li>
+                            </ul>
+                            <p class="product-card__price">R$ 100,00</p>
+                            <a href="medellin-natal.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="149.90" data-destaque="" data-product-id="promo_medellin_natal">
+                            <span class="product-card__badge product-card__badge--destaque">Premium</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/natal/medellin-natal.webp" alt="Medellin Edition Natal" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Medellin Edition Natal</h3>
+                            <p class="product-card__type card-type">Edição premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo premium</li>
+                                <li>Itens exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 149,90</p>
+                            <a href="medellin-natal.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
                     </div>
                 </div>
+                <!-- Páscoa: conteúdo pronto -->
                 <div id="panel-pascoa" class="temporadas-panel temporadas-panel--hidden" role="tabpanel">
-                    <div class="temporadas-embreve">
-                        <p class="temporadas-embreve__titulo">Páscoa</p>
-                        <p class="temporadas-embreve__texto">Ofertas em breve. Em breve você poderá conferir os pacotes de Páscoa.</p>
-                        <a href="index.html#planos" class="btn btn-primary">Ver todos os VIPs</a>
+                    <h3 class="section-title section-title--sm">Ofertas Páscoa</h3>
+                    <p class="section-intro">Escolha seu pacote e finalize pelo checkout. Ativação automática após o pagamento.</p>
+                    <div class="product-grid">
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="35.00" data-destaque="" data-product-id="promo_oferta_pascoa">
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pascoa/pascoa-oferta.png" alt="Oferta Páscoa" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Oferta Páscoa</h3>
+                            <p class="product-card__type card-type">Oferta limitada</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículo exclusivo</li>
+                                <li>Colecionável</li>
+                                <li>Oferta por tempo</li>
+                            </ul>
+                            <p class="product-card__price">R$ 35,00</p>
+                            <a href="medellin-pascoa.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="55.00" data-destaque="promo" data-product-id="promo_vip_pascoa">
+                            <span class="product-card__badge product-card__badge--destaque">Promo</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pascoa/pascoa-vip.png" alt="VIP Páscoa" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">VIP Páscoa</h3>
+                            <p class="product-card__type card-type">Pacote especial</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Veículos + itens</li>
+                                <li>Benefícios exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 55,00</p>
+                            <a href="medellin-pascoa.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="100.00" data-destaque="destaque" data-product-id="promo_super_combo_pascoa">
+                            <span class="product-card__badge product-card__badge--mais-vendido">Mais vendido</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pascoa/pascoa-super-combo.png" alt="Super Combo Páscoa" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Super Combo Páscoa</h3>
+                            <p class="product-card__type card-type">Combo completo</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo</li>
+                                <li>Colecionáveis</li>
+                                <li>Vantagens extras</li>
+                            </ul>
+                            <p class="product-card__price">R$ 100,00</p>
+                            <a href="medellin-pascoa.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
+                        <article class="card product-card" data-category="promo" data-type="permanente" data-price="149.90" data-destaque="" data-product-id="promo_medellin_pascoa">
+                            <span class="product-card__badge product-card__badge--destaque">Premium</span>
+                            <div class="product-card__image-wrap">
+                                <img src="assets/pascoa/medellin-pascoa.webp" alt="Medellin Edition Páscoa" class="product-card__image" width="200" height="200" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='assets/logo.webp';">
+                            </div>
+                            <h3 class="product-card__name card-title">Medellin Edition Páscoa</h3>
+                            <p class="product-card__type card-type">Edição premium</p>
+                            <ul class="product-card__benefits" role="list">
+                                <li>Pacote completo premium</li>
+                                <li>Itens exclusivos</li>
+                                <li>Ativação automática</li>
+                            </ul>
+                            <p class="product-card__price">R$ 149,90</p>
+                            <a href="medellin-pascoa.html" class="product-card__link">Ver detalhes</a>
+                            <button type="button" class="btn btn-primary product-card__btn vip-btn">Comprar</button>
+                        </article>
                     </div>
                 </div>
             </div>
